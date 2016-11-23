@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_8Old_Games", "8Old_Games\_8Old_Games\_8Old_Games.csproj", "{E6B171C1-94D7-46B6-8B26-044EFCFD260F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_8Old_GamesContent", "8Old_Games\_8Old_GamesContent\_8Old_GamesContent.contentproj", "{EE5C3985-C44A-4D7F-A645-0951D9EB052B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6B171C1-94D7-46B6-8B26-044EFCFD260F}.Debug|x86.ActiveCfg = Debug|x86
+		{E6B171C1-94D7-46B6-8B26-044EFCFD260F}.Debug|x86.Build.0 = Debug|x86
+		{E6B171C1-94D7-46B6-8B26-044EFCFD260F}.Debug|x86.Deploy.0 = Debug|x86
+		{E6B171C1-94D7-46B6-8B26-044EFCFD260F}.Release|x86.ActiveCfg = Release|x86
+		{E6B171C1-94D7-46B6-8B26-044EFCFD260F}.Release|x86.Build.0 = Release|x86
+		{EE5C3985-C44A-4D7F-A645-0951D9EB052B}.Debug|x86.ActiveCfg = Debug|x86
+		{EE5C3985-C44A-4D7F-A645-0951D9EB052B}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

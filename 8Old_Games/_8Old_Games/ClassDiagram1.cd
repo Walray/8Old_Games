@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
+  <Class Name="_8Old_Games.Clock" Collapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAARAAAAAAAABAAMAgAAAAAAAAAAAAQAAAAAEEAA=</HashCode>
+      <FileName>Clock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.MainSelector" Collapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEECAAAgAAwAEAAAAAAAAAAAAAAgIQQAgAAAAAAQ=</HashCode>
+      <FileName>MainSelector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.MainStrings" Collapsed="true">
+    <Position X="18" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAgAAAAAAQAAQAgAABEAAAAQAACAAABQAACAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Program" Collapsed="true">
+    <Position X="16.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Frogger" Collapsed="true">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEMIAAAQAMAACAAgACNAAAgGAACIgABECAAAQEAGAAA=</HashCode>
+      <FileName>Games\Frogger\Frogger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Map" Collapsed="true">
+    <Position X="19.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAIAAEBAgAAAAMAAAAAAAQAAAQAAgQgIABAAgA=</HashCode>
+      <FileName>Games\Frogger\Map.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Object.Car" Collapsed="true">
+    <Position X="0.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Frogger\Object\Car.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Object.Frog" Collapsed="true">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAEAAgAEgAsAEAAAAIQAAAAAABAgAABEYAA=</HashCode>
+      <FileName>Games\Frogger\Object\Frog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Object.LastCroc" Collapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgCMAAAAAAAQAAAAAgBAgAABEAAA=</HashCode>
+      <FileName>Games\Frogger\Object\LastCroc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Object.Log" Collapsed="true">
+    <Position X="2.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIQAAAAAAAAABAAMAAAAAAAAAAAgAgAAAAAAEAAA=</HashCode>
+      <FileName>Games\Frogger\Object\Log.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Object.Object" Collapsed="true">
+    <Position X="2.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAARAAAAAAEAAgAEgAMQAABAAAQAAAACABAAAABEYAA=</HashCode>
+      <FileName>Games\Frogger\Object\Object.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Object.Turtle" Collapsed="true">
+    <Position X="5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAAAAIAAAAAICMAAAAAAAAAAAAAgAAAAAAEAAA=</HashCode>
+      <FileName>Games\Frogger\Object\Turtle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Sequence.Clear" Collapsed="true">
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Frogger\Sequence\Clear.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Sequence.Fail" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Frogger\Sequence\Fail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Sequence.Load" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Frogger\Sequence\Load.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Sequence.Menu" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAgAAAAAAAAAAAMAAAAAAAAgAAAAAAAAAAgEAAA=</HashCode>
+      <FileName>Games\Frogger\Sequence\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Sequence.Play" Collapsed="true">
+    <Position X="9.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAOAEugAAIEJAgEkQkMIAAA8EAQAGAAEAAgMABQEAAA=</HashCode>
+      <FileName>Games\Frogger\Sequence\Play.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Sequence.Sequence" Collapsed="true">
+    <Position X="6.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAMAAAAAAAAAAAAAAAAgAAAEAAA=</HashCode>
+      <FileName>Games\Frogger\Sequence\Sequence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Sequence.Start" Collapsed="true">
+    <Position X="12" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Frogger\Sequence\Start.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.Cell" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAIAAAAAAAABAAAARgCAAEAAI=</HashCode>
+      <FileName>Games\Sudoku\Cell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.MapData" Collapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAUABAIwAAAAiBwAmACQAQABAHIAwIBDRAIAAAgoAOE=</HashCode>
+      <FileName>Games\Sudoku\MapData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.Sudoku" Collapsed="true">
+    <Position X="18" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBEAAKACAKgAAEAgACMAAAgAAACACEAEAAhCAAQEBAA=</HashCode>
+      <FileName>Games\Sudoku\Sudoku.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.Sequence.Load" Collapsed="true">
+    <Position X="5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Sudoku\Sequence\Load.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.Sequence.Menu" Collapsed="true">
+    <Position X="7.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAgEAAA=</HashCode>
+      <FileName>Games\Sudoku\Sequence\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.Sequence.Play" Collapsed="true">
+    <Position X="9.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIBEAAAAAAAAAAAAAMJAAAAEAAAAAACAAAACAAEgQI=</HashCode>
+      <FileName>Games\Sudoku\Sequence\Play.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.Sequence.Selection" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAEQ4AAAAAAQAAABEAAA=</HashCode>
+      <FileName>Games\Sudoku\Sequence\Selection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.Sequence.Sequence" Collapsed="true">
+    <Position X="5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAMAAAAAAAAAAAAAAAAgAAAEAAA=</HashCode>
+      <FileName>Games\Sudoku\Sequence\Sequence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.Sequence.Start" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Sudoku\Sequence\Start.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.TicTacToe.Sequence.Menu1" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAgAAAAAAAAAAAMAAAAAAAAgAAAAAAAAAAgEAAA=</HashCode>
+      <FileName>Games\TicTacToe\Sequence\Menu1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.TicTacToe.Sequence.Menu2" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAgAAAAAAAAAAAMAAAAAAAAgAAAAAAAAAAgEAAA=</HashCode>
+      <FileName>Games\TicTacToe\Sequence\Menu2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.TicTacToe.Sequence.Play1" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABIAAAIAAAQAAEAABCMAAAAAEAAACAUAIAAAgAAEACA=</HashCode>
+      <FileName>Games\TicTacToe\Sequence\Play1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.TicTacToe.Sequence.Play2" Collapsed="true">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABIAAKIQAAQCAEEAAAMIAAAAEAAACgSAIAAAgAAEAAg=</HashCode>
+      <FileName>Games\TicTacToe\Sequence\Play2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.TicTacToe.Sequence.Selection" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\TicTacToe\Sequence\Selection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.TicTacToe.Sequence.Sequence" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAEAAMAAAAAAAAAAAAAAAAgAAAEAAA=</HashCode>
+      <FileName>Games\TicTacToe\Sequence\Sequence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.TicTacToe.Sequence.Start" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\TicTacToe\Sequence\Start.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.TicTacToe.TicTacToe" Collapsed="true">
+    <Position X="19.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAQAAAgACMJAgQAAACAAIAEAABEAAAEIAQ=</HashCode>
+      <FileName>Games\TicTacToe\TicTacToe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="_8Old_Games.Selector" Collapsed="true">
+    <Position X="14.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAABAAAgABAAoAQAQAAgAAAAAg=</HashCode>
+      <FileName>MainSelector.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="_8Old_Games.Games.Frogger.State" Collapsed="true">
+    <Position X="16.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAACACAAAAAAAAACAAAAIAAAAAAAEAAAAgAACA=</HashCode>
+      <FileName>Games\Frogger\Frogger.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="_8Old_Games.Games.Sudoku.State" Collapsed="true">
+    <Position X="18" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAIAAACACAAAAAAAAACAAAAIAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Games\Sudoku\Sudoku.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="_8Old_Games.Games.TicTacToe.State" Collapsed="true">
+    <Position X="19.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAEAAACAAAAAAAAAAACAAAgAAAAAAAAEAAAAggAAA=</HashCode>
+      <FileName>Games\TicTacToe\TicTacToe.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>
