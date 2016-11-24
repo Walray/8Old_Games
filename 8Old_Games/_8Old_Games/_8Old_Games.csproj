@@ -195,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="Properties\app.manifest" />
     <None Include="_8Old_Games_TemporaryKey.pfx" />
   </ItemGroup>

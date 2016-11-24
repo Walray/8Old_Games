@@ -57,6 +57,7 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
 
         #endregion
 
+        Clock clock;
         public Play() {; }
 
         public override void initialize() {; }
@@ -65,9 +66,12 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
             height = h;
             mines = m;
             InitializeGrid();
+            clock = new Clock();
+            clock.initialize();
             
         }
         public override State update(GameTime gameTime, KeyboardState ks) {
+            clock.update(gameTime);
             mTimeSinceLastInput += (float)gameTime.ElapsedGameTime.TotalSeconds;
             mTimeAfterMenu -= gameTime.ElapsedGameTime.TotalSeconds;
             if (mTimeSinceLastInput >= MIN_TIME && mTimeAfterMenu <= 0) {
@@ -156,7 +160,8 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
             spriteBatch.Draw(Back, new Vector2(0, 0), Color.White);
 
             //  spriteBatch.DrawString(font, test, new Vector2(400, 450), Color.Yellow); 전역변수 디버깅
-            
+            spriteBatch.DrawString(font, "Time  ", new Vector2(600, 110), Color.White);
+            clock.draw(spriteBatch, font, new Vector2(600, 150), Color.White);
             #region Draw grid
 
             // 이미지 출력 
@@ -210,7 +215,7 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
             #region 게임승패여부
 
             if (winovertext != "") {
-                spriteBatch.DrawString(font, winovertext, new Vector2(500,300), winTextColor, 0, font.MeasureString(winovertext), 1.5f, SpriteEffects.None, 1.0f);
+                spriteBatch.DrawString(font, winovertext, new Vector2(600,250), winTextColor, 0, font.MeasureString(winovertext), 1.5f, SpriteEffects.None, 1.0f);
             }
             
 
