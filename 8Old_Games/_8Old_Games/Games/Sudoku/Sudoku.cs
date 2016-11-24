@@ -10,7 +10,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using _8Old_Games.Games.Sudoku.Sequence;
-
+/*
+ * class Sudoku
+ * 스도쿠 게임의 전체 논리 담당
+ * 제작자 : 정초록
+ */
 namespace _8Old_Games.Games.Sudoku {
     public enum State { START, SELECTION, LOAD, PLAY, MENU, EXIT, NOTHING };
 

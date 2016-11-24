@@ -11,7 +11,12 @@ using Microsoft.Xna.Framework.Media;
 using _8Old_Games.Games.Frogger;
 using _8Old_Games.Games.TicTacToe;
 using _8Old_Games.Games.Sudoku;
+using _8Old_Games.Games.MineSweeper;
 
+/*
+ * class MainSelector
+ * ø©¥¸ ∞≥¿« ∞‘¿” ªÛ≈¬ ∞¸∏Æ
+*/
 namespace _8Old_Games {
     public enum Selector { MAIN_SELECTOR, MINE_SWEEPER, RESERVE1, SUDOKU, RESERVE2, TICTACTOE, RESERVE3, FROGGER, RESERVE4, END };
     //Tetris, Packman(?), Digda, (?) 
@@ -25,6 +30,7 @@ namespace _8Old_Games {
         Frogger frogger;
         TicTacToe tictactoe;
         Sudoku sudoku;
+        MineSweeper mineSweeper;
 
         double mTimeSinceLastInput;
         const double MIN_TIME = 0.11;
@@ -88,6 +94,24 @@ namespace _8Old_Games {
             Sudoku.button_extreme = Content.Load<Texture2D>("Games\\Sudoku\\Image\\button_extreme");
             //for Sudoku(end)
 
+            //for MineSweeper(start)
+
+            MineSweeper.font = Content.Load<SpriteFont>("Games\\MineSweeper\\Font\\SpriteFont1"); // ∆˘∆Æ
+            MineSweeper.clicked = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-0"); // º±≈√µ 
+            MineSweeper.selectSize = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\∞‘¿”ªÁ¿Ã¡Ó");
+            MineSweeper.Back = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\Back"); // µﬁπË∞Ê
+            MineSweeper.clicked1 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\1"); // 1
+            MineSweeper.clicked2 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\2"); // 2
+            MineSweeper.clicked3 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\3"); // 3
+            MineSweeper.clicked4 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\4"); // 4
+            MineSweeper.clicked5 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\5"); // 5
+            MineSweeper.clicked6 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\6"); // 6
+            MineSweeper.mine = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\¡ˆ∑⁄"); // ∆¯≈∫
+            MineSweeper.unclicked = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-unknown"); // º±≈√¿¸
+            MineSweeper.flag = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-flag"); // ±Íπﬂ
+            MineSweeper.startImage = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\start");
+            MineSweeper.menuImage = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\menu");
+            //for MineSweeper(end)
 
             test = Content.Load<SpriteFont>("Common\\Font\\MainFont");
         }
@@ -119,6 +143,11 @@ namespace _8Old_Games {
                             sudoku = new Sudoku();
                             sudoku.initialize();
                         }
+                        else if (Keyboard.GetState().IsKeyDown(Keys.D4)) {
+                            selector = Selector.MINE_SWEEPER;
+                            mineSweeper = new MineSweeper();
+                            mineSweeper.initialize();
+                        }
                         mTimeSinceLastInput = 0.0f;
                     }
                     break;
@@ -126,6 +155,8 @@ namespace _8Old_Games {
                     selector = frogger.update(gameTime);
                     break;
                 case Selector.MINE_SWEEPER:
+                    Mouse.WindowHandle = Window.Handle;
+                    selector = mineSweeper.update(gameTime);
                     break;
                 case Selector.SUDOKU:
                     Mouse.WindowHandle = Window.Handle;
@@ -168,6 +199,9 @@ namespace _8Old_Games {
                     frogger.draw(spriteBatch, gameTime);
                     break;
                 case Selector.MINE_SWEEPER:
+                    GraphicsDevice.Clear(Color.Black);
+
+                    mineSweeper.draw(spriteBatch, gameTime);
                     break;
                 case Selector.SUDOKU:
                     GraphicsDevice.Clear(Color.Pink);

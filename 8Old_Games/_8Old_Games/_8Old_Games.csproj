@@ -5,7 +5,7 @@
     <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>_8Old_Games</RootNamespace>
     <AssemblyName>_8Old_Games</AssemblyName>
@@ -32,7 +32,7 @@
     <ProductName>EightOldGames</ProductName>
     <PublisherName>DBDBDIP</PublisherName>
     <SuiteName>EightOldGames</SuiteName>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>0.5.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -104,6 +104,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clock.cs" />
+    <Compile Include="Games\MineSweeper\MineSweeper.cs" />
+    <Compile Include="Games\MineSweeper\Grid.cs" />
+    <Compile Include="Games\MineSweeper\Sequence\Menu.cs" />
+    <Compile Include="Games\MineSweeper\Sequence\Play.cs" />
+    <Compile Include="Games\MineSweeper\Sequence\Selection.cs" />
+    <Compile Include="Games\MineSweeper\Sequence\Sequence.cs" />
+    <Compile Include="Games\MineSweeper\Sequence\Start.cs" />
     <Compile Include="Games\Sudoku\Cell.cs" />
     <Compile Include="Games\Sudoku\MapData.cs" />
     <Compile Include="Games\Sudoku\Sequence\Load.cs" />
@@ -158,7 +165,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Games\MineSweeper\" />
     <Folder Include="Games\reserve1\" />
     <Folder Include="Games\reserve2\" />
     <Folder Include="Games\reserve3\" />

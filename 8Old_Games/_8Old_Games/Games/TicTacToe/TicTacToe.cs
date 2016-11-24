@@ -9,7 +9,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using _8Old_Games.Games.TicTacToe.Sequence;
-
+/*
+ * class TicTacToe
+ * 틱택토 게임의 전체 논리 담당
+ * 제작자 : 임윤미
+ */
 namespace _8Old_Games.Games.TicTacToe {
     public enum State { START, SELECTION, PLAY1, PLAY2, MENU1, MENU2, EXIT, NOTHING };
     public class TicTacToe : Microsoft.Xna.Framework.Game { 

@@ -10,7 +10,9 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using _8Old_Games.Games.Frogger.Sequence;
 /*
- * 프로거의 전체 게임 논리 담당.
+ * class Frogger
+ * 프로거 게임의 전체 논리 담당
+ * 제작자 : 김일엽
  */
 namespace _8Old_Games.Games.Frogger {
     public enum State { START, LOAD, PLAY, MENU, CLEAR, FAIL, EXIT ,NOTHING };
