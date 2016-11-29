@@ -33,7 +33,6 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\Image\" />
     <Folder Include="Common\Sound\" />
     <Folder Include="Games\Frogger\Sound\" />
     <Folder Include="Games\MineSweeper\Sound\" />
@@ -343,6 +342,28 @@
     </Compile>
     <Compile Include="Games\MineSweeper\Image\start.png">
       <Name>start</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Image\Button_Frogger.png">
+      <Name>Button_Frogger</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Common\Image\Button_Minesweeper.png">
+      <Name>Button_Minesweeper</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Common\Image\Button_Sudoku.png">
+      <Name>Button_Sudoku</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Common\Image\Button_Tictactoe.png">
+      <Name>Button_Tictactoe</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

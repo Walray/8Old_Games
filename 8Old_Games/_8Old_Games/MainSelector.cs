@@ -26,11 +26,27 @@ namespace _8Old_Games {
         SpriteBatch spriteBatch;
         SpriteFont test;
 
+        Texture2D button_Frogger;
+        Texture2D button_Minesweeper;
+        Texture2D button_Sudoku;
+        Texture2D button_Tictactoe;
+
+        Rectangle rect_Frogger;
+        Rectangle rect_Minesweeper;
+        Rectangle rect_Sudoku;
+        Rectangle rect_Tictactoe;
+
+
+
         Selector selector;
         Frogger frogger;
         TicTacToe tictactoe;
         Sudoku sudoku;
         MineSweeper mineSweeper;
+
+        const int WIDTH = 150;
+        const int HEIGHT = 70;
+
 
         double mTimeSinceLastInput;
         const double MIN_TIME = 0.11;
@@ -44,11 +60,22 @@ namespace _8Old_Games {
         protected override void Initialize() {
             mTimeSinceLastInput = 0.0f;
             selector = Selector.MAIN_SELECTOR;
+            rect_Frogger = new Rectangle(50, 200, WIDTH, HEIGHT);
+            rect_Minesweeper = new Rectangle(235, 200, WIDTH, HEIGHT);
+            rect_Sudoku = new Rectangle(420, 200, WIDTH, HEIGHT);
+            rect_Tictactoe = new Rectangle(605, 200, WIDTH, HEIGHT);
             base.Initialize();
         }
 
         protected override void LoadContent() {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            //for button images(start)
+            button_Frogger= Content.Load<Texture2D>("Common\\Image\\Button_Frogger"); ;
+            button_Minesweeper = Content.Load<Texture2D>("Common\\Image\\Button_Minesweeper");
+            button_Sudoku = Content.Load<Texture2D>("Common\\Image\\Button_Sudoku"); 
+            button_Tictactoe = Content.Load<Texture2D>("Common\\Image\\Button_Tictactoe"); 
+            //for button images(end)
+
             //for Frogger(start)
             Frogger.mapImages = Content.Load<Texture2D>("Games\\Frogger\\Image\\Map");
             Frogger.frogImage = Content.Load<Texture2D>("Games\\Frogger\\Image\\Frog");
@@ -95,7 +122,6 @@ namespace _8Old_Games {
             //for Sudoku(end)
 
             //for MineSweeper(start)
-
             MineSweeper.font = Content.Load<SpriteFont>("Games\\MineSweeper\\Font\\SpriteFont1"); // 폰트
             MineSweeper.clicked = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-0"); // 선택됨
             MineSweeper.selectSize = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\게임사이즈");
@@ -128,22 +154,23 @@ namespace _8Old_Games {
 
                     mTimeSinceLastInput += gameTime.ElapsedGameTime.TotalSeconds;
                     if (mTimeSinceLastInput >= MIN_TIME) {
-                        if (Keyboard.GetState().IsKeyDown(Keys.D1)) {
+                        MouseState ms = Mouse.GetState();
+                        if (rect_Frogger.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
                             selector = Selector.FROGGER;
                             frogger = new Frogger();
                             frogger.initialize();
                         }
-                        else if (Keyboard.GetState().IsKeyDown(Keys.D2)) {
+                        else if (rect_Tictactoe.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
                             selector = Selector.TICTACTOE;
                             tictactoe = new TicTacToe();
                             tictactoe.initialize();
                         }
-                        else if (Keyboard.GetState().IsKeyDown(Keys.D3)) {
+                        else if (rect_Sudoku.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
                             selector = Selector.SUDOKU;
                             sudoku = new Sudoku();
                             sudoku.initialize();
                         }
-                        else if (Keyboard.GetState().IsKeyDown(Keys.D4)) {
+                        else if (rect_Minesweeper.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
                             selector = Selector.MINE_SWEEPER;
                             mineSweeper = new MineSweeper();
                             mineSweeper.initialize();
@@ -179,21 +206,16 @@ namespace _8Old_Games {
         }
         
         protected override void Draw(GameTime gameTime) {
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.Gray);
 
             spriteBatch.Begin();
 
             switch (selector) {
                 case Selector.MAIN_SELECTOR:
-                    spriteBatch.DrawString(test, MainStrings.Test, new Vector2(300, 80), Color.Red);
-                    spriteBatch.DrawString(test, "1 : " + MainStrings.one, new Vector2(200, 120), Color.Red);
-                    spriteBatch.DrawString(test, "2 : " + MainStrings.two, new Vector2(200, 160), Color.Red);
-                    spriteBatch.DrawString(test, "3 : " + MainStrings.three, new Vector2(200, 200), Color.Red);
-                    spriteBatch.DrawString(test, "4 : " + MainStrings.four, new Vector2(200, 240), Color.Red);
-                    spriteBatch.DrawString(test, "5 : " + MainStrings.five, new Vector2(400, 120), Color.Red);
-                    spriteBatch.DrawString(test, "6 : " + MainStrings.six, new Vector2(400, 160), Color.Red);
-                    spriteBatch.DrawString(test, "7 : " + MainStrings.seven, new Vector2(400, 200), Color.Red);
-                    spriteBatch.DrawString(test, "8 : " + MainStrings.eight, new Vector2(400, 240), Color.Red);
+                    spriteBatch.Draw(button_Frogger, rect_Frogger, Color.LightCyan);
+                    spriteBatch.Draw(button_Minesweeper, rect_Minesweeper, Color.Honeydew);
+                    spriteBatch.Draw(button_Sudoku, rect_Sudoku, Color.Lavender);
+                    spriteBatch.Draw(button_Tictactoe, rect_Tictactoe, Color.LemonChiffon);
                     break;
                 case Selector.FROGGER:
                     frogger.draw(spriteBatch, gameTime);
