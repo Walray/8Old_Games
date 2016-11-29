@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clock.cs" />
+    <Compile Include="Games\CatchMouse\Sequence\move.cs" />
     <Compile Include="Games\MineSweeper\MineSweeper.cs" />
     <Compile Include="Games\MineSweeper\Grid.cs" />
     <Compile Include="Games\MineSweeper\Sequence\Menu.cs" />
@@ -165,9 +166,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Games\CatchMouse\Object\" />
     <Folder Include="Games\reserve1\" />
     <Folder Include="Games\reserve2\" />
-    <Folder Include="Games\reserve3\" />
     <Folder Include="Games\reserve4\" />
   </ItemGroup>
   <ItemGroup>

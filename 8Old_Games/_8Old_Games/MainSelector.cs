@@ -18,7 +18,7 @@ using _8Old_Games.Games.MineSweeper;
  * 여덟 개의 게임 상태 관리
 */
 namespace _8Old_Games {
-    public enum Selector { MAIN_SELECTOR, MINE_SWEEPER, RESERVE1, SUDOKU, RESERVE2, TICTACTOE, RESERVE3, FROGGER, RESERVE4, END };
+    public enum Selector { MAIN_SELECTOR, MINE_SWEEPER, RESERVE1, SUDOKU, RESERVE2, TICTACTOE, CATCH_MOUSE, FROGGER, RESERVE4, END };
     //Tetris, Packman(?), Digda, (?) 
 
     public class MainSelector : Microsoft.Xna.Framework.Game {
@@ -197,7 +197,7 @@ namespace _8Old_Games {
                     break;
                 case Selector.RESERVE2:
                     break;
-                case Selector.RESERVE3:
+                case Selector.CATCH_MOUSE:
                     break;
                 case Selector.RESERVE4:
                     break;
@@ -237,7 +237,7 @@ namespace _8Old_Games {
                     break;
                 case Selector.RESERVE2:
                     break;
-                case Selector.RESERVE3:
+                case Selector.CATCH_MOUSE:
                     break;
                 case Selector.RESERVE4:
                     break;

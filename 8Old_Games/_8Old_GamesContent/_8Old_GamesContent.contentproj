@@ -34,6 +34,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\Sound\" />
+    <Folder Include="Games\CatchMouse\Font\" />
+    <Folder Include="Games\CatchMouse\Image\" />
+    <Folder Include="Games\CatchMouse\Sound\" />
     <Folder Include="Games\Frogger\Sound\" />
     <Folder Include="Games\MineSweeper\Sound\" />
     <Folder Include="Games\reserve1\Font\" />
@@ -42,9 +45,6 @@
     <Folder Include="Games\reserve2\Font\" />
     <Folder Include="Games\reserve2\Image\" />
     <Folder Include="Games\reserve2\Sound\" />
-    <Folder Include="Games\reserve3\Font\" />
-    <Folder Include="Games\reserve3\Image\" />
-    <Folder Include="Games\reserve3\Sound\" />
     <Folder Include="Games\reserve4\Font\" />
     <Folder Include="Games\reserve4\Image\" />
     <Folder Include="Games\reserve4\Sound\" />
