@@ -25,37 +25,86 @@ namespace _8Old_Games.Games.Hangman {
         public static Texture2D a;
         public static Texture2D b;
         public static Texture2D c; 
-        public static Texture2D d; // 1
-        public static Texture2D e; // 2
-        public static Texture2D f; // 3
-        public static Texture2D g; // 4
-        public static Texture2D h; // 5
-        public static Texture2D i; // 6
-        public static Texture2D j; // 폭탄
-        public static Texture2D k; // 클릭"전"
-        public static Texture2D l; // 깃발
-        public static Texture2D n; // 시작화면
-        public static Texture2D m; // 메뉴화면
-        public static Texture2D o; // 메뉴화면
-        public static Texture2D p; // 메뉴화면
-        public static Texture2D q; // 클릭"전"
-        public static Texture2D r; // 깃발
-        public static Texture2D s; // 시작화면
-        public static Texture2D t; // 메뉴화면
-        public static Texture2D u; // 메뉴화면
-        public static Texture2D v; // 메뉴화면
-        public static Texture2D w; // 클릭"전"
-        public static Texture2D x; // 깃발
-        public static Texture2D y; // 시작화면
-        public static Texture2D z; // 메뉴화면
+        public static Texture2D d; 
+        public static Texture2D e; 
+        public static Texture2D f; 
+        public static Texture2D g; 
+        public static Texture2D h; 
+        public static Texture2D i; 
+        public static Texture2D j;
+        public static Texture2D k; 
+        public static Texture2D l;
+        public static Texture2D n;
+        public static Texture2D m; 
+        public static Texture2D o;
+        public static Texture2D p; 
+        public static Texture2D q; 
+        public static Texture2D r; 
+        public static Texture2D s; 
+        public static Texture2D t; 
+        public static Texture2D u; 
+        public static Texture2D v; 
+        public static Texture2D w; 
+        public static Texture2D x; 
+        public static Texture2D y; 
+        public static Texture2D z;
 
 
 
-        public Hangman() {; }
-        public void initialize() {; }
+        public Hangman()
+        {;
 
-        public Selector update(GameTime gameTime) { return Selector.MAIN_SELECTOR; }
+        }
 
-        public void draw(SpriteBatch spriteBatch, GameTime gameTime) {; }
+        public void initialize()
+        {;
+
+
+
+
+        }
+
+        public Selector update(GameTime gameTime)
+        {
+
+            return Selector.MAIN_SELECTOR; }
+
+        public void draw(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+
+            spriteBatch.Draw(a, new Vector2(150, 300), Color.White);
+            spriteBatch.Draw(b, new Vector2(200, 300), Color.White);
+            spriteBatch.Draw(c, new Vector2(250, 300), Color.White);
+            spriteBatch.Draw(d, new Vector2(300, 300), Color.White);
+            spriteBatch.Draw(e, new Vector2(350, 300), Color.White);
+            spriteBatch.Draw(f, new Vector2(400, 300), Color.White);
+            spriteBatch.Draw(g, new Vector2(450, 300), Color.White);
+            spriteBatch.Draw(h, new Vector2(500, 300), Color.White);
+            spriteBatch.Draw(i, new Vector2(550, 300), Color.White);
+            spriteBatch.Draw(j, new Vector2(600, 300), Color.White);
+            spriteBatch.Draw(k, new Vector2(150, 350), Color.White);
+            spriteBatch.Draw(l, new Vector2(200, 350), Color.White);
+            spriteBatch.Draw(n, new Vector2(250, 350), Color.White);
+            spriteBatch.Draw(m, new Vector2(300, 350), Color.White);
+            spriteBatch.Draw(o, new Vector2(350, 350), Color.White);
+            spriteBatch.Draw(p, new Vector2(400, 350), Color.White);
+            spriteBatch.Draw(q, new Vector2(450, 350), Color.White);
+            spriteBatch.Draw(r, new Vector2(500, 350), Color.White);
+            spriteBatch.Draw(s, new Vector2(550, 350), Color.White);
+            spriteBatch.Draw(t, new Vector2(600, 350), Color.White);
+            spriteBatch.Draw(u, new Vector2(250, 400), Color.White);
+            spriteBatch.Draw(v, new Vector2(300, 400), Color.White);
+            spriteBatch.Draw(w, new Vector2(350, 400), Color.White);
+            spriteBatch.Draw(x, new Vector2(400, 400), Color.White);
+            spriteBatch.Draw(y, new Vector2(450, 400), Color.White);
+            spriteBatch.Draw(z, new Vector2(500, 400), Color.White);
+
+
+
+        }
+
+
+
+
     }
 }

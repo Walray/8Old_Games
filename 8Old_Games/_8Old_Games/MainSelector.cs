@@ -250,9 +250,9 @@ namespace _8Old_Games {
                             //초기화
                         }
                         else if (rect_Hangman.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
-                          //  selector = Selector.HANGMAN;
-                            //new로 할당
-                            //초기화
+                            selector = Selector.HANGMAN;
+                            hangman = new Hangman();
+                            hangman.initialize();
                         }
                         mTimeSinceLastInput = 0.0f;
                     }
@@ -328,7 +328,7 @@ namespace _8Old_Games {
                     tictactoe.draw(spriteBatch, gameTime);
                     break;
                 case Selector.HANGMAN:
-                    //그리기
+                    hangman.draw(spriteBatch, gameTime);
                     break;
                 case Selector.CATCH_MOUSE:
                     //그리기
