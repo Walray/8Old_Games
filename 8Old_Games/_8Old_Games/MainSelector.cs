@@ -12,6 +12,8 @@ using _8Old_Games.Games.Frogger;
 using _8Old_Games.Games.TicTacToe;
 using _8Old_Games.Games.Sudoku;
 using _8Old_Games.Games.MineSweeper;
+using _8Old_Games.Games.Hangman;
+
 
 /*
  * 
@@ -56,6 +58,7 @@ namespace _8Old_Games {
         TicTacToe tictactoe;
         Sudoku sudoku;
         MineSweeper mineSweeper;
+        Hangman hangman;
 
         const int WIDTH = 150;
         const int HEIGHT = 70;
@@ -162,6 +165,38 @@ namespace _8Old_Games {
             MineSweeper.startImage = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\start");
             MineSweeper.menuImage = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\menu");
             //for MineSweeper(end)
+
+
+            //for Hangman(start)
+            Hangman.a = Content.Load<Texture2D>("Games\\Hangman\\Image\\a");
+            Hangman.b = Content.Load<Texture2D>("Games\\Hangman\\Image\\b");
+            Hangman.c = Content.Load<Texture2D>("Games\\Hangman\\Image\\c");
+            Hangman.d = Content.Load<Texture2D>("Games\\Hangman\\Image\\d");
+            Hangman.e = Content.Load<Texture2D>("Games\\Hangman\\Image\\e");
+            Hangman.f = Content.Load<Texture2D>("Games\\Hangman\\Image\\f");
+            Hangman.g = Content.Load<Texture2D>("Games\\Hangman\\Image\\g");
+            Hangman.h = Content.Load<Texture2D>("Games\\Hangman\\Image\\h");
+            Hangman.i = Content.Load<Texture2D>("Games\\Hangman\\Image\\i");
+            Hangman.j = Content.Load<Texture2D>("Games\\Hangman\\Image\\j");
+            Hangman.k = Content.Load<Texture2D>("Games\\Hangman\\Image\\k");
+            Hangman.l = Content.Load<Texture2D>("Games\\Hangman\\Image\\l");
+            Hangman.n = Content.Load<Texture2D>("Games\\Hangman\\Image\\n");
+            Hangman.m = Content.Load<Texture2D>("Games\\Hangman\\Image\\m");
+            Hangman.o = Content.Load<Texture2D>("Games\\Hangman\\Image\\o");
+            Hangman.p = Content.Load<Texture2D>("Games\\Hangman\\Image\\p");
+            Hangman.q = Content.Load<Texture2D>("Games\\Hangman\\Image\\q");
+            Hangman.r = Content.Load<Texture2D>("Games\\Hangman\\Image\\r");
+            Hangman.s = Content.Load<Texture2D>("Games\\Hangman\\Image\\s");
+            Hangman.t = Content.Load<Texture2D>("Games\\Hangman\\Image\\t");
+            Hangman.u = Content.Load<Texture2D>("Games\\Hangman\\Image\\u");
+            Hangman.v = Content.Load<Texture2D>("Games\\Hangman\\Image\\v");
+            Hangman.w = Content.Load<Texture2D>("Games\\Hangman\\Image\\w");
+            Hangman.x = Content.Load<Texture2D>("Games\\Hangman\\Image\\x");
+            Hangman.y = Content.Load<Texture2D>("Games\\Hangman\\Image\\y");
+            Hangman.z = Content.Load<Texture2D>("Games\\Hangman\\Image\\z");
+            //for Hangman(end)
+
+
 
             test = Content.Load<SpriteFont>("Common\\Font\\MainFont");
         }

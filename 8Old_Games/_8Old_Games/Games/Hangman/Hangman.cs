@@ -12,20 +12,45 @@ using Microsoft.Xna.Framework.Media;
 using _8Old_Games.Games.Hangman.Sequence;
 //시퀀스 만들고 풀어주세요
 
-/*
- * 초기화(initialize), 논리(update), 그리고 그리기(draw) 코드 반드시 분리
- * 필요하면 함수 원형 자유롭게 변경
- *
-*/
+
 namespace _8Old_Games.Games.Hangman {
     public enum State { START, SELECTION, PLAY, MENU, EXIT, NOTHING }; //자유롭게 추가
+
     public class Hangman {
         State state;
 
-        /*
-        모든 리소스를 담는 변수는 public static으로 선언 ex) 
-        public static Texture2D selectSize;
-        */
+
+
+        public static SpriteFont font; // 폰트
+        public static Texture2D a;
+        public static Texture2D b;
+        public static Texture2D c; 
+        public static Texture2D d; // 1
+        public static Texture2D e; // 2
+        public static Texture2D f; // 3
+        public static Texture2D g; // 4
+        public static Texture2D h; // 5
+        public static Texture2D i; // 6
+        public static Texture2D j; // 폭탄
+        public static Texture2D k; // 클릭"전"
+        public static Texture2D l; // 깃발
+        public static Texture2D n; // 시작화면
+        public static Texture2D m; // 메뉴화면
+        public static Texture2D o; // 메뉴화면
+        public static Texture2D p; // 메뉴화면
+        public static Texture2D q; // 클릭"전"
+        public static Texture2D r; // 깃발
+        public static Texture2D s; // 시작화면
+        public static Texture2D t; // 메뉴화면
+        public static Texture2D u; // 메뉴화면
+        public static Texture2D v; // 메뉴화면
+        public static Texture2D w; // 클릭"전"
+        public static Texture2D x; // 깃발
+        public static Texture2D y; // 시작화면
+        public static Texture2D z; // 메뉴화면
+
+
+
         public Hangman() {; }
         public void initialize() {; }
 
