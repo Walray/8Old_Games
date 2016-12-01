@@ -2,8 +2,8 @@
 ##동국대학교 컴퓨터공학과 주니어디자인프로젝트 
 ###디비디비딥
 <a href="https://walray.github.io/8Old_Games/"><h4>Move to Page</h4></a>
+<a href="https://www.youtube.com/watch?v=6MNUyQN6pNo&t=254s">youtube</a>
 ### 사용 언어/툴 : C#/XNA, VS 2015
-
 ### 2016-12-01에 갱신!
 
 ### 팀 개요
