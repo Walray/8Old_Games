@@ -362,18 +362,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Common\Image\Button_Tictactoe.png">
-      <Name>Button_Tictactoe</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\Image\Button_Alkanoid.png">
-      <Name>Button_Alkanoid</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Common\Image\Button_Bomberman.png">
       <Name>Button_Bomberman</Name>
       <Importer>TextureImporter</Importer>
@@ -393,6 +383,20 @@
   <ItemGroup>
     <Compile Include="Common\Image\background.png">
       <Name>background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Image\Button_Tictactoe.png">
+      <Name>Button_Tictactoe</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Image\Button_Alkanoid.png">
+      <Name>Button_Alkanoid</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

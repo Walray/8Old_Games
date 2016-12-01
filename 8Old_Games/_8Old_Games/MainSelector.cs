@@ -269,11 +269,11 @@ namespace _8Old_Games {
                     spriteBatch.Draw(button_Frogger, rect_Frogger, Color.LightCyan);
                     spriteBatch.Draw(button_Minesweeper, rect_Minesweeper, Color.Honeydew);
                     spriteBatch.Draw(button_Sudoku, rect_Sudoku, Color.Lavender);
-                    spriteBatch.Draw(button_Tictactoe, rect_Tictactoe, Color.LemonChiffon);
+                    spriteBatch.Draw(button_Tictactoe, rect_Tictactoe, Color.White);
                     spriteBatch.Draw(button_Hangman, rect_Hangman, Color.LightCyan);
                     spriteBatch.Draw(button_CatchMouse, rect_CatchMouse, Color.Honeydew);
                     spriteBatch.Draw(button_Bomberman, rect_Bomberman, Color.Lavender);
-                    spriteBatch.Draw(button_Alkanoid, rect_Alkanoid, Color.LemonChiffon);
+                    spriteBatch.Draw(button_Alkanoid, rect_Alkanoid, Color.Pink);
                     break;
                 case Selector.FROGGER:
                     GraphicsDevice.Clear(Color.Black);
