@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
 namespace _8Old_Games.Games.MineSweeper.Sequence {
-    public class Play :Sequence {
+    public class Play : Sequence {
         #region Texture2D 공백 (픽셀 단위)
         #endregion
 
@@ -20,7 +20,7 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
         private double mTimeAfterMenu = WAIT_MENU;
 
         #region Texture2D 이미지 변수 선언
-        const int tileSize=40; // 타일 사이즈
+        const int tileSize = 40; // 타일 사이즈
         #endregion
 
         #region 잡동사니변수
@@ -29,7 +29,7 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
         Color generalTextColor = Color.Black;
 
         string winovertext = ""; // 게임 승리여부 txt
-        
+
 
         bool gameOver = false;  // gameover
         int minesLeft;
@@ -38,10 +38,10 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
         // 마우스 왼쪽 오른쪽 클릭 사용 여부 ㅇㅇ
         bool leftmouse = false;
         bool rightmouse = false;
-        
+
         int PmouseX = 0; // 게임중
         int PmouseY = 0; // 게임중
-        
+
 
         #endregion
 
@@ -68,7 +68,7 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
             InitializeGrid();
             clock = new Clock();
             clock.initialize();
-            
+
         }
         public override State update(GameTime gameTime, KeyboardState ks) {
             clock.update(gameTime);
@@ -85,8 +85,9 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
 
             if (gameOver) // 게임 끝났을 경우
             {
-                // 오른쪽 버튼 누르면 게임 재시작 (! 문제.. 타일 안에서만 가능함 ..)
-                if (Mouse.GetState().RightButton == ButtonState.Pressed && leftmouse == false) {
+                clock.IsStop = true;
+                // 스페이스 누르면 게임 재시작 
+                if (ks.IsKeyDown(Keys.Space)) {
                     return State.SELECTION;
                 }
 
@@ -97,14 +98,14 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
                 //1. 마우스 클릭했을 때
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed && leftmouse == false) {
                     leftmouse = true; // 왼쪽 마우스 사용함
-                    PmouseX = (Mouse.GetState().X ) / tileSize; // -uwith
-                    PmouseY = (Mouse.GetState().Y ) / tileSize;
+                    PmouseX = (Mouse.GetState().X) / tileSize; // -uwith
+                    PmouseY = (Mouse.GetState().Y) / tileSize;
 
                 }
                 //2. 마우스 클릭 뒤에
                 else if (Mouse.GetState().LeftButton == ButtonState.Released && leftmouse == true) {
-                    int PmouseXRelease = (Mouse.GetState().X ) / tileSize;  // -uwith
-                    int PmMouseYRelease = (Mouse.GetState().Y ) / tileSize;
+                    int PmouseXRelease = (Mouse.GetState().X) / tileSize;  // -uwith
+                    int PmMouseYRelease = (Mouse.GetState().Y) / tileSize;
 
 
                     // 마우스 클릭 위치랑 클릭 뒤 위치 같을 때(왜냐면 클릭해놓고 마우스 움직인 후에 클릭 놓는 경우가 있어서)
@@ -135,7 +136,7 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
                 //마우스 클릭 뒤에
                 else if (Mouse.GetState().RightButton == ButtonState.Released && rightmouse == true) {
                     int PmouseXRelease = (Mouse.GetState().X) / tileSize; // -uwith
-                    int PmouseYRelease = (Mouse.GetState().Y ) / tileSize;
+                    int PmouseYRelease = (Mouse.GetState().Y) / tileSize;
 
                     // 마우스 클릭 위치랑 클릭 뒤 위치 같을 때
                     if (PmouseX == PmouseXRelease && PmouseY == PmouseYRelease) {
@@ -154,9 +155,9 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
             }
             return State.PLAY;
         }
-        public override void draw(SpriteBatch spriteBatch, Texture2D sprite, Vector2 origin) {;  }
+        public override void draw(SpriteBatch spriteBatch, Texture2D sprite, Vector2 origin) {; }
 
-        public void draw(SpriteBatch spriteBatch, Texture2D Back, Texture2D clicked, Texture2D flag, Texture2D unclicked,  Texture2D mine, Texture2D clicked1 , Texture2D clicked2, Texture2D clicked3, Texture2D clicked4, Texture2D clicked5, Texture2D clicked6, SpriteFont font, Vector2 origin) {
+        public void draw(SpriteBatch spriteBatch, Texture2D Back, Texture2D clicked, Texture2D flag, Texture2D unclicked, Texture2D mine, Texture2D clicked1, Texture2D clicked2, Texture2D clicked3, Texture2D clicked4, Texture2D clicked5, Texture2D clicked6, SpriteFont font, Vector2 origin) {
             spriteBatch.Draw(Back, new Vector2(0, 0), Color.White);
 
             //  spriteBatch.DrawString(font, test, new Vector2(400, 450), Color.Yellow); 전역변수 디버깅
@@ -168,11 +169,11 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
             for (int j = 0; j < height; j++) {
                 for (int i = 0; i < width; i++) {
                     // grid 배열에 해당하는 각 배열의 위치 (즉, grid[0,0]의 위치는 20 20)
-                    Vector2 Position = new Vector2(i * clicked.Height , j * clicked.Width); // +uwith
-                   
+                    Vector2 Position = new Vector2(i * clicked.Height, j * clicked.Width); // +uwith
+
                     if (grid[i, j].isFlagged) // 깃발
                     {
-                        spriteBatch.Draw(flag,Position, Color.White);
+                        spriteBatch.Draw(flag, Position, Color.White);
                     }
                     else if (!grid[i, j].isClicked) // 선택함
                     {
@@ -215,9 +216,11 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
             #region 게임승패여부
 
             if (winovertext != "") {
-                spriteBatch.DrawString(font, winovertext, new Vector2(600,250), winTextColor, 0, font.MeasureString(winovertext), 1.5f, SpriteEffects.None, 1.0f);
+                spriteBatch.DrawString(font, winovertext, new Vector2(500, 250), winTextColor, 0, font.MeasureString(winovertext), 1.5f, SpriteEffects.None, 1.0f);
+                spriteBatch.DrawString(font, "press space to restart", new Vector2(300, 280), winTextColor, 0, font.MeasureString(winovertext), 1.5f, SpriteEffects.None, 1.0f);
+
             }
-            
+
 
 
             #endregion
@@ -296,13 +299,13 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
                 grid[x + 1, y].SurroundingMines++;
             }
         }
-        
+
 
         #region 타일처리
         // 깃발 
         private void FlagTile() {
             int mouseX = Mouse.GetState().X;
-            int mouseY = Mouse.GetState().Y ;
+            int mouseY = Mouse.GetState().Y;
 
             if (mouseY <= 0 && mouseX <= 0) {
                 return;
@@ -320,7 +323,7 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
 
         // 클릭된 타일 열기
         private void OpenClickedTile() {
-            int mouseX = (Mouse.GetState().X ) / tileSize; // -uwith
+            int mouseX = (Mouse.GetState().X) / tileSize; // -uwith
             int mouseY = (Mouse.GetState().Y) / tileSize;
 
 
@@ -345,6 +348,13 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
 
             //타일 열어주기
             grid[mouseX, mouseY].Open();
+            for (int y = mouseY - 1; y <= mouseY + 1; y++) {
+                for (int x = mouseX - 1; x <= mouseX + 1; x++) {
+                    if (x >= 0 && x < width && y >= 0 && y < height)
+                        if (!grid[x, y].isMine)
+                            grid[x, y].Open();
+                }
+            }
 
         }
 

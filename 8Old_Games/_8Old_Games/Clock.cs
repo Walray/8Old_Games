@@ -16,19 +16,22 @@ namespace _8Old_Games {
         private double mHour;
         private double mMin;
         private double mSecond;
+        private bool mIsStop;
 
         public double TotalHour { get { return mHour; } set { mHour = value; } }
         public double TotalMin { get { return mMin; } set { mMin = value; } }
         public double TotalSecond { get { return mSecond; } set { mSecond = value; } }
+        public bool IsStop { get { return mIsStop; } set { mIsStop = value; } }
 
         public Clock() {; }
-        public void initialize() { mHour = mMin = mSecond = 0.0; }
+        public void initialize() { mHour = mMin = mSecond = 0.0; mIsStop = false; }
         public void update(GameTime gameTime) {
-            mHour += gameTime.ElapsedGameTime.TotalHours;
-            mMin += gameTime.ElapsedGameTime.TotalMinutes;
-            mSecond += gameTime.ElapsedGameTime.TotalSeconds;
+            if (!mIsStop) {
+                mHour += gameTime.ElapsedGameTime.TotalHours;
+                mMin += gameTime.ElapsedGameTime.TotalMinutes;
+                mSecond += gameTime.ElapsedGameTime.TotalSeconds;
+            }
         }
-
         public void draw(SpriteBatch sprtieBatch, SpriteFont spriteFont, Vector2 position, Color color) {
             sprtieBatch.DrawString(spriteFont, ((int)mMin) % 60 + " : " + ((int)mSecond) % 60, position, color);
         }

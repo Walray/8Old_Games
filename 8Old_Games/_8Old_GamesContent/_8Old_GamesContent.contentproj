@@ -34,20 +34,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\Sound\" />
+    <Folder Include="Games\Alkanoid\Font\" />
+    <Folder Include="Games\Alkanoid\Image\" />
+    <Folder Include="Games\Alkanoid\Sound\" />
+    <Folder Include="Games\Bomberman\Font\" />
+    <Folder Include="Games\Bomberman\Image\" />
+    <Folder Include="Games\Bomberman\Sound\" />
     <Folder Include="Games\CatchMouse\Font\" />
     <Folder Include="Games\CatchMouse\Image\" />
     <Folder Include="Games\CatchMouse\Sound\" />
     <Folder Include="Games\Frogger\Sound\" />
+    <Folder Include="Games\Hangman\Font\" />
+    <Folder Include="Games\Hangman\Image\" />
+    <Folder Include="Games\Hangman\Sound\" />
     <Folder Include="Games\MineSweeper\Sound\" />
-    <Folder Include="Games\reserve1\Font\" />
-    <Folder Include="Games\reserve1\Image\" />
-    <Folder Include="Games\reserve1\Sound\" />
-    <Folder Include="Games\reserve2\Font\" />
-    <Folder Include="Games\reserve2\Image\" />
-    <Folder Include="Games\reserve2\Sound\" />
-    <Folder Include="Games\reserve4\Font\" />
-    <Folder Include="Games\reserve4\Image\" />
-    <Folder Include="Games\reserve4\Sound\" />
     <Folder Include="Games\Sudoku\Sound\" />
     <Folder Include="Games\TicTacToe\Sound\" />
   </ItemGroup>
@@ -364,6 +364,35 @@
     </Compile>
     <Compile Include="Common\Image\Button_Tictactoe.png">
       <Name>Button_Tictactoe</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Image\Button_Alkanoid.png">
+      <Name>Button_Alkanoid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Common\Image\Button_Bomberman.png">
+      <Name>Button_Bomberman</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Common\Image\Button_CatchMouse.png">
+      <Name>Button_CatchMouse</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Common\Image\Button_Hangman.png">
+      <Name>Button_Hangman</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Image\background.png">
+      <Name>background</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

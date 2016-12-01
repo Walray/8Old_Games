@@ -18,8 +18,7 @@ using _8Old_Games.Games.MineSweeper;
  * 여덟 개의 게임 상태 관리
 */
 namespace _8Old_Games {
-    public enum Selector { MAIN_SELECTOR, MINE_SWEEPER, RESERVE1, SUDOKU, RESERVE2, TICTACTOE, CATCH_MOUSE, FROGGER, RESERVE4, END };
-    //Tetris, Packman(?), Digda, (?) 
+    public enum Selector { MAIN_SELECTOR, MINE_SWEEPER, HANGMAN, SUDOKU, BOMBERMAN, TICTACTOE, CATCH_MOUSE, FROGGER, ALKANOID, END };
 
     public class MainSelector : Microsoft.Xna.Framework.Game {
         GraphicsDeviceManager graphics;
@@ -30,11 +29,20 @@ namespace _8Old_Games {
         Texture2D button_Minesweeper;
         Texture2D button_Sudoku;
         Texture2D button_Tictactoe;
+        Texture2D button_Hangman;
+        Texture2D button_CatchMouse;
+        Texture2D button_Alkanoid;
+        Texture2D button_Bomberman;
+        Texture2D background;
 
         Rectangle rect_Frogger;
         Rectangle rect_Minesweeper;
         Rectangle rect_Sudoku;
         Rectangle rect_Tictactoe;
+        Rectangle rect_Hangman;
+        Rectangle rect_CatchMouse;
+        Rectangle rect_Alkanoid;
+        Rectangle rect_Bomberman;
 
 
 
@@ -60,20 +68,31 @@ namespace _8Old_Games {
         protected override void Initialize() {
             mTimeSinceLastInput = 0.0f;
             selector = Selector.MAIN_SELECTOR;
-            rect_Frogger = new Rectangle(50, 200, WIDTH, HEIGHT);
-            rect_Minesweeper = new Rectangle(235, 200, WIDTH, HEIGHT);
-            rect_Sudoku = new Rectangle(420, 200, WIDTH, HEIGHT);
-            rect_Tictactoe = new Rectangle(605, 200, WIDTH, HEIGHT);
+            rect_Frogger = new Rectangle(50, 150, WIDTH, HEIGHT);
+            rect_Minesweeper = new Rectangle(235, 150, WIDTH, HEIGHT);
+            rect_Sudoku = new Rectangle(420, 150, WIDTH, HEIGHT);
+            rect_Tictactoe = new Rectangle(605, 150, WIDTH, HEIGHT);
+            rect_Alkanoid = new Rectangle(50, 250, WIDTH, HEIGHT);
+            rect_Bomberman = new Rectangle(235, 250, WIDTH, HEIGHT);
+            rect_CatchMouse = new Rectangle(420, 250, WIDTH, HEIGHT);
+            rect_Hangman = new Rectangle(605, 250, WIDTH, HEIGHT);
             base.Initialize();
         }
 
         protected override void LoadContent() {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
             //for button images(start)
             button_Frogger= Content.Load<Texture2D>("Common\\Image\\Button_Frogger"); ;
             button_Minesweeper = Content.Load<Texture2D>("Common\\Image\\Button_Minesweeper");
             button_Sudoku = Content.Load<Texture2D>("Common\\Image\\Button_Sudoku"); 
-            button_Tictactoe = Content.Load<Texture2D>("Common\\Image\\Button_Tictactoe"); 
+            button_Tictactoe = Content.Load<Texture2D>("Common\\Image\\Button_Tictactoe");
+            button_Alkanoid = Content.Load<Texture2D>("Common\\Image\\Button_Alkanoid");
+            button_Bomberman = Content.Load<Texture2D>("Common\\Image\\Button_Bomberman");
+            button_CatchMouse = Content.Load<Texture2D>("Common\\Image\\Button_CatchMouse");
+            button_Hangman = Content.Load<Texture2D>("Common\\Image\\Button_Hangman");
+            background = Content.Load<Texture2D>("Common\\Image\\background");
+
             //for button images(end)
 
             //for Frogger(start)
@@ -175,10 +194,31 @@ namespace _8Old_Games {
                             mineSweeper = new MineSweeper();
                             mineSweeper.initialize();
                         }
+                        else if (rect_Alkanoid.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
+                           // selector = Selector.ALKANOID;
+                            //new로 할당
+                            //초기화
+                        }
+                        else if (rect_Bomberman.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
+                          //  selector = Selector.BOMBERMAN;
+                            //new로 할당
+                            //초기화
+                        }
+                        else if (rect_CatchMouse.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
+                          //  selector = Selector.CATCH_MOUSE;
+                            //new로 할당
+                            //초기화
+                        }
+                        else if (rect_Hangman.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
+                          //  selector = Selector.HANGMAN;
+                            //new로 할당
+                            //초기화
+                        }
                         mTimeSinceLastInput = 0.0f;
                     }
                     break;
                 case Selector.FROGGER:
+                    Mouse.WindowHandle = Window.Handle;
                     selector = frogger.update(gameTime);
                     break;
                 case Selector.MINE_SWEEPER:
@@ -193,13 +233,21 @@ namespace _8Old_Games {
                     Mouse.WindowHandle = Window.Handle;
                     selector = tictactoe.update(gameTime);
                     break;
-                case Selector.RESERVE1:
-                    break;
-                case Selector.RESERVE2:
+                case Selector.HANGMAN:
+                    Mouse.WindowHandle = Window.Handle;
+                    //업데이트
                     break;
                 case Selector.CATCH_MOUSE:
+                    Mouse.WindowHandle = Window.Handle;
+                    //업데이트
                     break;
-                case Selector.RESERVE4:
+                case Selector.ALKANOID:
+                    Mouse.WindowHandle = Window.Handle;
+                    //업데이트
+                    break;
+                case Selector.BOMBERMAN:
+                    Mouse.WindowHandle = Window.Handle;
+                    //업데이트
                     break;
             }
             base.Update(gameTime);
@@ -212,12 +260,18 @@ namespace _8Old_Games {
 
             switch (selector) {
                 case Selector.MAIN_SELECTOR:
+                    spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
                     spriteBatch.Draw(button_Frogger, rect_Frogger, Color.LightCyan);
                     spriteBatch.Draw(button_Minesweeper, rect_Minesweeper, Color.Honeydew);
                     spriteBatch.Draw(button_Sudoku, rect_Sudoku, Color.Lavender);
                     spriteBatch.Draw(button_Tictactoe, rect_Tictactoe, Color.LemonChiffon);
+                    spriteBatch.Draw(button_Hangman, rect_Hangman, Color.LightCyan);
+                    spriteBatch.Draw(button_CatchMouse, rect_CatchMouse, Color.Honeydew);
+                    spriteBatch.Draw(button_Bomberman, rect_Bomberman, Color.Lavender);
+                    spriteBatch.Draw(button_Alkanoid, rect_Alkanoid, Color.LemonChiffon);
                     break;
                 case Selector.FROGGER:
+                    GraphicsDevice.Clear(Color.Black);
                     frogger.draw(spriteBatch, gameTime);
                     break;
                 case Selector.MINE_SWEEPER:
@@ -233,13 +287,17 @@ namespace _8Old_Games {
                 case Selector.TICTACTOE:
                     tictactoe.draw(spriteBatch, gameTime);
                     break;
-                case Selector.RESERVE1:
-                    break;
-                case Selector.RESERVE2:
+                case Selector.HANGMAN:
+                    //그리기
                     break;
                 case Selector.CATCH_MOUSE:
+                    //그리기
                     break;
-                case Selector.RESERVE4:
+                case Selector.ALKANOID:
+                    //그리기
+                    break;
+                case Selector.BOMBERMAN:
+                    //그리기
                     break;
             }
             spriteBatch.End();

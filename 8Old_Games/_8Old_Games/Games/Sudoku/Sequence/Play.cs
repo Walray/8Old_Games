@@ -28,6 +28,7 @@ namespace _8Old_Games.Games.Sudoku.Sequence {
 
         private const double WAIT_MENU = 0.15;
         private double mTimeAfterMenu = WAIT_MENU;
+        private double mTimeAfterClear = 0.0;
 
         public Play() : base() {
 
@@ -53,10 +54,23 @@ namespace _8Old_Games.Games.Sudoku.Sequence {
             checkFlagCount = 0;
             Time = 0;
             clear = false;
+            mTimeAfterClear = 0.0f;
 
         }
 
         public override State update(GameTime gameTime, KeyboardState ks) {
+
+            if (clear) {
+                mTimeAfterClear += gameTime.ElapsedGameTime.TotalSeconds;
+                if (mTimeAfterClear >= 3.0f) {
+
+                    mTimeAfterClear = 0.0f;
+                    return State.SELECTION;
+                }
+                return State.PLAY;
+            }
+
+
             mTimeSinceLastInput += (float)gameTime.ElapsedGameTime.TotalSeconds;
             mTimeAfterMenu -= gameTime.ElapsedGameTime.TotalSeconds;
             if (mTimeSinceLastInput >= MIN_TIME && mTimeAfterMenu <= 0) {
@@ -81,9 +95,10 @@ namespace _8Old_Games.Games.Sudoku.Sequence {
                         Rectangle currentSquare = new Rectangle(x * 53, y * 53, 53, 53);
 
                         if ((mouse.RightButton == ButtonState.Pressed)) {
-                            map[y, x].update(mouse.X-45, mouse.Y-45, true);
-                        } else if ((mouse.LeftButton == ButtonState.Pressed)) {
-                            map[y, x].update(mouse.X-45, mouse.Y-45, false);
+                            map[y, x].update(mouse.X - 45, mouse.Y - 45, true);
+                        }
+                        else if ((mouse.LeftButton == ButtonState.Pressed)) {
+                            map[y, x].update(mouse.X - 45, mouse.Y - 45, false);
                         }
 
                     }
@@ -99,12 +114,11 @@ namespace _8Old_Games.Games.Sudoku.Sequence {
 
             }
 
-            if (checkFlagCount == 81) clear = true;
-            else checkFlagCount = 0;
-
-            if (clear) {
-                return State.SELECTION;
+            if (checkFlagCount == 81) {
+                time.IsStop = true;
+                clear = true;
             }
+            else checkFlagCount = 0;
 
             return State.PLAY;
         }
@@ -113,7 +127,7 @@ namespace _8Old_Games.Games.Sudoku.Sequence {
 
         public void draw(GameTime gameTime, SpriteBatch spriteBatch, Texture2D line, Texture2D cell, SpriteFont sf, SpriteFont sf2, SpriteFont sf_bold, Vector2 origin) {
 
-            int Time=0;
+            int Time = 0;
             Time = (int)gameTime.TotalGameTime.TotalSeconds;
 
             for (int y = 0; y < 9; y++)
@@ -129,12 +143,12 @@ namespace _8Old_Games.Games.Sudoku.Sequence {
             time.draw(spriteBatch, sf2, new Vector2(500, 140), Color.Black);
             //spriteBatch.DrawString(sf2, ""+ Time, new Vector2(650, 200), Color.Black);
 
+
             if (clear) {
-                score = Time;
-                spriteBatch.DrawString(sf2, "Clear" + score, new Vector2(180, 180), Color.DeepPink);
-                clear = false;
-                map = null;
+                spriteBatch.DrawString(sf2, "Clear", new Vector2(180, 180), Color.DeepPink);
+                return;
             }
+
         }
 
     }
