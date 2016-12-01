@@ -1,7 +1,7 @@
 # 추억의 고전게임 8선
 ##동국대학교 컴퓨터공학과 주니어디자인프로젝트 
 ###디비디비딥
-
+<a href="https://walray.github.io/8Old_Games/"><h4>Move to Page</h4></a>
 ### 사용 언어/툴 : C#/XNA, VS 2015
 
 ### 2016-12-01에 갱신!
@@ -49,16 +49,16 @@ _8Old_Games : 프로그램 소스코드
      ㅣ-- TicTacToe : 틱택토 게임을 관리하는 프로그램 폴더입니다.
          ㅣ-- TicTacToe.cs : 틱택토 게임을 enum State로 관리하는 통합 클래스입니다.
          ㅣ-- Sequence : 게임의 시퀀스(화면진행)에 대한 클래스들의 폴더입니다.(Start->Selection->Play1(Play2)->Menu1(Menu2))
-     ㅣ-- Hangman : 행맨 게임을 관리하는 프로그램 폴더입니다.(미구현)
+     ㅣ-- Hangman : 행맨 게임을 관리하는 프로그램 폴더입니다.<strong>(미구현)</strong>
          ㅣ-- Hangman.cs : 행맨 게임을 enum State로 관리하는 통합 클래스입니다.
          ㅣ-- Sequence : 게임의 시퀀스(화면진행)에 대한 클래스들의 폴더입니다.
-     ㅣ-- Bomberman : 폭탄맨 게임을 관리하는 프로그램 폴더입니다.(미구현)
+     ㅣ-- Bomberman : 폭탄맨 게임을 관리하는 프로그램 폴더입니다.<strong>(미구현)</strong>
          ㅣ-- Bomberman.cs : 폭탄맨 게임을 enum State로 관리하는 통합 클래스입니다.
          ㅣ-- Sequence : 게임의 시퀀스(화면진행)에 대한 클래스들의 폴더입니다.
-     ㅣ-- CatchMouse : 쥐잡기 게임을 관리하는 프로그램 폴더입니다.(미구현)
+     ㅣ-- CatchMouse : 쥐잡기 게임을 관리하는 프로그램 폴더입니다.<strong>(미구현)</strong>
          ㅣ-- CatchMouse.cs : 쥐잡기 게임을 enum State로 관리하는 통합 클래스입니다.
          ㅣ-- Sequence : 게임의 시퀀스(화면진행)에 대한 클래스들의 폴더입니다.
-     ㅣ-- Alkanoid : 벽돌깨기 게임을 관리하는 프로그램 폴더입니다.(미구현)
+     ㅣ-- Alkanoid : 벽돌깨기 게임을 관리하는 프로그램 폴더입니다.<strong>(미구현)</strong>
          ㅣ-- Alkanoid.cs : 벽돌깨기 게임을 enum State로 관리하는 통합 클래스입니다.
          ㅣ-- Sequence : 게임의 시퀀스(화면진행)에 대한 클래스들의 폴더입니다.
  
