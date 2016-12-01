@@ -383,11 +383,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Common\Image\Button_Hangman.png">
-      <Name>Button_Hangman</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Image\background.png">
@@ -519,6 +514,13 @@
     </Compile>
     <Compile Include="Games\Hangman\Image\z.png">
       <Name>z</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Image\Button_Hangman.png">
+      <Name>Button_Hangman</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
