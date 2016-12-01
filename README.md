@@ -1,4 +1,4 @@
-# 8Old_Games
+# 추억의 고전게임 8선
 ##동국대학교 컴퓨터공학과 주니어디자인프로젝트 
 ###디비디비딥
 
@@ -16,7 +16,9 @@
 </pre>
 
 ### 프로그램 개요
-
+<img src="https://github.com/Walray/8Old_Games/blob/master/back.png?raw=true" alt="no image"/>
+<br>
+<br>
 레트로한 향수를 불러일으키는 80년대의 고전게임들을 구현한 한데 묶어 사용자에게 제공하는 프로그램.
 
 ### 코드 설명
