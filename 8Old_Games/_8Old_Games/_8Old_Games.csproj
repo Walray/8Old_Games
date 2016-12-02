@@ -105,7 +105,17 @@
   <ItemGroup>
     <Compile Include="Clock.cs" />
     <Compile Include="Games\Alkanoid\Alkanoid.cs" />
+    <Compile Include="Games\Alkanoid\Ball.cs" />
+    <Compile Include="Games\Alkanoid\Brick.cs" />
+    <Compile Include="Games\Alkanoid\GameMap.cs" />
+    <Compile Include="Games\Alkanoid\GlobalData.cs" />
+    <Compile Include="Games\Alkanoid\Objects.cs" />
+    <Compile Include="Games\Alkanoid\Paddle.cs" />
+    <Compile Include="Games\Alkanoid\Sequence\Load.cs" />
+    <Compile Include="Games\Alkanoid\Sequence\Menu.cs" />
+    <Compile Include="Games\Alkanoid\Sequence\Play.cs" />
     <Compile Include="Games\Alkanoid\Sequence\Sequence.cs" />
+    <Compile Include="Games\Alkanoid\Sequence\Start.cs" />
     <Compile Include="Games\Bomberman\Bomberman.cs" />
     <Compile Include="Games\Bomberman\Sequence\Sequence.cs" />
     <Compile Include="Games\CatchMouse\CatchMouse.cs" />

@@ -12,6 +12,7 @@ using _8Old_Games.Games.Frogger;
 using _8Old_Games.Games.TicTacToe;
 using _8Old_Games.Games.Sudoku;
 using _8Old_Games.Games.MineSweeper;
+using _8Old_Games.Games.Alkanoid;
 
 /*
  * 
@@ -49,13 +50,13 @@ namespace _8Old_Games {
         Rectangle rect_Alkanoid;
         Rectangle rect_Bomberman;
 
-
-
         Selector selector;
         Frogger frogger;
         TicTacToe tictactoe;
         Sudoku sudoku;
         MineSweeper mineSweeper;
+        Alkanoid alkanoid;
+        
 
         const int WIDTH = 150;
         const int HEIGHT = 70;
@@ -163,6 +164,17 @@ namespace _8Old_Games {
             MineSweeper.menuImage = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\menu");
             //for MineSweeper(end)
 
+            //for Alkanoid(start)
+            Alkanoid.Arial = Content.Load<SpriteFont>("Games\\Alkanoid\\Font\\Arial"); // 폰트
+            Alkanoid.Arial2 = Content.Load<SpriteFont>("Games\\Alkanoid\\Font\\Arial2"); // 폰트
+            Alkanoid.sMenu = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\메뉴화면");
+            Alkanoid.sStart = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\메인");
+            Alkanoid.sLoad = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\로딩");
+            Alkanoid.pad = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\paddle");
+            Alkanoid.ball = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\ball");
+            Alkanoid.bricks = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\bricks");
+            //for Alkanoid(end)
+
             test = Content.Load<SpriteFont>("Common\\Font\\MainFont");
         }
 
@@ -200,9 +212,9 @@ namespace _8Old_Games {
                             mineSweeper.initialize();
                         }
                         else if (rect_Alkanoid.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
-                           // selector = Selector.ALKANOID;
-                            //new로 할당
-                            //초기화
+                            selector = Selector.ALKANOID;
+                            alkanoid = new Alkanoid();
+                            alkanoid.initialize();
                         }
                         else if (rect_Bomberman.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
                           //  selector = Selector.BOMBERMAN;
@@ -248,6 +260,7 @@ namespace _8Old_Games {
                     break;
                 case Selector.ALKANOID:
                     Mouse.WindowHandle = Window.Handle;
+                    selector = alkanoid.update(gameTime);
                     //업데이트
                     break;
                 case Selector.BOMBERMAN:
@@ -299,7 +312,8 @@ namespace _8Old_Games {
                     //그리기
                     break;
                 case Selector.ALKANOID:
-                    //그리기
+                    GraphicsDevice.Clear(Color.Black);//그리기
+                    alkanoid.draw(spriteBatch, gameTime);
                     break;
                 case Selector.BOMBERMAN:
                     //그리기

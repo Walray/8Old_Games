@@ -34,8 +34,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\Sound\" />
-    <Folder Include="Games\Alkanoid\Font\" />
-    <Folder Include="Games\Alkanoid\Image\" />
     <Folder Include="Games\Alkanoid\Sound\" />
     <Folder Include="Games\Bomberman\Font\" />
     <Folder Include="Games\Bomberman\Image\" />
@@ -397,6 +395,62 @@
   <ItemGroup>
     <Compile Include="Common\Image\Button_Alkanoid.png">
       <Name>Button_Alkanoid</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\ball.png">
+      <Name>ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\paddle.jpg">
+      <Name>paddle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Font\Arial.spritefont">
+      <Name>Arial</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Font\Arial2.spritefont">
+      <Name>Arial2</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\메뉴화면.png">
+      <Name>메뉴화면</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\메인.png">
+      <Name>메인</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\로딩.png">
+      <Name>로딩</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\bricks.png">
+      <Name>bricks</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
