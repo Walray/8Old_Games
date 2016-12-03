@@ -145,7 +145,7 @@ namespace _8Old_Games {
             Sudoku.button_hard = Content.Load<Texture2D>("Games\\Sudoku\\Image\\button_hard");
             Sudoku.button_extreme = Content.Load<Texture2D>("Games\\Sudoku\\Image\\button_extreme");
             //for Sudoku(end)
-
+            //
             //for MineSweeper(start)
             MineSweeper.font = Content.Load<SpriteFont>("Games\\MineSweeper\\Font\\SpriteFont1"); // ÆùÆ®
             MineSweeper.clicked = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-0"); // ¼±ÅÃµÊ
