@@ -22,7 +22,7 @@ namespace _8Old_Games.Games.Alkanoid.Sequence
         public override State update(GameTime gameTime, KeyboardState ks)
         {
             mTimeSinceLastInput += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (mTimeSinceLastInput >= 1.0f)
+            if (mTimeSinceLastInput >= 0.5f)
             {
                 mTimeSinceLastInput = 0.0f;
                 return State.PLAY;

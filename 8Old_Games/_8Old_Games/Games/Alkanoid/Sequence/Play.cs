@@ -11,7 +11,6 @@ namespace _8Old_Games.Games.Alkanoid.Sequence
 {
     public class Play : Sequence
     {
-
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
