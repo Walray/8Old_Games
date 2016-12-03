@@ -20,7 +20,9 @@ using _8Old_Games.Games.MineSweeper;
  * 
  * 
  * 
+ * 
  * class MainSelector
+ * 
  * 
  * 여덟 개의 게임 상태 관리
 */
