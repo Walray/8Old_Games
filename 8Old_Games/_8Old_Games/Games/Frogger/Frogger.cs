@@ -70,9 +70,11 @@ namespace _8Old_Games.Games.Frogger {
                     state = start.update(gameTime, Keyboard.GetState());
                     break;
                 case State.LOAD:
-                    play = new Play();
-                    play.initialize(currentStage);
                     state = load.update(gameTime, Keyboard.GetState());
+                    if (state == State.PLAY) {
+                        play = new Play();
+                        play.initialize(currentStage);
+                    }
                     break;
                 case State.PLAY:
                     state = play.update(gameTime, Keyboard.GetState(), out currentStage);

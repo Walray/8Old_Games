@@ -12,18 +12,14 @@ using _8Old_Games.Games.Frogger;
 using _8Old_Games.Games.TicTacToe;
 using _8Old_Games.Games.Sudoku;
 using _8Old_Games.Games.MineSweeper;
-using _8Old_Games.Games.Alkanoid;
+using _8Old_Games.Games.Bomberman;
 
 /*
  * 
  * deded
  * 
  * 
- * 
- * 
- * 
  * class MainSelector
- * 
  * 
  * 여덟 개의 게임 상태 관리
 */
@@ -54,13 +50,14 @@ namespace _8Old_Games {
         Rectangle rect_Alkanoid;
         Rectangle rect_Bomberman;
 
+
+
         Selector selector;
         Frogger frogger;
         TicTacToe tictactoe;
         Sudoku sudoku;
         MineSweeper mineSweeper;
-        Alkanoid alkanoid;
-        
+        Bomberman bomberman;
 
         const int WIDTH = 150;
         const int HEIGHT = 70;
@@ -149,7 +146,7 @@ namespace _8Old_Games {
             Sudoku.button_hard = Content.Load<Texture2D>("Games\\Sudoku\\Image\\button_hard");
             Sudoku.button_extreme = Content.Load<Texture2D>("Games\\Sudoku\\Image\\button_extreme");
             //for Sudoku(end)
-            // ddd
+
             //for MineSweeper(start)
             MineSweeper.font = Content.Load<SpriteFont>("Games\\MineSweeper\\Font\\SpriteFont1"); // 폰트
             MineSweeper.clicked = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-0"); // 선택됨
@@ -168,16 +165,13 @@ namespace _8Old_Games {
             MineSweeper.menuImage = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\menu");
             //for MineSweeper(end)
 
-            //for Alkanoid(start)
-            Alkanoid.Arial = Content.Load<SpriteFont>("Games\\Alkanoid\\Font\\Arial"); // 폰트
-            Alkanoid.Arial2 = Content.Load<SpriteFont>("Games\\Alkanoid\\Font\\Arial2"); // 폰트
-            Alkanoid.sMenu = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\메뉴화면");
-            Alkanoid.sStart = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\메인");
-            Alkanoid.sLoad = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\로딩");
-            Alkanoid.pad = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\paddle");
-            Alkanoid.ball = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\ball");
-            Alkanoid.bricks = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\bricks");
-            //for Alkanoid(end)
+            //for Bomberman(start)
+            Bomberman.sStart=Content.Load<Texture2D>("Games\\Bomberman\\Image\\sStart");
+            Bomberman.sMenu = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sMenu");
+            Bomberman.sLoad = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sLoad");
+            Bomberman.sPlay = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sPlay");
+            Bomberman.obj = Content.Load<Texture2D>("Games\\Bomberman\\Image\\object");
+            //for Bomberman(end)
 
             test = Content.Load<SpriteFont>("Common\\Font\\MainFont");
         }
@@ -216,14 +210,14 @@ namespace _8Old_Games {
                             mineSweeper.initialize();
                         }
                         else if (rect_Alkanoid.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
-                            selector = Selector.ALKANOID;
-                            alkanoid = new Alkanoid();
-                            alkanoid.initialize();
-                        }
-                        else if (rect_Bomberman.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
-                          //  selector = Selector.BOMBERMAN;
+                           // selector = Selector.ALKANOID;
                             //new로 할당
                             //초기화
+                        }
+                        else if (rect_Bomberman.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
+                            selector = Selector.BOMBERMAN;
+                            bomberman = new Bomberman();
+                            bomberman.initialize();
                         }
                         else if (rect_CatchMouse.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
                           //  selector = Selector.CATCH_MOUSE;
@@ -264,12 +258,11 @@ namespace _8Old_Games {
                     break;
                 case Selector.ALKANOID:
                     Mouse.WindowHandle = Window.Handle;
-                    selector = alkanoid.update(gameTime);
                     //업데이트
                     break;
                 case Selector.BOMBERMAN:
                     Mouse.WindowHandle = Window.Handle;
-                    //업데이트
+                    selector = bomberman.update(gameTime);
                     break;
             }
             base.Update(gameTime);
@@ -286,11 +279,11 @@ namespace _8Old_Games {
                     spriteBatch.Draw(button_Frogger, rect_Frogger, Color.LightCyan);
                     spriteBatch.Draw(button_Minesweeper, rect_Minesweeper, Color.Honeydew);
                     spriteBatch.Draw(button_Sudoku, rect_Sudoku, Color.Lavender);
-                    spriteBatch.Draw(button_Tictactoe, rect_Tictactoe, Color.White);
+                    spriteBatch.Draw(button_Tictactoe, rect_Tictactoe, Color.LemonChiffon);
                     spriteBatch.Draw(button_Hangman, rect_Hangman, Color.LightCyan);
                     spriteBatch.Draw(button_CatchMouse, rect_CatchMouse, Color.Honeydew);
                     spriteBatch.Draw(button_Bomberman, rect_Bomberman, Color.Lavender);
-                    spriteBatch.Draw(button_Alkanoid, rect_Alkanoid, Color.Pink);
+                    spriteBatch.Draw(button_Alkanoid, rect_Alkanoid, Color.LemonChiffon);
                     break;
                 case Selector.FROGGER:
                     GraphicsDevice.Clear(Color.Black);
@@ -316,11 +309,12 @@ namespace _8Old_Games {
                     //그리기
                     break;
                 case Selector.ALKANOID:
-                    GraphicsDevice.Clear(Color.Black);//그리기
-                    alkanoid.draw(spriteBatch, gameTime);
+                    //그리기
                     break;
                 case Selector.BOMBERMAN:
-                    //그리기
+                    GraphicsDevice.Clear(Color.Black);
+
+                    bomberman.draw(spriteBatch, gameTime);
                     break;
             }
             spriteBatch.End();

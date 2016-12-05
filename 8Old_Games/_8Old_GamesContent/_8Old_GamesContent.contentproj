@@ -36,7 +36,6 @@
     <Folder Include="Common\Sound\" />
     <Folder Include="Games\Alkanoid\Sound\" />
     <Folder Include="Games\Bomberman\Font\" />
-    <Folder Include="Games\Bomberman\Image\" />
     <Folder Include="Games\Bomberman\Sound\" />
     <Folder Include="Games\CatchMouse\Font\" />
     <Folder Include="Games\CatchMouse\Image\" />
@@ -451,6 +450,35 @@
   <ItemGroup>
     <Compile Include="Games\Alkanoid\Image\bricks.png">
       <Name>bricks</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Bomberman\Image\sLoad.png">
+      <Name>sLoad</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Games\Bomberman\Image\sMenu.png">
+      <Name>sMenu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Games\Bomberman\Image\sPlay.png">
+      <Name>sPlay</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Games\Bomberman\Image\sStart.png">
+      <Name>sStart</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Bomberman\Image\object.png">
+      <Name>object</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
