@@ -43,7 +43,6 @@ namespace _8Old_Games.Games.Bomberman {
                 srcY = 32;
             }
             else {
-                Console.WriteLine("뿅");
                 srcX = 16;
                 srcY = 32;
                 floor = true;

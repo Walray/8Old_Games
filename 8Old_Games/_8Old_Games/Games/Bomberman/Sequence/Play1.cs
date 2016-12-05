@@ -37,8 +37,8 @@ namespace _8Old_Games.Games.Bomberman.Sequence {
                 }
                 mTimeSinceLastInput = 0.0;
             }
-            
 
+            stage.update(gameTime);
             return State.PLAY1;
         }
 

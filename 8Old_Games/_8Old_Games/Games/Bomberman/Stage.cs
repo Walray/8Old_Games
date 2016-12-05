@@ -13,7 +13,7 @@ using _8Old_Games.Games.Bomberman.Sequence;
 
 namespace _8Old_Games.Games.Bomberman {
     public class Stage {
-        const int WIDTH = 19;
+        const int WIDTH = 20;
         const int HEIGHT = 15;
         struct StageData {
             public int mEnemyNumber;
@@ -32,6 +32,8 @@ namespace _8Old_Games.Games.Bomberman {
         
         private StageData[] mStageData;
         private StaticObject[,] mStaticObjects;
+        private DynamicObject[] mDynamicObjects;
+        int mDynamicObjectNumber;
         private Random mRand;
 
         public Stage() {; }
@@ -44,14 +46,15 @@ namespace _8Old_Games.Games.Bomberman {
             mStageData[2] = new StageData(6, 50, 3, 2, 0 + 1);
             mStaticObjects = new StaticObject[WIDTH, HEIGHT];
             uint[] brickList = new uint[HEIGHT* WIDTH];
+            uint[] floorList = new uint[HEIGHT * WIDTH];
             StageData stageTest = mStageData[2];
             int brickNumber = 0;
             mRand = new Random();
             bool is2P = false;
             int playerNumber = 1;
-            
+            int floorNumber = 0;
 
-            for(int y=0; y<HEIGHT; y++) {
+            for (int y=0; y<HEIGHT; y++) {
                 for(int x=0; x<WIDTH; x++) {
                     mStaticObjects[x, y] = new StaticObject();
                     if (x==0 || y==0 || x==WIDTH-1 || y == HEIGHT - 1) {
@@ -72,6 +75,11 @@ namespace _8Old_Games.Games.Bomberman {
                             
                             brickList[brickNumber] = ((uint)x<< 16) | ((uint)y);
                             brickNumber++;
+                        }
+                        else {
+                            floorList[floorNumber] = ((uint)x << 16) | ((uint)y);
+                            floorNumber++;
+
                         }
                     }
                 }
@@ -108,20 +116,43 @@ namespace _8Old_Games.Games.Bomberman {
 
                 }
             }
-            
+            Console.WriteLine("으어어");
+            int enemyNumber = stageTest.mEnemyNumber;
+            mDynamicObjectNumber = playerNumber + enemyNumber;
+            mDynamicObjects = new DynamicObject[mDynamicObjectNumber];
+            mDynamicObjects[0] = new DynamicObject();
+            mDynamicObjects[0].set(1, 1, DynamicObject.Type.TYPE_1P);
+            if (is2P) {
+                mDynamicObjects[1] = new DynamicObject();
+                mDynamicObjects[1].set(WIDTH - 2, HEIGHT - 2, DynamicObject.Type.TYPE_2P);
+            }
+            for(int i = 0; i < enemyNumber; i++ ) {
+                int swapped = mRand.Next(brickNumber - 1 - i) + i;
+                uint t = floorList[i];
+                floorList[i] = floorList[swapped];
+                floorList[swapped] = t;
 
+                uint x = floorList[i] >> 16;
+                uint y = floorList[i] & 0xffff;
+                mDynamicObjects[playerNumber + i] = new DynamicObject();
+                mDynamicObjects[playerNumber + i].set((int)x, (int)y, DynamicObject.Type.TYPE_ENEMY);
+            }
 
         }
-        public void update() {
-            ;
+        public void update(GameTime gametime) {
+            for (int i = 0; i < mDynamicObjectNumber; i++) {
+                mDynamicObjects[i].update(Keyboard.GetState());
+            }
         }
         public void draw(SpriteBatch spriteBatch, Texture2D obj) {
-
             for (int y = 0; y < HEIGHT; y++) {
                 for (int x = 0; x < WIDTH; x++) {
                     mStaticObjects[x, y].draw(spriteBatch, x, y, obj);
                 }
+            }
 
+            for (int i = 0; i < mDynamicObjectNumber; i++) {
+                mDynamicObjects[i].draw(spriteBatch, obj);
             }
         }
 
