@@ -20,7 +20,7 @@ namespace _8Old_Games.Games.Bomberman.Sequence {
         public Play1() : base() {; }
         public override void initialize() {
             stage = new Stage();
-            stage.initialize();
+            stage.initialize(0);
         }
         //스페이스 바를 누르면 LOAD 시퀀스로 이동
         public override State update(GameTime gameTime, KeyboardState ks) {
@@ -38,7 +38,7 @@ namespace _8Old_Games.Games.Bomberman.Sequence {
                 mTimeSinceLastInput = 0.0;
             }
 
-            stage.update(gameTime);
+            stage.update(gameTime,ks);
             return State.PLAY1;
         }
 

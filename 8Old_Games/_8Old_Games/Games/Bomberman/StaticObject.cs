@@ -14,14 +14,22 @@ using Microsoft.Xna.Framework.Media;
 namespace _8Old_Games.Games.Bomberman {
     public class StaticObject {
         public enum Flag {
-            FLAG_WALL=(1<<0),
-            FLAG_BRICK=(1<<1),
-            FLAG_ITEM_BOMB=(1<<2),
-            FLAG_ITEM_POWER=(1<<3),
-            FLAG_NOTHING = (1 <<4),
+            FLAG_NOTHING = (1 << 0),
+            FLAG_WALL =(1<<1),
+            FLAG_BRICK=(1<<2),
+            FLAG_BOMB = (1 << 3),
+            FLAG_ITEM_BOMB =(1<<4),
+            FLAG_ITEM_POWER=(1<<5),
+            FLAG_FIRE_X = (1 << 6),
+            FLAG_FIRE_Y = (1 << 7),
+            FLAG_EXPLODING = (1 << 8),
         };
 
         private uint mFlags;
+        private int mCount;
+        private DynamicObject mBombOwner;
+        public DynamicObject BombOwner { get { return mBombOwner; } set { mBombOwner = value; } }
+        public int Count { get { return mCount; } set { mCount = value; } }
 
         public StaticObject() {
             setFlag(Flag.FLAG_NOTHING);
@@ -39,8 +47,13 @@ namespace _8Old_Games.Games.Bomberman {
                 srcY = 16;
             }
             else if (checkFlag(Flag.FLAG_BRICK)) {
-                srcX = 0;
-                srcY = 32;
+                if (checkFlag(Flag.FLAG_FIRE_X | Flag.FLAG_FIRE_Y)) { 
+                    srcX = 0;
+                    srcY = 48;
+                } else {
+                    srcX = 0;
+                    srcY = 32;
+                }
             }
             else {
                 srcX = 16;
@@ -49,23 +62,48 @@ namespace _8Old_Games.Games.Bomberman {
             }
             spriteBatch.Draw(obj, new Rectangle(x * 32, y *32, 32, 32), new Rectangle(srcX, srcY, 16, 16), Color.White);
 
-            if(true || floor) {
+            if( true|| floor) {
                 srcX = -1;
-                if(checkFlag(Flag.FLAG_ITEM_BOMB)) {
+                if (checkFlag(Flag.FLAG_BOMB) && !checkFlag(Flag.FLAG_EXPLODING)) {
+                    srcX = 32;
+                    srcY = 32;
+                } else if (checkFlag(Flag.FLAG_ITEM_BOMB)) {
                     srcX = 32;
                     srcY = 0;
-                }
-
-                else if (checkFlag(Flag.FLAG_ITEM_POWER)) {
+                } else if (checkFlag(Flag.FLAG_ITEM_POWER)) {
                     srcX = 48;
                     srcY = 0;
                 }
-
                 if (srcX != -1) {
                     spriteBatch.Draw(obj, new Rectangle(x * 32, y * 32, 32, 32), new Rectangle(srcX, srcY, 16, 16), Color.White);
                 }
             }
             
+        }
+        public void drawExplosion(SpriteBatch spriteBatch, int x, int y, Texture2D obj) {
+            int srcX = -1;
+            int srcY = -1;
+	        if ( !checkFlag(Flag.FLAG_WALL ) && !checkFlag(Flag.FLAG_BRICK ) ){ 
+		        if (checkFlag(Flag.FLAG_EXPLODING) ){
+			        srcX = 48;
+			        srcY = 32;
+		        }else if (checkFlag(Flag.FLAG_FIRE_X) ){
+			        if (checkFlag(Flag.FLAG_FIRE_Y) ){
+				        srcX = 48;
+				        srcY = 32;
+			        }else{
+				        srcX = 0;
+				        srcY = 16;
+			        }
+		        }else if (checkFlag(Flag.FLAG_FIRE_Y) ){
+			        srcX = 16;
+			        srcY = 16;
+		        }
+	        }
+	        if ( srcX != -1 ) {
+                spriteBatch.Draw(obj, new Rectangle(x * 32, y * 32, 32, 32), new Rectangle(srcX, srcY, 16, 16), Color.White);
+
+            }
         }
 
         public bool checkFlag(Flag f) {
