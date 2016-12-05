@@ -400,20 +400,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Games\Alkanoid\Image\ball.png">
-      <Name>ball</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Games\Alkanoid\Image\paddle.jpg">
-      <Name>paddle</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Games\Alkanoid\Font\Arial.spritefont">
       <Name>Arial</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -449,8 +435,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Games\Alkanoid\Image\bricks.png">
-      <Name>bricks</Name>
+    <Compile Include="Games\Alkanoid\Image\brick.png">
+      <Name>brick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\paddle.jpg">
+      <Name>paddle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\ball.png">
+      <Name>ball</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

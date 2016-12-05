@@ -169,14 +169,13 @@ namespace _8Old_Games {
             //for MineSweeper(end)
 
             //for Alkanoid(start)
-            Alkanoid.Arial = Content.Load<SpriteFont>("Games\\Alkanoid\\Font\\Arial"); // 폰트
-            Alkanoid.Arial2 = Content.Load<SpriteFont>("Games\\Alkanoid\\Font\\Arial2"); // 폰트
             Alkanoid.sMenu = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\메뉴화면");
             Alkanoid.sStart = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\메인");
             Alkanoid.sLoad = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\로딩");
             Alkanoid.pad = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\paddle");
             Alkanoid.ball = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\ball");
-            Alkanoid.bricks = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\bricks");
+            Alkanoid.brick = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\brick");
+            Alkanoid.font = Content.Load<SpriteFont>("Games\\Alkanoid\\Font\\Arial");
             //for Alkanoid(end)
 
             test = Content.Load<SpriteFont>("Common\\Font\\MainFont");
