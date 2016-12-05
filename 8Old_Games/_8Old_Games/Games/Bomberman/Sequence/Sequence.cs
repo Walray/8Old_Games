@@ -15,6 +15,7 @@ using Microsoft.Xna.Framework.Media;
  * abstact 메서드는 반드시 오버라이드 해주어야합니다.
  * 오버라이드할 메서드가 구현할 게임에 맞지 않으면 게임에 맞는 메서드를 서브클래스에서 새로 오버로드 해주세요
 */
+
 namespace _8Old_Games.Games.Bomberman.Sequence {
     //시퀀스의 뼈대가 되는 abstract 클래스
     abstract public class Sequence {
