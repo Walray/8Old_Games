@@ -118,6 +118,8 @@
     <Compile Include="Games\Alkanoid\Sequence\Start.cs" />
     <Compile Include="Games\Bomberman\Bomberman.cs" />
     <Compile Include="Games\Bomberman\DynamicObject.cs" />
+    <Compile Include="Games\Bomberman\Sequence\Clear.cs" />
+    <Compile Include="Games\Bomberman\Sequence\Fail.cs" />
     <Compile Include="Games\Bomberman\Sequence\Load.cs" />
     <Compile Include="Games\Bomberman\Sequence\Menu1.cs" />
     <Compile Include="Games\Bomberman\Sequence\Menu2.cs" />

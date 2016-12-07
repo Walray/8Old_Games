@@ -35,7 +35,7 @@ namespace _8Old_Games.Games.Bomberman.Sequence {
                         return State.PLAY1;
                     }
                     else if (ks.IsKeyDown(Keys.Enter)) {
-                        return State.LOAD;
+                        return State.SELECTION;
                     }
                     else if (ks.IsKeyDown(Keys.Escape)) {
                         return State.EXIT;

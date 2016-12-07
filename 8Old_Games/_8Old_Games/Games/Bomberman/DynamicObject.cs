@@ -17,20 +17,21 @@ namespace _8Old_Games.Games.Bomberman {
             TYPE_ENEMY,
             TYPE_NONE,
         };
-        private const int PLAYER_SPEED = 2000;
-        private const int ENEMY_SPEED = 1000;
-        private const int HALF_SIZE = 12000; // 3/4크기
 
-        private Type mType;
-        private int mX;
-        private int mY;
-        private int mDirectionX;
-        private int mDirectionY;
-        private int mPlayerID;
-        private int mBombPower;
-        private int mBombNumber;
-        private int[] mLastBombX=new int[2];
-        private int[] mLastBombY=new int[2];
+        private const int PLAYER_SPEED = 2000;
+        private int mEnemySpeed = 1000;
+        private const int HALF_SIZE = 12000; // 3/4크기 3/4만큼만 충돌판정을 한다.
+
+        private Type mType; // 동적 오브젝트의 타입
+        private int mX; //x좌표
+        private int mY; //Y좌표
+        private int mDirectionX; //x좌표 이동 방향
+        private int mDirectionY; //y좌표 이동 방향
+        private int mPlayerID; //플레이어 식별, 0이면 1p, 1이면 2p
+        private int mBombPower; //폭발력
+        private int mBombNumber; //설치 가능 폭탄 수
+        private int[] mLastBombX=new int[2]; // 연쇄폭발용 Stage.setFire(0 참조
+        private int[] mLastBombY=new int[2]; // 연쇄폭발용
 
         public int PlayerID { get { return mPlayerID; } set { mPlayerID = value; } }
 
@@ -39,7 +40,7 @@ namespace _8Old_Games.Games.Bomberman {
         public int[] LastBombX { get { return mLastBombX; } set { mLastBombX = value; } }
         public int[] LastBombY { get { return mLastBombY; } set { mLastBombY = value; } }
         public Type getType { get { return mType; } set { mType = value; } }
-
+        
 
         private Random mRand;
 
@@ -51,13 +52,17 @@ namespace _8Old_Games.Games.Bomberman {
             mLastBombY = new int[2];
             mLastBombX[0] = mLastBombX[1] = -1;
             mLastBombY[0] = mLastBombY[1] = -1;
-            mBombPower=10;
-            mBombNumber=10;
+            mBombPower=1;
+            mBombNumber=1;
             mX = mY = -1;
             mDirectionX = mDirectionY = 0;
 
     }
-        //셀 좌표를 내부좌표로 치환
+        /*
+         * 셀 좌표를 내부좌표로 치환
+         * 한 셀은 32*32 픽셀이지만 내부를 1000*1000으로 쪼개서 세밀한 움직임을 가능케 한다.
+         * 중심좌표는 오브젝트의 중점    
+         */
         public int convertCelltoInner(int x) {
             return x * 32000 + 16000;
         }
@@ -65,12 +70,15 @@ namespace _8Old_Games.Games.Bomberman {
         public int convertInnertoCell(int x) {
             return (x - 16000 + 500) / 1000; //500 반올림
         }
-        public void set(int x, int y, Type type) {
+
+        //동적오브젝트 설정
+        public void set(int x, int y, Type type, int enemySpeed=1000) {
             mX = convertCelltoInner(x);
             mY = convertCelltoInner(y);
             mType = type;
             if (mType == Type.TYPE_ENEMY) {
                 mDirectionX = mDirectionY = 0;
+                mEnemySpeed = enemySpeed;
                 switch (mRand.Next(0,4)) {
                     case 0: mDirectionX = 1; break;
                     case 1: mDirectionX = -1; break;
@@ -79,6 +87,7 @@ namespace _8Old_Games.Games.Bomberman {
                 }
             }
         }
+        //충돌처리를 위해 오브젝트들의 방향을 얻어온다.
         private void getDirection(out int dx, out int dy, KeyboardState ks) {
             dx = dy = 0;
             if (mType == Type.TYPE_PLAYER) {
@@ -114,11 +123,12 @@ namespace _8Old_Games.Games.Bomberman {
             }
         }
 
+        //이동처리를 위해 속도만큼 dx,dy를 가산한다.
         private void getVelocity(out int dx, out int dy, KeyboardState ks) {
             int speedX, speedY;
             if (mType == Type.TYPE_ENEMY) {
-                speedX = ENEMY_SPEED;
-                speedY = ENEMY_SPEED;
+                speedX = mEnemySpeed;
+                speedY = mEnemySpeed;
             } 
             else {
                 speedX = PLAYER_SPEED;
@@ -129,6 +139,7 @@ namespace _8Old_Games.Games.Bomberman {
             dy *= speedY;
         }
 
+        //그리기 함수
         public void draw(SpriteBatch spriteBatch, Texture2D obj) {
             if (isDead()) return;
             int destX = convertInnertoCell(mX);
@@ -146,6 +157,7 @@ namespace _8Old_Games.Games.Bomberman {
             spriteBatch.Draw(obj, new Rectangle(destX, destY, 32, 32), new Rectangle(srcX, srcY, 16, 16), Color.White);
         }
 
+        //벽과 충돌처리 검사
         private bool isIntersectWall(int x, int y, int wallX, int wallY) {
             int wx = convertCelltoInner(wallX);
             int wy = convertCelltoInner(wallY);
@@ -166,10 +178,12 @@ namespace _8Old_Games.Games.Bomberman {
             return false;
         }
 
+        //벽과 충돌처리 검사를 간편하게 하기위한 래핑 함수
         public bool isIntersectWall(int wallX, int wallY) {
             return isIntersectWall(mX, mY, wallX, wallY);
         }
 
+        //update, 이동처리 함수
         public void update(int[] wallsX, int[] wallsY, int wallNumber, KeyboardState ks) {
             int dx, dy;
             getVelocity(out dx, out dy, ks);
@@ -216,21 +230,27 @@ namespace _8Old_Games.Games.Bomberman {
             }
         }
 
-        public void doCollisionReactionToDynamic(DynamicObject another) {
-            if (another.isDead())  return;
+        //적과 플레이어간 충돌처리
+        public bool doCollisionReactionToDynamic(DynamicObject another) {
+            if (another.isDead())  return false;//죽었으면 무시한다.
             
+            //겹쳤으면 사망처리
             if (isIntersect(another)) { 
                                       
                 if (isPlayer() && another.isEnemy()) {
-                    this.die();
-                } else if (isEnemy() && another.isPlayer()) {
-                    another.die();
+                        this.die();
+                } 
+                else if (isEnemy() && another.isPlayer()) {
+                        another.die();
                 }
+                return true;
             }
+            return false;
         }
 
+        //오브젝트별 교차 검사
+        //충돌시 멈추지 않게 HALF_SIZE를 뺀 3/4 크기만큼만 충돌처리를 한다.
         public bool isIntersect( DynamicObject o )  {
-
             int al = mX - HALF_SIZE; //left A
                 int ar = mX + HALF_SIZE; //right A
                 int bl = o.mX - HALF_SIZE; //left B
@@ -247,14 +267,14 @@ namespace _8Old_Games.Games.Bomberman {
 	        return false;
         }
 
-
+        //폭탄 버튼이 눌러졌는가
         public bool hasBombButtonPressed(KeyboardState ks) {
             
 	        if ( mType == Type.TYPE_PLAYER ){
-		        if ( mPlayerID == 0 ){
+		        if ( mPlayerID == 0 ){//1p
                     return ks.IsKeyDown(Keys.L);
 
-                } else if ( mPlayerID == 1 ){
+                } else if ( mPlayerID == 1 ){//2p
                     return ks.IsKeyDown(Keys.G);
 
                 }
@@ -263,25 +283,29 @@ namespace _8Old_Games.Games.Bomberman {
         }
 
 
-
+        //셀좌표 흭득
         public void getCell(out int x, out int y) {
 	        x = mX / 32000;
 	        y = mY / 32000;
         }
 
+        //플레이어인가?
         public bool isPlayer() {
             return ( mType == Type.TYPE_PLAYER );
         }
 
+        //적인가?
         public bool isEnemy() {
             return ( mType == Type.TYPE_ENEMY );
         }
 
+        //동적 오브젝트 사망처리
         public void die() {
             mType = Type.TYPE_NONE;
+            
         }
 
-
+        //동적 오브젝트가 사망했는지 확인
         public bool isDead(){
 	        return ( mType == Type.TYPE_NONE );
         }

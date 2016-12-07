@@ -168,9 +168,12 @@ namespace _8Old_Games {
             //for Bomberman(start)
             Bomberman.sStart=Content.Load<Texture2D>("Games\\Bomberman\\Image\\sStart");
             Bomberman.sMenu = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sMenu");
-            Bomberman.sLoad = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sLoad");
+            Bomberman.sSelection = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sLoad");
             Bomberman.sPlay = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sPlay");
             Bomberman.obj = Content.Load<Texture2D>("Games\\Bomberman\\Image\\object");
+            Bomberman.font = Content.Load<SpriteFont>("Games\\Bomberman\\Font\\Spritefont");
+            Bomberman.sClear = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sClear");
+            Bomberman.sFail = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sFail");
             //for Bomberman(end)
 
             test = Content.Load<SpriteFont>("Common\\Font\\MainFont");
