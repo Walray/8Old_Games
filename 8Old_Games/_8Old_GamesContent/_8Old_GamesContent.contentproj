@@ -35,7 +35,6 @@
   <ItemGroup>
     <Folder Include="Common\Sound\" />
     <Folder Include="Games\Alkanoid\Sound\" />
-    <Folder Include="Games\Bomberman\Font\" />
     <Folder Include="Games\Bomberman\Sound\" />
     <Folder Include="Games\CatchMouse\Font\" />
     <Folder Include="Games\CatchMouse\Image\" />
@@ -102,11 +101,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Games\Frogger\Image\sFail.png">
-      <Name>sFail</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Games\Frogger\Image\sLoad.png">
       <Name>sLoad</Name>
       <Importer>TextureImporter</Importer>
@@ -129,7 +123,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
-    <Compile Include="Games\Frogger\Font\Spritefont.spritefont">
+    <Compile Include="Games\Bomberman\Font\Spritefont.spritefont">
       <Name>Spritefont</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
@@ -479,6 +473,34 @@
   <ItemGroup>
     <Compile Include="Games\Bomberman\Image\object.png">
       <Name>object</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Frogger\Font\Spritefont.spritefont">
+      <Name>Spritefont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Bomberman\Image\sClear.png">
+      <Name>sClear</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Frogger\Image\sFail.png">
+      <Name>sFail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Bomberman\Image\sFail.png">
+      <Name>sFail</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
