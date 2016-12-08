@@ -184,6 +184,8 @@ namespace _8Old_Games {
             Alkanoid.cross = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\cross");
             //for Alkanoid(end)
 
+
+
             test = Content.Load<SpriteFont>("Common\\Font\\MainFont");
         }
 
