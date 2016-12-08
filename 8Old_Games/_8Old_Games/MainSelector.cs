@@ -12,6 +12,7 @@ using _8Old_Games.Games.Frogger;
 using _8Old_Games.Games.TicTacToe;
 using _8Old_Games.Games.Sudoku;
 using _8Old_Games.Games.MineSweeper;
+
 using _8Old_Games.Games.Bomberman;
 
 /*
@@ -164,6 +165,27 @@ namespace _8Old_Games {
             MineSweeper.startImage = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\start");
             MineSweeper.menuImage = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\menu");
             //for MineSweeper(end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             //for Bomberman(start)
             Bomberman.sStart=Content.Load<Texture2D>("Games\\Bomberman\\Image\\sStart");
