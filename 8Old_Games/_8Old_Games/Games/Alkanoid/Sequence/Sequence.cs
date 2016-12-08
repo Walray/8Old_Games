@@ -19,7 +19,7 @@ namespace _8Old_Games.Games.Alkanoid.Sequence {
     //시퀀스의 뼈대가 되는 abstract 클래스
     abstract public class Sequence
     {
-        protected float mTimeSinceLastInput;
+        protected double mTimeSinceLastInput;
 
         protected const float MIN_TIME = 0.15f;
 

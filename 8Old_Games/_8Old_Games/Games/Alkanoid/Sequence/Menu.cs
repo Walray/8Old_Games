@@ -20,23 +20,24 @@ namespace _8Old_Games.Games.Alkanoid.Sequence
 
         public override State update(GameTime gameTime, KeyboardState ks)
         {
-
             mTimeSinceLastInput += (float)gameTime.ElapsedGameTime.TotalSeconds;
             mTimeAfterPlay -= gameTime.ElapsedGameTime.TotalSeconds;
+
             if (mTimeSinceLastInput >= MIN_TIME && mTimeAfterPlay <= 0)
             {
-                if (ks.IsKeyDown(Keys.Escape))
-                {
-                    return State.EXIT;
-                }
-                else if (ks.IsKeyDown(Keys.Space))
-                {
-                    return State.MENU;
-                }
-                else if (ks.IsKeyDown(Keys.Enter))
+                if (ks.IsKeyDown(Keys.Space))
                 {
                     mTimeAfterPlay = WAIT_TIME;
                     return State.PLAY;
+                }
+                else if (ks.IsKeyDown(Keys.N))
+                {
+                    return State.LOAD;
+
+                }
+                else if (ks.IsKeyDown(Keys.Escape))
+                {
+                    return State.EXIT;
                 }
                 mTimeSinceLastInput = 0.0f;
             }
