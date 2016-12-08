@@ -12,6 +12,7 @@ using _8Old_Games.Games.Frogger;
 using _8Old_Games.Games.TicTacToe;
 using _8Old_Games.Games.Sudoku;
 using _8Old_Games.Games.MineSweeper;
+using _8Old_Games.Games.Bomberman;
 using _8Old_Games.Games.Alkanoid;
 
 /*
@@ -60,6 +61,7 @@ namespace _8Old_Games {
         Sudoku sudoku;
         MineSweeper mineSweeper;
         Alkanoid alkanoid;
+        Bomberman bomberman;
         
 
         const int WIDTH = 150;
@@ -184,6 +186,17 @@ namespace _8Old_Games {
             Alkanoid.cross = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\cross");
             //for Alkanoid(end)
 
+            //for Bomberman(start)
+            Bomberman.sStart = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sStart");
+            Bomberman.sMenu = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sMenu");
+            Bomberman.sSelection = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sLoad");
+            Bomberman.sPlay = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sPlay");
+            Bomberman.obj = Content.Load<Texture2D>("Games\\Bomberman\\Image\\object");
+            Bomberman.font = Content.Load<SpriteFont>("Games\\Bomberman\\Font\\Spritefont");
+            Bomberman.sClear = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sClear");
+            Bomberman.sFail = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sFail");
+            //for Bomberman(end)
+
 
 
 
@@ -230,9 +243,10 @@ namespace _8Old_Games {
                             alkanoid.initialize();
                         }
                         else if (rect_Bomberman.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
-                          //  selector = Selector.BOMBERMAN;
-                            //new로 할당
-                            //초기화
+
+                            selector = Selector.BOMBERMAN;
+                            bomberman = new Bomberman();
+                            bomberman.initialize();
                         }
                         else if (rect_CatchMouse.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
                           //  selector = Selector.CATCH_MOUSE;
@@ -278,7 +292,7 @@ namespace _8Old_Games {
                     break;
                 case Selector.BOMBERMAN:
                     Mouse.WindowHandle = Window.Handle;
-                    //업데이트
+                    selector = bomberman.update(gameTime);
                     break;
             }
             base.Update(gameTime);
@@ -330,8 +344,10 @@ namespace _8Old_Games {
                     break;
                 case Selector.BOMBERMAN:
                     //그리기
+                    GraphicsDevice.Clear(Color.Black);//그리기
+                    bomberman.draw(spriteBatch, gameTime);
                     break;
-            }
+               }
             spriteBatch.End();
 
             base.Draw(gameTime);
