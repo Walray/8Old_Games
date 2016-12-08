@@ -58,10 +58,10 @@ namespace _8Old_Games.Games.Alkanoid.Sequence
 
 
         public override void draw(SpriteBatch spriteBatch, Texture2D sprite, Vector2 origin) {; }
-        public void draw(SpriteBatch spriteBatch, GameTime gameTime, Texture2D ballImage, Texture2D paddleImage, Texture2D wallImage, SpriteFont font) {
-            ball.Draw(spriteBatch, gameTime, ballImage);
+        public void draw(SpriteBatch spriteBatch, GameTime gameTime, Texture2D ballImage, Texture2D paddleImage, Texture2D wallImage, SpriteFont font, Texture2D heart, SpriteFont font2, Texture2D cross, Texture2D background) {
+            ball.Draw(spriteBatch, gameTime, ballImage, font2, cross, background, heart);
             paddle.Draw(spriteBatch, gameTime, paddleImage);
-            wall.Draw(spriteBatch, gameTime, wallImage, font);
+            wall.Draw(spriteBatch, gameTime, wallImage, font, heart);
         }
     }
 }

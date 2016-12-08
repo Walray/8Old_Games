@@ -30,10 +30,15 @@ namespace _8Old_Games.Games.Alkanoid {
         public static Texture2D ball;
         public static Texture2D pad;
         public static Texture2D brick;
+        public static Texture2D heart;
+        public static Texture2D heart_b;
+        public static Texture2D cross;
+        public static Texture2D background;
         public static Vector2 initialPosition; // 공의 처음 위치
         public static Vector2 lastPosition;
         public static Vector2 position; // 공의 현재 위치
         public static SpriteFont font;
+        public static SpriteFont font2;
 
         public static Vector2 padPosition; // 현재 막대기의 위치
         public static Vector2 minPosition; //  좌측으로 추가x
@@ -43,7 +48,6 @@ namespace _8Old_Games.Games.Alkanoid {
         public static Texture2D sStart; // 시작화면
         public static Texture2D sLoad; // 로딩화면 
         public static Texture2D sMenu; // 메뉴화면
-
 
         /*
         모든 리소스를 담는 변수는 public static으로 선언 ex) 
@@ -90,8 +94,7 @@ namespace _8Old_Games.Games.Alkanoid {
                     load.draw(spriteBatch, sLoad, new Vector2(0, 0));
                     break;
                 case State.PLAY:
-                    play.draw(spriteBatch, gameTime, ball, pad, brick, font);
-
+                    play.draw(spriteBatch, gameTime, ball, pad, brick, font, heart, font2, cross, background);
                     break;
                 case State.MENU:
                     menu.draw(spriteBatch, sMenu, new Vector2(0, 0));

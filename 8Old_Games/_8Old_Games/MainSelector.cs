@@ -176,6 +176,11 @@ namespace _8Old_Games {
             Alkanoid.ball = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\ball");
             Alkanoid.brick = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\brick");
             Alkanoid.font = Content.Load<SpriteFont>("Games\\Alkanoid\\Font\\Arial");
+            Alkanoid.heart= Content.Load<Texture2D>("Games\\Alkanoid\\Image\\heart");
+            Alkanoid.font2 = Content.Load<SpriteFont>("Games\\Alkanoid\\Font\\Arial2");
+            Alkanoid.background = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\back");
+            Alkanoid.heart_b = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\heart_b");
+            Alkanoid.cross = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\cross");
             //for Alkanoid(end)
 
             test = Content.Load<SpriteFont>("Common\\Font\\MainFont");
