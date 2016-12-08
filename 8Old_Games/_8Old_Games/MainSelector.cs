@@ -176,6 +176,8 @@ namespace _8Old_Games {
             Bomberman.sFail = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sFail");
             //for Bomberman(end)
 
+
+
             test = Content.Load<SpriteFont>("Common\\Font\\MainFont");
         }
 
