@@ -414,27 +414,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Games\Alkanoid\Image\메뉴화면.png">
-      <Name>메뉴화면</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Games\Alkanoid\Image\메인.png">
-      <Name>메인</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Games\Alkanoid\Image\로딩.png">
-      <Name>로딩</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Games\Alkanoid\Image\heart.png">
       <Name>heart</Name>
       <Importer>TextureImporter</Importer>
@@ -456,13 +435,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Games\Alkanoid\Image\ball.png">
-      <Name>ball</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Games\Alkanoid\Image\heart_b.png">
       <Name>heart_b</Name>
       <Importer>TextureImporter</Importer>
@@ -479,6 +451,41 @@
   <ItemGroup>
     <Compile Include="Games\Alkanoid\Image\back.png">
       <Name>back</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\메인.png">
+      <Name>메인</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\로딩.png">
+      <Name>로딩</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\ball.png">
+      <Name>ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Font\font3.spritefont">
+      <Name>font3</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\메뉴화면.png">
+      <Name>메뉴화면</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -11,11 +11,13 @@ namespace _8Old_Games.Games.Alkanoid
 {
     class Ball
     {
+
         enum State
         {
             Active, // 활성상태
             Dead,  // 죽은 상태
-            Over  // 게임 종료
+            Over,  // 게임 종료
+            Win // 게임 승리
         }
 
         private State state; // 상태변수
@@ -38,7 +40,7 @@ namespace _8Old_Games.Games.Alkanoid
         private const int maxSpeed = 750; // 최대스피드 
         private int speed = initialSpeed; // speed는 초기 스피드로 먼저 설정
 
-        private bool isHeart = false;
+        private bool isHeart = false; // 목숨 제어를 위해 필요한 bool 변수
         private static int heart_cnt = 5; // 목숨 카운트 변수
         
         public Rectangle Bounds
@@ -84,6 +86,7 @@ namespace _8Old_Games.Games.Alkanoid
             else if(state == State.Dead && heart_cnt <= 0) // 죽은 상태에다가 목숨 0이면
             {
                 state = State.Over; // 게임 오버
+               
             }
         }
         
@@ -162,27 +165,23 @@ namespace _8Old_Games.Games.Alkanoid
 
                 if (direction.X > 0 && LineIntersects(lastPosition + centerRight, position + centerRight, topLeft, bottomLeft))
                 {
-                    newDirection.X *= -1;
-                    Console.WriteLine("left"); // 위치 출력 
+                    newDirection.X *= -1; 
                     changed = true;
                 }
                 else if (direction.X < 0 && LineIntersects(lastPosition + centerLeft, position + centerLeft, topRight, bottomRight))
                 {
                     newDirection.X *= -1;
-                    Console.WriteLine("right"); // 위치 출력 
                     changed = true;
                 }
 
                 if (direction.Y > 0 && LineIntersects(lastPosition + centerBottom, position + centerBottom, topLeft, topRight))
                 {
                     newDirection.Y *= -1;
-                    Console.WriteLine("top"); // 위치 출력 
                     changed = true;
                 }
                 else if (direction.Y < 0 && LineIntersects(lastPosition + centerTop, position + centerTop, bottomLeft, bottomRight))
                 {
                     newDirection.Y *= -1;
-                    Console.WriteLine("bottom"); // 위치 출력 
                     changed = true;
                 }
                 
@@ -192,8 +191,6 @@ namespace _8Old_Games.Games.Alkanoid
                     newDirection.Y *= -1;
                 }
 
-                Console.WriteLine(direction);
-                Console.WriteLine(newDirection);
                 break;
             }
 
@@ -221,10 +218,9 @@ namespace _8Old_Games.Games.Alkanoid
             return intersects;
         }
 
-        internal void Draw(SpriteBatch spriteBatch, GameTime gameTime, Texture2D obj, SpriteFont font2, Texture2D cross, Texture2D background, Texture2D heart)
+        internal void Draw(SpriteBatch spriteBatch, GameTime gameTime, Texture2D obj, SpriteFont font2, Texture2D cross, Texture2D background, Texture2D heart, SpriteFont font3)
         {
             spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White); // 배경 그린다.
-
             if (state == State.Active)
             {
                 spriteBatch.Draw(obj, position, Color.White);
@@ -294,6 +290,14 @@ namespace _8Old_Games.Games.Alkanoid
             else if (state == State.Over)
             {
                 spriteBatch.DrawString(font2, "Game Over!", new Vector2(180, 250), Color.Yellow); // 게임 종료 문자 출력
+            }
+            else if (state != State.Over && state == State.Dead)
+            {
+                spriteBatch.DrawString(font3, "press <- or -> key", new Vector2(250, 250), Color.Yellow); // 게임 이어서하기 문자 출력
+            }
+            else if(state == State.Win)
+            {
+                spriteBatch.DrawString(font2, "YOU  WIN!", new Vector2(200, 150), Color.Yellow); // 게임 승리 문자 출력
             }
         }
     }
@@ -396,6 +400,8 @@ namespace _8Old_Games.Games.Alkanoid
             Color.Blue, Color.Navy, Color.Violet
         };
 
+        private State state; // 상태변수
+        private int brokeCnt = 0;
         private readonly int screenWidth;
         private readonly int screenHeight;
         private float brickHeight; // 벽돌 높이
@@ -426,9 +432,7 @@ namespace _8Old_Games.Games.Alkanoid
             }
         }
         
-
-
-        internal void Draw(SpriteBatch spriteBatch, GameTime gameTime,Texture2D obj, SpriteFont font, Texture2D heart)
+        internal void Draw(SpriteBatch spriteBatch, GameTime gameTime,Texture2D obj, SpriteFont font, Texture2D heart, SpriteFont font2, Texture2D background)
         {
             foreach (Brick brick in bricks)
             {
@@ -437,7 +441,13 @@ namespace _8Old_Games.Games.Alkanoid
                     spriteBatch.Draw(obj, brick.Bounds, colors[colors.Length - brick.Row - 1]);
                 }
             }
-            spriteBatch.DrawString(font, "Alkanoid  by YunMi", new Vector2(50, 10), Color.Beige);
+            if(brokeCnt == numRows* bricksPerRow) // 블록 다 깼으면
+            {
+               spriteBatch.Draw(background, new Rectangle(0, 0, 800, 480), Color.White);
+               spriteBatch.DrawString(font2, "YOU  WIN!", new Vector2(200, 150), Color.Yellow); // 게임 승리 문자 출력
+               spriteBatch.DrawString(font2, "return to menu", new Vector2(100, 250), Color.Yellow); // 게임 승리 문자 출력
+            }
+            spriteBatch.DrawString(font, "BrickBreak  by YunMi", new Vector2(30, 10), Color.Beige);
         }
 
         internal List<Rectangle> DestroyBricksAt(Rectangle r)
@@ -450,6 +460,7 @@ namespace _8Old_Games.Games.Alkanoid
                     {
                         brick.State = Brick.BrickState.BROKEN;
                         destroyedRectangles.Add(brick.Bounds);
+                        brokeCnt++;
                         break;
                     }
                 }
