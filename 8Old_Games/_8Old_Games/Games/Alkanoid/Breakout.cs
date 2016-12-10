@@ -393,12 +393,12 @@ namespace _8Old_Games.Games.Alkanoid
     class Wall
     {
         private const int bricksPerRow = 20; // 줄하나 당 벽돌 갯수
-        private const double wallHeightRatio = 0.20; // 벽돌 굵기
+        private const double heightRatio = 0.20; // 벽돌 굵기
         private const int numRows = 7; // 벽돌 line수
         private static readonly Color[] colors = { // 벽돌 색깔 설정
             Color.Red, Color.Orange, Color.Yellow, Color.Green,
             Color.Blue, Color.Navy, Color.Violet
-        };
+    };
 
         private State state; // 상태변수
         private int brokeCnt = 0;
@@ -419,7 +419,7 @@ namespace _8Old_Games.Games.Alkanoid
             this.screenWidth = screenWidth;
             this.screenHeight = screenHeight;
 
-            double wallHeight = screenHeight * wallHeightRatio;
+            double wallHeight = screenHeight * heightRatio;
             wallBounds = new Rectangle(0, (int)(wallHeight / 2), screenWidth, (int)(wallHeight + wallHeight/2));
             brickHeight = wallBounds.Height / numRows; // 총 벽돌 높이는 높이에서 벽돌 라인수로 나눈 것으로 구할 수 있다.
             brickWidth = screenWidth / bricksPerRow; // 총 벽돌 너비는 스크린 너비 나누기 줄하나당 벽돌 개수로 구할 수 있다.

@@ -295,7 +295,7 @@ namespace _8Old_Games {
                     spriteBatch.Draw(button_Hangman, rect_Hangman, Color.LightCyan);
                     spriteBatch.Draw(button_CatchMouse, rect_CatchMouse, Color.Honeydew);
                     spriteBatch.Draw(button_Bomberman, rect_Bomberman, Color.Lavender);
-                    spriteBatch.Draw(button_Alkanoid, rect_Alkanoid, Color.Pink);
+                    spriteBatch.Draw(button_Alkanoid, rect_Alkanoid, Color.LightGoldenrodYellow);
                     break;
                 case Selector.FROGGER:
                     GraphicsDevice.Clear(Color.Black);
