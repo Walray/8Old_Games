@@ -43,6 +43,7 @@ namespace _8Old_Games.Games.MineSweeper {
         public static Texture2D menuImage; // 메뉴화면
 
         public MineSweeper() {; }
+
         public void initialize() {
             start = new Start();
             selection = new Selection();

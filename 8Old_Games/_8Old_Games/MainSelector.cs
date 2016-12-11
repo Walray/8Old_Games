@@ -32,6 +32,7 @@ namespace _8Old_Games {
         SpriteBatch spriteBatch;
         SpriteFont test;
 
+        #region
         Texture2D button_Frogger;
         Texture2D button_Minesweeper;
         Texture2D button_Sudoku;
@@ -51,14 +52,14 @@ namespace _8Old_Games {
         Rectangle rect_Alkanoid;
         Rectangle rect_Bomberman;
 
-
+        #endregion
 
         Selector selector;
         Frogger frogger;
         TicTacToe tictactoe;
         Sudoku sudoku;
         MineSweeper mineSweeper;
-        Hangman hangman;
+        HangMan hangman;
 
         const int WIDTH = 150;
         const int HEIGHT = 70;
@@ -90,8 +91,9 @@ namespace _8Old_Games {
         protected override void LoadContent() {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            #region
             //for button images(start)
-            button_Frogger= Content.Load<Texture2D>("Common\\Image\\Button_Frogger"); ;
+            button_Frogger = Content.Load<Texture2D>("Common\\Image\\Button_Frogger"); ;
             button_Minesweeper = Content.Load<Texture2D>("Common\\Image\\Button_Minesweeper");
             button_Sudoku = Content.Load<Texture2D>("Common\\Image\\Button_Sudoku"); 
             button_Tictactoe = Content.Load<Texture2D>("Common\\Image\\Button_Tictactoe");
@@ -165,37 +167,49 @@ namespace _8Old_Games {
             MineSweeper.startImage = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\start");
             MineSweeper.menuImage = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\menu");
             //for MineSweeper(end)
+            #endregion
 
-
+            #region for Hangman
             //for Hangman(start)
-            Hangman.a = Content.Load<Texture2D>("Games\\Hangman\\Image\\a");
-            Hangman.b = Content.Load<Texture2D>("Games\\Hangman\\Image\\b");
-            Hangman.c = Content.Load<Texture2D>("Games\\Hangman\\Image\\c");
-            Hangman.d = Content.Load<Texture2D>("Games\\Hangman\\Image\\d");
-            Hangman.e = Content.Load<Texture2D>("Games\\Hangman\\Image\\e");
-            Hangman.f = Content.Load<Texture2D>("Games\\Hangman\\Image\\f");
-            Hangman.g = Content.Load<Texture2D>("Games\\Hangman\\Image\\g");
-            Hangman.h = Content.Load<Texture2D>("Games\\Hangman\\Image\\h");
-            Hangman.i = Content.Load<Texture2D>("Games\\Hangman\\Image\\i");
-            Hangman.j = Content.Load<Texture2D>("Games\\Hangman\\Image\\j");
-            Hangman.k = Content.Load<Texture2D>("Games\\Hangman\\Image\\k");
-            Hangman.l = Content.Load<Texture2D>("Games\\Hangman\\Image\\l");
-            Hangman.n = Content.Load<Texture2D>("Games\\Hangman\\Image\\n");
-            Hangman.m = Content.Load<Texture2D>("Games\\Hangman\\Image\\m");
-            Hangman.o = Content.Load<Texture2D>("Games\\Hangman\\Image\\o");
-            Hangman.p = Content.Load<Texture2D>("Games\\Hangman\\Image\\p");
-            Hangman.q = Content.Load<Texture2D>("Games\\Hangman\\Image\\q");
-            Hangman.r = Content.Load<Texture2D>("Games\\Hangman\\Image\\r");
-            Hangman.s = Content.Load<Texture2D>("Games\\Hangman\\Image\\s");
-            Hangman.t = Content.Load<Texture2D>("Games\\Hangman\\Image\\t");
-            Hangman.u = Content.Load<Texture2D>("Games\\Hangman\\Image\\u");
-            Hangman.v = Content.Load<Texture2D>("Games\\Hangman\\Image\\v");
-            Hangman.w = Content.Load<Texture2D>("Games\\Hangman\\Image\\w");
-            Hangman.x = Content.Load<Texture2D>("Games\\Hangman\\Image\\x");
-            Hangman.y = Content.Load<Texture2D>("Games\\Hangman\\Image\\y");
-            Hangman.z = Content.Load<Texture2D>("Games\\Hangman\\Image\\z");
+            HangMan.startImage = Content.Load<Texture2D>("Games\\Hangman\\Image\\행맨메인화면");
+            HangMan.menuImage = Content.Load<Texture2D>("Games\\Hangman\\Image\\행맨메뉴선택");
+            HangMan.font = Content.Load<SpriteFont>("Games\\MineSweeper\\Font\\SpriteFont1"); // 폰트
+            HangMan.a = Content.Load<Texture2D>("Games\\Hangman\\Image\\a");
+            HangMan.b = Content.Load<Texture2D>("Games\\Hangman\\Image\\b");
+            HangMan.c = Content.Load<Texture2D>("Games\\Hangman\\Image\\c");
+            HangMan.d = Content.Load<Texture2D>("Games\\Hangman\\Image\\d");
+            HangMan.e = Content.Load<Texture2D>("Games\\Hangman\\Image\\e");
+            HangMan.f = Content.Load<Texture2D>("Games\\Hangman\\Image\\f");
+            HangMan.g = Content.Load<Texture2D>("Games\\Hangman\\Image\\g");
+            HangMan.h = Content.Load<Texture2D>("Games\\Hangman\\Image\\h");
+            HangMan.i = Content.Load<Texture2D>("Games\\Hangman\\Image\\i");
+            HangMan.j = Content.Load<Texture2D>("Games\\Hangman\\Image\\j");
+            HangMan.k = Content.Load<Texture2D>("Games\\Hangman\\Image\\k");
+            HangMan.l = Content.Load<Texture2D>("Games\\Hangman\\Image\\l");
+            HangMan.n = Content.Load<Texture2D>("Games\\Hangman\\Image\\n");
+            HangMan.m = Content.Load<Texture2D>("Games\\Hangman\\Image\\m");
+            HangMan.o = Content.Load<Texture2D>("Games\\Hangman\\Image\\o");
+            HangMan.p = Content.Load<Texture2D>("Games\\Hangman\\Image\\p");
+            HangMan.q = Content.Load<Texture2D>("Games\\Hangman\\Image\\q");
+            HangMan.r = Content.Load<Texture2D>("Games\\Hangman\\Image\\r");
+            HangMan.s = Content.Load<Texture2D>("Games\\Hangman\\Image\\s");
+            HangMan.t = Content.Load<Texture2D>("Games\\Hangman\\Image\\t");
+            HangMan.u = Content.Load<Texture2D>("Games\\Hangman\\Image\\u");
+            HangMan.v = Content.Load<Texture2D>("Games\\Hangman\\Image\\v");
+            HangMan.w = Content.Load<Texture2D>("Games\\Hangman\\Image\\w");
+            HangMan.x = Content.Load<Texture2D>("Games\\Hangman\\Image\\x");
+            HangMan.y = Content.Load<Texture2D>("Games\\Hangman\\Image\\y");
+            HangMan.z = Content.Load<Texture2D>("Games\\Hangman\\Image\\z");
+            HangMan.scaffold = Content.Load<Texture2D>("Games\\Hangman\\Image\\단두대");
+            HangMan.head = Content.Load<Texture2D>("Games\\Hangman\\Image\\얼굴");
+            HangMan.rigth_hand = Content.Load<Texture2D>("Games\\Hangman\\Image\\오른팔");
+            HangMan.rigth_foot = Content.Load<Texture2D>("Games\\Hangman\\Image\\오른다리");
+            HangMan.left_hand = Content.Load<Texture2D>("Games\\Hangman\\Image\\왼팔");
+            HangMan.left_foot = Content.Load<Texture2D>("Games\\Hangman\\Image\\왼다리");
+            HangMan.body = Content.Load<Texture2D>("Games\\Hangman\\Image\\몸통");
+            HangMan.clicked = Content.Load<Texture2D>("Games\\Hangman\\Image\\선택함");
             //for Hangman(end)
-
+            #endregion
 
 
             test = Content.Load<SpriteFont>("Common\\Font\\MainFont");
@@ -208,17 +222,20 @@ namespace _8Old_Games {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            switch(selector){
+            #region  switch (selector)
+            switch (selector){
                 case Selector.MAIN_SELECTOR:
 
                     mTimeSinceLastInput += gameTime.ElapsedGameTime.TotalSeconds;
                     if (mTimeSinceLastInput >= MIN_TIME) {
                         MouseState ms = Mouse.GetState();
+
                         if (rect_Frogger.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
                             selector = Selector.FROGGER;
                             frogger = new Frogger();
                             frogger.initialize();
                         }
+
                         else if (rect_Tictactoe.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
                             selector = Selector.TICTACTOE;
                             tictactoe = new TicTacToe();
@@ -251,12 +268,15 @@ namespace _8Old_Games {
                         }
                         else if (rect_Hangman.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
                             selector = Selector.HANGMAN;
-                            hangman = new Hangman();
+                            hangman = new HangMan();
                             hangman.initialize();
                         }
                         mTimeSinceLastInput = 0.0f;
                     }
                     break;
+
+                #endregion
+
                 case Selector.FROGGER:
                     Mouse.WindowHandle = Window.Handle;
                     selector = frogger.update(gameTime);
@@ -275,7 +295,7 @@ namespace _8Old_Games {
                     break;
                 case Selector.HANGMAN:
                     Mouse.WindowHandle = Window.Handle;
-                    //업데이트
+                    selector = hangman.update(gameTime);
                     break;
                 case Selector.CATCH_MOUSE:
                     Mouse.WindowHandle = Window.Handle;

@@ -111,8 +111,11 @@
     <Compile Include="Games\CatchMouse\CatchMouse.cs" />
     <Compile Include="Games\CatchMouse\move.cs" />
     <Compile Include="Games\CatchMouse\Sequence\Sequence.cs" />
-    <Compile Include="Games\Hangman\Hangman.cs" />
+    <Compile Include="Games\Hangman\HangMan.cs" />
+    <Compile Include="Games\Hangman\Hangman\Menu.cs" />
+    <Compile Include="Games\Hangman\Hangman\Play.cs" />
     <Compile Include="Games\Hangman\Hangman\Sequqnce.cs" />
+    <Compile Include="Games\Hangman\Hangman\Start.cs" />
     <Compile Include="Games\MineSweeper\MineSweeper.cs" />
     <Compile Include="Games\MineSweeper\Grid.cs" />
     <Compile Include="Games\MineSweeper\Sequence\Menu.cs" />

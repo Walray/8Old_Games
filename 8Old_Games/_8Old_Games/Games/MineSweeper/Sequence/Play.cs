@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace _8Old_Games.Games.MineSweeper.Sequence {
     public class Play : Sequence {
+
         #region Texture2D 공백 (픽셀 단위)
         #endregion
 
@@ -61,6 +62,7 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
         public Play() {; }
 
         public override void initialize() {; }
+
         public void initialize(int w, int h, int m) {
             width = w;
             height = h;
@@ -70,6 +72,7 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
             clock.initialize();
 
         }
+
         public override State update(GameTime gameTime, KeyboardState ks) {
             clock.update(gameTime);
             mTimeSinceLastInput += (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -155,7 +158,9 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
             }
             return State.PLAY;
         }
+
         public override void draw(SpriteBatch spriteBatch, Texture2D sprite, Vector2 origin) {; }
+
 
         public void draw(SpriteBatch spriteBatch, Texture2D Back, Texture2D clicked, Texture2D flag, Texture2D unclicked, Texture2D mine, Texture2D clicked1, Texture2D clicked2, Texture2D clicked3, Texture2D clicked4, Texture2D clicked5, Texture2D clicked6, SpriteFont font, Vector2 origin) {
             spriteBatch.Draw(Back, new Vector2(0, 0), Color.White);
@@ -163,6 +168,8 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
             //  spriteBatch.DrawString(font, test, new Vector2(400, 450), Color.Yellow); 전역변수 디버깅
             spriteBatch.DrawString(font, "Time  ", new Vector2(600, 110), Color.White);
             clock.draw(spriteBatch, font, new Vector2(600, 150), Color.White);
+       
+            
             #region Draw grid
 
             // 이미지 출력 
@@ -224,7 +231,13 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
 
 
             #endregion
+
+
+
         }
+
+
+
 
         void InitializeGrid() {
 
