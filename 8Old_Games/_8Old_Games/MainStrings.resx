@@ -144,4 +144,7 @@
   <data name="two" xml:space="preserve">
     <value>틱택토</value>
   </data>
+  <data name="CM_notice" xml:space="preserve">
+    <value>500점을 채우면 게임에서 승리합니다. 해골에 주의하세요!!</value>
+  </data>
 </root>

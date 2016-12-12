@@ -36,8 +36,6 @@
     <Folder Include="Common\Sound\" />
     <Folder Include="Games\Alkanoid\Sound\" />
     <Folder Include="Games\Bomberman\Sound\" />
-    <Folder Include="Games\CatchMouse\Font\" />
-    <Folder Include="Games\CatchMouse\Image\" />
     <Folder Include="Games\CatchMouse\Sound\" />
     <Folder Include="Games\Frogger\Sound\" />
     <Folder Include="Games\Hangman\Font\" />
@@ -484,11 +482,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Games\Bomberman\Image\sLoad.png">
-      <Name>sLoad</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Games\Bomberman\Image\sMenu.png">
       <Name>sMenu</Name>
       <Importer>TextureImporter</Importer>
@@ -538,6 +531,57 @@
       <Name>sFail</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Bomberman\Image\sLoad.png">
+      <Name>sLoad</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\CatchMouse\Image\cm_clear.png">
+      <Name>cm_clear</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Games\CatchMouse\Image\cm_failed.png">
+      <Name>cm_failed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Games\CatchMouse\Image\cm_load.png">
+      <Name>cm_load</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Games\CatchMouse\Image\cm_menu.png">
+      <Name>cm_menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Games\CatchMouse\Image\cm_start.png">
+      <Name>cm_start</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Games\CatchMouse\Image\mouse1.png">
+      <Name>mouse1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Games\CatchMouse\Image\skull.png">
+      <Name>skull</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\CatchMouse\Font\sf.spritefont">
+      <Name>sf</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

@@ -61,6 +61,15 @@ namespace _8Old_Games {
         }
         
         /// <summary>
+        ///   500점을 채우면 게임에서 승리합니다. 해골에 주의하세요!!과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string CM_notice {
+            get {
+                return ResourceManager.GetString("CM_notice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   reserve 4과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string eight {

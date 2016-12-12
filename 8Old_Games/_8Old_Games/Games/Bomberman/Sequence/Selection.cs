@@ -24,9 +24,9 @@ namespace _8Old_Games.Games.Bomberman.Sequence {
         public override State update(GameTime gameTime, KeyboardState ks) {
             mTimeSinceLastInput += (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (mTimeSinceLastInput >= MIN_TIME) {
-                if (ks.IsKeyDown(Keys.A)) {
+                if (ks.IsKeyDown(Keys.B)) {
                     return State.PLAY1;
-                } else if (ks.IsKeyDown(Keys.B)) {
+                } else if (ks.IsKeyDown(Keys.A)) {
                     return State.PLAY2;
                 }
                 mTimeSinceLastInput = 0.0f;

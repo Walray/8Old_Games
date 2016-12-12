@@ -30,7 +30,7 @@ namespace _8Old_Games.Games.Bomberman.Sequence {
 
                 if (newState.IsKeyDown(Keys.Space)) {
                     mTimeAfterMenu = WAIT_MENU;
-                    return State.MENU1;
+                    return State.MENU2;
                 }
                 mTimeSinceLastInput = 0.0;
             }

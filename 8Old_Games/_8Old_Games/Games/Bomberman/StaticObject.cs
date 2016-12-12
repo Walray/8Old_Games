@@ -51,7 +51,7 @@ namespace _8Old_Games.Games.Bomberman {
             }
             else if (checkFlag(Flag.FLAG_BRICK)) {
                 if (checkFlag(Flag.FLAG_FIRE_X | Flag.FLAG_FIRE_Y)) { 
-                    srcX = 0;
+                    srcX = 16;
                     srcY = 48;
                 } else {
                     srcX = 0;

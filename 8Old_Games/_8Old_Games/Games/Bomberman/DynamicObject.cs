@@ -16,11 +16,15 @@ namespace _8Old_Games.Games.Bomberman {
             TYPE_PLAYER,
             TYPE_ENEMY,
             TYPE_NONE,
+            TYPE_BOSS,
         };
 
         private const int PLAYER_SPEED = 2000;
         private int mEnemySpeed = 1000;
         private const int HALF_SIZE = 12000; // 3/4크기 3/4만큼만 충돌판정을 한다.
+
+        private double mWaitTime = 0.0;
+        private const double RESURRECT_TIME = 1.0;
 
         private Type mType; // 동적 오브젝트의 타입
         private int mX; //x좌표
@@ -32,9 +36,12 @@ namespace _8Old_Games.Games.Bomberman {
         private int mBombNumber; //설치 가능 폭탄 수
         private int[] mLastBombX=new int[2]; // 연쇄폭발용 Stage.setFire(0 참조
         private int[] mLastBombY=new int[2]; // 연쇄폭발용
+        private int mLife;
+        private bool dieOnce;
 
         public int PlayerID { get { return mPlayerID; } set { mPlayerID = value; } }
 
+        public int Life { get { return mLife; } set { mLife = value; } }
         public int BombPower { get { return mBombPower; } set { mBombPower = value; } }
         public int BombNumber { get { return mBombNumber; } set { mBombNumber = value; } }
         public int[] LastBombX { get { return mLastBombX; } set { mLastBombX = value; } }
@@ -56,6 +63,8 @@ namespace _8Old_Games.Games.Bomberman {
             mBombNumber=1;
             mX = mY = -1;
             mDirectionX = mDirectionY = 0;
+            mLife = (Stage.mStageID==1)? 3 : 1;
+            dieOnce = false;
 
     }
         /*
@@ -85,6 +94,12 @@ namespace _8Old_Games.Games.Bomberman {
                     case 2: mDirectionY = 1; break;
                     case 3: mDirectionY = -1; break;
                 }
+            }
+            if(mType == Type.TYPE_BOSS) {
+                mEnemySpeed = 2000;
+                mLife = 3;
+                mDirectionX = 1;
+                mDirectionY = -1;
             }
         }
         //충돌처리를 위해 오브젝트들의 방향을 얻어온다.
@@ -144,15 +159,17 @@ namespace _8Old_Games.Games.Bomberman {
             if (isDead()) return;
             int destX = convertInnertoCell(mX);
             int destY = convertInnertoCell(mY);
-            int srcX=0, srcY=0;
+            int srcX=48, srcY=32;
             switch (mType) {
                 case Type.TYPE_PLAYER:
                     switch (mPlayerID) {
                         case 0: srcX = 0; srcY = 0; break;
                         case 1: srcX = 16; srcY = 0; break;
+                        
                     }
                 break;
                 case Type.TYPE_ENEMY: srcX = 32; srcY = 16; break;
+                case Type.TYPE_BOSS: srcX = 0; srcY = 48; break;
             }
             spriteBatch.Draw(obj, new Rectangle(destX, destY, 32, 32), new Rectangle(srcX, srcY, 16, 16), Color.White);
         }
@@ -185,6 +202,7 @@ namespace _8Old_Games.Games.Bomberman {
 
         //update, 이동처리 함수
         public void update(int[] wallsX, int[] wallsY, int wallNumber, KeyboardState ks) {
+            if(dieOnce) return;
             int dx, dy;
             getVelocity(out dx, out dy, ks);
             int movedX = mX + dx;
@@ -219,7 +237,7 @@ namespace _8Old_Games.Games.Bomberman {
             }
 
 
-            if (hit && mType == Type.TYPE_ENEMY) {
+            if (hit && mType == Type.TYPE_ENEMY ) {
                 mDirectionX = mDirectionY = 0;
                 switch (mRand.Next(0, 4)) {
                 case 0: mDirectionX = 1; break;
@@ -231,17 +249,17 @@ namespace _8Old_Games.Games.Bomberman {
         }
 
         //적과 플레이어간 충돌처리
-        public bool doCollisionReactionToDynamic(DynamicObject another) {
+        public bool doCollisionReactionToDynamic(DynamicObject another, GameTime gameTime) {
             if (another.isDead())  return false;//죽었으면 무시한다.
             
             //겹쳤으면 사망처리
             if (isIntersect(another)) { 
                                       
                 if (isPlayer() && another.isEnemy()) {
-                        this.die();
+                        this.die(gameTime);
                 } 
                 else if (isEnemy() && another.isPlayer()) {
-                        another.die();
+                        another.die(gameTime);
                 }
                 return true;
             }
@@ -296,13 +314,32 @@ namespace _8Old_Games.Games.Bomberman {
 
         //적인가?
         public bool isEnemy() {
-            return ( mType == Type.TYPE_ENEMY );
+            return ( mType == Type.TYPE_ENEMY || mType ==Type.TYPE_BOSS );
         }
 
         //동적 오브젝트 사망처리
-        public void die() {
-            mType = Type.TYPE_NONE;
-            
+        public void die(GameTime gameTime) {
+            if(mType == Type.TYPE_PLAYER || mType == Type.TYPE_BOSS) {
+                if(mLife <= 1) {
+                    mType = Type.TYPE_NONE;
+                }
+                else {
+                    if(!dieOnce) 
+                        dieOnce = true;
+
+                    mWaitTime += gameTime.ElapsedGameTime.TotalSeconds;
+                    if(mWaitTime >= 0.5) {
+                        mLife--;
+                        set(1, 1, Type.TYPE_PLAYER);
+                        mWaitTime = 0.0f;
+                        dieOnce = false;
+                    }
+                }
+            }
+            else {
+                mType = Type.TYPE_NONE;
+            }
+
         }
 
         //동적 오브젝트가 사망했는지 확인

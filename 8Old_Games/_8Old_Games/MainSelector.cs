@@ -14,18 +14,10 @@ using _8Old_Games.Games.Sudoku;
 using _8Old_Games.Games.MineSweeper;
 using _8Old_Games.Games.Bomberman;
 using _8Old_Games.Games.Alkanoid;
+using _8Old_Games.Games.CatchMouse;
 
 /*
- * 
- * deded
- * 
- * 
- * 
- * 
- * 
  * class MainSelector
- * 
- * 
  * 여덟 개의 게임 상태 관리
 */
 namespace _8Old_Games {
@@ -34,7 +26,7 @@ namespace _8Old_Games {
     public class MainSelector : Microsoft.Xna.Framework.Game {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        SpriteFont test;
+        SpriteFont han;
 
         Texture2D button_Frogger;
         Texture2D button_Minesweeper;
@@ -62,7 +54,8 @@ namespace _8Old_Games {
         MineSweeper mineSweeper;
         Alkanoid alkanoid;
         Bomberman bomberman;
-        
+        CatchMouse catchMouse;
+
 
         const int WIDTH = 150;
         const int HEIGHT = 70;
@@ -198,10 +191,20 @@ namespace _8Old_Games {
             //for Bomberman(end)
 
 
+            //for CatchMouse(start)
+            CatchMouse.cm_failed = Content.Load<Texture2D>("Games\\CatchMouse\\Image\\cm_failed");
+            CatchMouse.cm_load = Content.Load<Texture2D>("Games\\CatchMouse\\Image\\cm_load");
+            CatchMouse.cm_menu = Content.Load<Texture2D>("Games\\CatchMouse\\Image\\cm_menu");
+            CatchMouse.cm_start = Content.Load<Texture2D>("Games\\CatchMouse\\Image\\cm_start");
+            CatchMouse.mouse1 = Content.Load<Texture2D>("Games\\CatchMouse\\Image\\mouse1");
+            CatchMouse.skull = Content.Load<Texture2D>("Games\\CatchMouse\\Image\\skull");
+            CatchMouse.cm_clear = Content.Load<Texture2D>("Games\\CatchMouse\\Image\\cm_clear");
+            CatchMouse.font = Content.Load<SpriteFont>("Games\\CatchMouse\\Font\\sf");
+            //for CatchMouse(end)
 
 
 
-            test = Content.Load<SpriteFont>("Common\\Font\\MainFont");
+            han = Content.Load<SpriteFont>("Common\\Font\\MainFont");
         }
 
         protected override void UnloadContent() {
@@ -249,9 +252,9 @@ namespace _8Old_Games {
                             bomberman.initialize();
                         }
                         else if (rect_CatchMouse.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
-                          //  selector = Selector.CATCH_MOUSE;
-                            //new로 할당
-                            //초기화
+                            selector = Selector.CATCH_MOUSE;
+                            catchMouse = new CatchMouse();
+                            catchMouse.initialize();
                         }
                         else if (rect_Hangman.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
                           //  selector = Selector.HANGMAN;
@@ -283,7 +286,7 @@ namespace _8Old_Games {
                     break;
                 case Selector.CATCH_MOUSE:
                     Mouse.WindowHandle = Window.Handle;
-                    //업데이트
+                    selector = catchMouse.update(gameTime);
                     break;
                 case Selector.ALKANOID:
                     Mouse.WindowHandle = Window.Handle;
@@ -336,7 +339,8 @@ namespace _8Old_Games {
                     //그리기
                     break;
                 case Selector.CATCH_MOUSE:
-                    //그리기
+                    GraphicsDevice.Clear(Color.Black);
+                    catchMouse.draw(spriteBatch, gameTime);
                     break;
                 case Selector.ALKANOID:
                     GraphicsDevice.Clear(Color.Black);//그리기

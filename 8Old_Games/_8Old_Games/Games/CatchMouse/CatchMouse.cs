@@ -17,20 +17,90 @@ using _8Old_Games.Games.CatchMouse.Sequence;
  * 필요하면 함수 원형 자유롭게 변경
 */
 namespace _8Old_Games.Games.CatchMouse {
-    public enum State { START, SELECTION, PLAY, MENU, EXIT, NOTHING }; //자유롭게 추가
+    public enum State { START, LOAD, PLAY, MENU, CLEAR,FAIL,EXIT, NOTHING }; //자유롭게 추가
     public class CatchMouse {
         State state;
 
-        /*
-        모든 리소스를 담는 변수는 public static으로 선언 ex) 
-        public static Texture2D selectSize;
-        */
-        public CatchMouse() {; }
-        public void initialize() {; }
-        
-        public Selector update(GameTime gameTime) { return Selector.MAIN_SELECTOR; }
+        Start start;
+        Load load;
+        Play play;
+        Menu menu;
+        Clear clear;
+        Fail fail;
 
-        public void draw(SpriteBatch spriteBatch, GameTime gameTime) {; }
+        public static Texture2D mouse1;
+        public static Texture2D cm_start;
+        public static Texture2D cm_menu;
+        public static Texture2D cm_load;
+        public static Texture2D cm_failed;
+        public static Texture2D skull;
+        public static Texture2D cm_clear;
+        public static SpriteFont font;
+
+        public CatchMouse() {; }
+        public void initialize() {
+            state = State.START;
+            start = new Start();
+            load = new Load();
+            clear = new Sequence.Clear();
+            fail = new Sequence.Fail();
+            menu = new Sequence.Menu();
+        }
+
+        public Selector update(GameTime gameTime) {
+            switch (state)
+            {
+                case State.START:
+                    state = start.update(gameTime, Keyboard.GetState());
+                    break;
+                case State.LOAD:
+                    state = load.update(gameTime, Keyboard.GetState());
+                    play = new Play();
+                    play.initialize();
+                    break;
+                case State.PLAY:
+                    state = play.update(gameTime, Keyboard.GetState());
+                    break;
+                case State.MENU:
+                    state = menu.update(gameTime, Keyboard.GetState());
+                    break;
+                case State.CLEAR:
+                    state = clear.update(gameTime, Keyboard.GetState());
+                    break;
+                case State.FAIL:
+                    state = fail.update(gameTime, Keyboard.GetState());
+                    break;
+                case State.EXIT:
+                    return Selector.MAIN_SELECTOR;
+            }
+            return Selector.CATCH_MOUSE;
+
+        }
+
+        public void draw(SpriteBatch spriteBatch, GameTime gameTime) {
+
+            switch (state)
+            {
+                case State.START:
+                    start.draw(spriteBatch, cm_start, new Vector2(0, 0));
+                    break;
+                case State.LOAD:
+                    load.draw(spriteBatch, cm_load, new Vector2(0, 0));
+                    break;
+                case State.PLAY:
+                    play.draw(spriteBatch,mouse1,skull,font, new Vector2(0,0));
+                    break;
+                case State.MENU:
+                        menu.draw(spriteBatch, cm_menu, new Vector2(0, 0));
+                        break;
+                    case State.CLEAR:
+                    clear.draw(spriteBatch, cm_clear, new Vector2(0, 0));
+                    break;
+                case State.FAIL:
+                    fail.draw(spriteBatch, cm_failed, new Vector2(0, 0));
+                    break;
+            }
+        }
 
     }
 }

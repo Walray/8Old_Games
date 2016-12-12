@@ -34,7 +34,7 @@ namespace _8Old_Games.Games.Bomberman {
                 mSpeedEnemey = speedEnemey;
             }
         };
-        
+        private StageData m2PStageData;
         private StageData[] mStageData; // 스테이지 데이터
         private int mCurrentStage; // 현재 스테이지 데이터
         private StaticObject[,] mStaticObjects; // 정적 오브젝트 배열(StaticObejct.Flag 참조)
@@ -42,17 +42,19 @@ namespace _8Old_Games.Games.Bomberman {
         private DynamicObject[] mDynamicObjects; // 동적 오브젝트 배열(DynamicObject.Type 참조)
         private int mDynamicObjectNumber; // 동적 오브젝트 수
         private Random mRand; // 랜덤 클래스
-        private int mStageID; // 1p=0, 2p=1 구분
+        public static  int mStageID; // 1p=1, 2p=0 구분
         private int mLife; // 목(기본 3)
         private double mTimeSinceLastInput;
         // -2 아무도, -1 : 1p, 1: 2p, 0 : 비김
         private int mWhoWin = -2; 
         public Stage() {; }
+        
 
         public void reinitialize(int stageID, int stageNum) {
             mStageID = stageID;
             mWhoWin =- 2;
             StageData stage = mStageData[mCurrentStage];
+            if(mStageID == 0) stage = m2PStageData;
             mStaticObjects = new StaticObject[HEIGHT, WIDTH];
             Point[] brickList = new Point[HEIGHT * WIDTH];
             Point[] floorList = new Point[HEIGHT * WIDTH];
@@ -117,7 +119,7 @@ namespace _8Old_Games.Games.Bomberman {
 
             //mStageID가 0이면 2p, 1이면 1p
             int playerNumber = (mStageID == 0) ? 2 : 1;
-            int enemyNumber = stage.mEnemyNumber;
+            int enemyNumber = stage.mEnemyNumber/*+1*/;
             //동적 오브젝트 초기화
             mDynamicObjectNumber = playerNumber + enemyNumber;
             mDynamicObjects = new DynamicObject[mDynamicObjectNumber];
@@ -132,25 +134,31 @@ namespace _8Old_Games.Games.Bomberman {
                 mDynamicObjects[1].PlayerID = 1;
             }
             //적 초기화
-            for (int i = 0; i < enemyNumber; i++) {
+            int b=0;
+            for (int i = 0; i < enemyNumber/*-1*/; i++) {
                 int swapped = mRand.Next(floorNumber - 1 - i) + i;
                 Point t = floorList[i];
                 floorList[i] = floorList[swapped];
                 floorList[swapped] = t;
 
-                int x;
-                int y;
-                do {
-
-                    x = floorList[i].X;
-                    y = floorList[i].Y;
-                } while (y + x < 4);
+                int x = floorList[i].X;
+                int y = floorList[i].Y;
+                b = i;
                 mDynamicObjects[playerNumber + i] = new DynamicObject();
                 mDynamicObjects[playerNumber + i].set(x, y, DynamicObject.Type.TYPE_ENEMY,mStageData[mCurrentStage].mSpeedEnemey);
             }
+            /*
+            if(mCurrentStage == MAX_STAGE - 1) {
+                Console.WriteLine("sex");
+                mDynamicObjects[playerNumber + enemyNumber-1] = new DynamicObject();
+                mDynamicObjects[playerNumber + enemyNumber-1].set(floorList[b+1].X,floorList[b+1].Y, DynamicObject.Type.TYPE_BOSS);
+                Console.WriteLine("{0},{1}", floorList[b + 1].X, floorList[b + 1].Y);
+            }
+            */
+
         }
         public void initialize(int stageID) {
-            mStageID = stageID;
+            mStageID = stageID; 
             mRand = new Random();
             mCurrentStage = 0;
             mStageData = new StageData[MAX_STAGE];
@@ -158,7 +166,8 @@ namespace _8Old_Games.Games.Bomberman {
             mStageData[1] = new StageData(4, 60, 2, 1,1200);
             mStageData[2] = new StageData(5, 40, 1, 2, 1300);
             mStageData[3] = new StageData(6, 40, 2, 1,1500);
-            mStageData[4] = new StageData(5, 20, 1, 2,1500);
+            mStageData[4] = new StageData(6, 10, 1, 1,1500);
+            m2PStageData = new StageData(5, 40, 7, 7, 1200);
             mTimeSinceLastInput = 0.0;
             reinitialize(stageID, mCurrentStage);
 
@@ -184,8 +193,11 @@ namespace _8Old_Games.Games.Bomberman {
                 }
             }
             spriteBatch.DrawString(font, "Bomberman!" , new Vector2(650, 100), Color.Yellow);
-            spriteBatch.DrawString(font, "Stage : " + (mCurrentStage + 1), new Vector2(650, 200), Color.Yellow);
-            spriteBatch.DrawString(font, "Life : " + mLife , new Vector2(650, 300), Color.Yellow);
+            if(mStageID == 1) {
+                spriteBatch.DrawString(font, "Stage : " + (mCurrentStage + 1), new Vector2(650, 200), Color.Yellow);
+                spriteBatch.DrawString(font, "Life : " + mLife, new Vector2(650, 300), Color.Yellow);
+            }
+            else spriteBatch.DrawString(font, "2P Play! ",  new Vector2(650, 200), Color.Yellow);
 
             if (hasCleared()) {
                 spriteBatch.DrawString(font, "Clear!", new Vector2(650, 150), Color.YellowGreen);
@@ -206,7 +218,9 @@ namespace _8Old_Games.Games.Bomberman {
             }
         }
         public int update(GameTime gameTime, KeyboardState ks) {
-            Console.WriteLine("{0}, {1}, {2}",mStageID, isAlive(0) ,isAlive(1));
+            for(int i=0; i<mDynamicObjectNumber;i++) {
+                if(mDynamicObjects[i].getType == DynamicObject.Type.TYPE_PLAYER) mLife = mDynamicObjects[i].Life;
+            }
             if ( mStageID==0 ) {
                 if (!isAlive(0) && !isAlive(1)) {
                     mWhoWin = 0;
@@ -224,6 +238,10 @@ namespace _8Old_Games.Games.Bomberman {
                     return -1;
                 }
                 return 0;
+            }
+            else {
+                if(!isAlive(0)) return -1;
+
             }
 
              if (mStageID==1 && hasCleared()) {
@@ -382,7 +400,7 @@ namespace _8Old_Games.Games.Bomberman {
                         if (mDynamicObjects[i].isIntersectWall(tx,ty)) {
                             //그게 불이면 죽고
                             if (o.checkFlag(StaticObject.Flag.FLAG_FIRE_X | StaticObject.Flag.FLAG_FIRE_Y)) {
-                                mDynamicObjects[i].die();
+                                mDynamicObjects[i].die(gameTime);
                                 
                             }
                             //아이템이 있으면 그에 맞는 처리를 한다.
@@ -432,7 +450,7 @@ namespace _8Old_Games.Games.Bomberman {
             //적과 충돌판정을 한다.
             for (int i = 0; i < mDynamicObjectNumber; i++) {
                 for (int j = i + 1; j < mDynamicObjectNumber; j++) {
-                    mDynamicObjects[i].doCollisionReactionToDynamic(mDynamicObjects[j]);
+                    mDynamicObjects[i].doCollisionReactionToDynamic(mDynamicObjects[j],gameTime);
                 }
             }
             return 0;
