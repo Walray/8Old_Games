@@ -5,7 +5,7 @@
     <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>_8Old_Games</RootNamespace>
     <AssemblyName>_8Old_Games</AssemblyName>
@@ -19,7 +19,7 @@
     <ApplicationIcon>Game.ico</ApplicationIcon>
     <Thumbnail>GameThumbnail.png</Thumbnail>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\walru\Documents\</PublishUrl>
+    <PublishUrl>C:\Users\Ray\Desktop\local7\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -32,8 +32,8 @@
     <ProductName>EightOldGames</ProductName>
     <PublisherName>DBDBDIP</PublisherName>
     <SuiteName>EightOldGames</SuiteName>
-    <ApplicationRevision>4</ApplicationRevision>
-    <ApplicationVersion>0.5.0.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -134,7 +134,10 @@
     <Compile Include="Games\CatchMouse\Sequence\Sequence.cs" />
     <Compile Include="Games\CatchMouse\Sequence\Start.cs" />
     <Compile Include="Games\Hangman\Hangman.cs" />
+    <Compile Include="Games\Hangman\Hangman\Menu.cs" />
+    <Compile Include="Games\Hangman\Hangman\Play.cs" />
     <Compile Include="Games\Hangman\Hangman\Sequqnce.cs" />
+    <Compile Include="Games\Hangman\Hangman\Start.cs" />
     <Compile Include="Games\MineSweeper\MineSweeper.cs" />
     <Compile Include="Games\MineSweeper\Grid.cs" />
     <Compile Include="Games\MineSweeper\Sequence\Menu.cs" />

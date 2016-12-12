@@ -15,6 +15,7 @@ using _8Old_Games.Games.MineSweeper;
 using _8Old_Games.Games.Bomberman;
 using _8Old_Games.Games.Alkanoid;
 using _8Old_Games.Games.CatchMouse;
+using _8Old_Games.Games.Hangman;
 
 /*
  * class MainSelector
@@ -28,6 +29,7 @@ namespace _8Old_Games {
         SpriteBatch spriteBatch;
         SpriteFont han;
 
+        #region 버튼용
         Texture2D button_Frogger;
         Texture2D button_Minesweeper;
         Texture2D button_Sudoku;
@@ -47,6 +49,8 @@ namespace _8Old_Games {
         Rectangle rect_Alkanoid;
         Rectangle rect_Bomberman;
 
+        #endregion
+
         Selector selector;
         Frogger frogger;
         TicTacToe tictactoe;
@@ -55,6 +59,7 @@ namespace _8Old_Games {
         Alkanoid alkanoid;
         Bomberman bomberman;
         CatchMouse catchMouse;
+        HangMan hangman;
 
 
         const int WIDTH = 150;
@@ -87,8 +92,9 @@ namespace _8Old_Games {
         protected override void LoadContent() {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            #region 게임별 리소스 로드
             //for button images(start)
-            button_Frogger= Content.Load<Texture2D>("Common\\Image\\Button_Frogger"); ;
+            button_Frogger = Content.Load<Texture2D>("Common\\Image\\Button_Frogger"); ;
             button_Minesweeper = Content.Load<Texture2D>("Common\\Image\\Button_Minesweeper");
             button_Sudoku = Content.Load<Texture2D>("Common\\Image\\Button_Sudoku"); 
             button_Tictactoe = Content.Load<Texture2D>("Common\\Image\\Button_Tictactoe");
@@ -202,7 +208,47 @@ namespace _8Old_Games {
             CatchMouse.font = Content.Load<SpriteFont>("Games\\CatchMouse\\Font\\sf");
             //for CatchMouse(end)
 
+            //for Hangman(start)
+            HangMan.startImage = Content.Load<Texture2D>("Games\\Hangman\\Image\\행맨메인화면");
+            HangMan.menuImage = Content.Load<Texture2D>("Games\\Hangman\\Image\\행맨메뉴선택");
+            HangMan.font = Content.Load<SpriteFont>("Games\\MineSweeper\\Font\\SpriteFont1"); // 폰트
+            HangMan.a = Content.Load<Texture2D>("Games\\Hangman\\Image\\a");
+            HangMan.b = Content.Load<Texture2D>("Games\\Hangman\\Image\\b");
+            HangMan.c = Content.Load<Texture2D>("Games\\Hangman\\Image\\c");
+            HangMan.d = Content.Load<Texture2D>("Games\\Hangman\\Image\\d");
+            HangMan.e = Content.Load<Texture2D>("Games\\Hangman\\Image\\e");
+            HangMan.f = Content.Load<Texture2D>("Games\\Hangman\\Image\\f");
+            HangMan.g = Content.Load<Texture2D>("Games\\Hangman\\Image\\g");
+            HangMan.h = Content.Load<Texture2D>("Games\\Hangman\\Image\\h");
+            HangMan.i = Content.Load<Texture2D>("Games\\Hangman\\Image\\i");
+            HangMan.j = Content.Load<Texture2D>("Games\\Hangman\\Image\\j");
+            HangMan.k = Content.Load<Texture2D>("Games\\Hangman\\Image\\k");
+            HangMan.l = Content.Load<Texture2D>("Games\\Hangman\\Image\\l");
+            HangMan.n = Content.Load<Texture2D>("Games\\Hangman\\Image\\n");
+            HangMan.m = Content.Load<Texture2D>("Games\\Hangman\\Image\\m");
+            HangMan.o = Content.Load<Texture2D>("Games\\Hangman\\Image\\o");
+            HangMan.p = Content.Load<Texture2D>("Games\\Hangman\\Image\\p");
+            HangMan.q = Content.Load<Texture2D>("Games\\Hangman\\Image\\q");
+            HangMan.r = Content.Load<Texture2D>("Games\\Hangman\\Image\\r");
+            HangMan.s = Content.Load<Texture2D>("Games\\Hangman\\Image\\s");
+            HangMan.t = Content.Load<Texture2D>("Games\\Hangman\\Image\\t");
+            HangMan.u = Content.Load<Texture2D>("Games\\Hangman\\Image\\u");
+            HangMan.v = Content.Load<Texture2D>("Games\\Hangman\\Image\\v");
+            HangMan.w = Content.Load<Texture2D>("Games\\Hangman\\Image\\w");
+            HangMan.x = Content.Load<Texture2D>("Games\\Hangman\\Image\\x");
+            HangMan.y = Content.Load<Texture2D>("Games\\Hangman\\Image\\y");
+            HangMan.z = Content.Load<Texture2D>("Games\\Hangman\\Image\\z");
+            HangMan.scaffold = Content.Load<Texture2D>("Games\\Hangman\\Image\\단두대");
+            HangMan.head = Content.Load<Texture2D>("Games\\Hangman\\Image\\얼굴");
+            HangMan.rigth_hand = Content.Load<Texture2D>("Games\\Hangman\\Image\\오른팔");
+            HangMan.rigth_foot = Content.Load<Texture2D>("Games\\Hangman\\Image\\오른다리");
+            HangMan.left_hand = Content.Load<Texture2D>("Games\\Hangman\\Image\\왼팔");
+            HangMan.left_foot = Content.Load<Texture2D>("Games\\Hangman\\Image\\왼다리");
+            HangMan.body = Content.Load<Texture2D>("Games\\Hangman\\Image\\몸통");
+            HangMan.clicked = Content.Load<Texture2D>("Games\\Hangman\\Image\\선택함");
+            //for Hangman(end)
 
+            #endregion
 
             han = Content.Load<SpriteFont>("Common\\Font\\MainFont");
         }
@@ -257,9 +303,9 @@ namespace _8Old_Games {
                             catchMouse.initialize();
                         }
                         else if (rect_Hangman.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
-                          //  selector = Selector.HANGMAN;
-                            //new로 할당
-                            //초기화
+                            selector = Selector.HANGMAN;
+                            hangman = new HangMan();
+                            hangman.initialize();
                         }
                         mTimeSinceLastInput = 0.0f;
                     }
@@ -282,7 +328,7 @@ namespace _8Old_Games {
                     break;
                 case Selector.HANGMAN:
                     Mouse.WindowHandle = Window.Handle;
-                    //업데이트
+                    selector = hangman.update(gameTime);
                     break;
                 case Selector.CATCH_MOUSE:
                     Mouse.WindowHandle = Window.Handle;
@@ -336,19 +382,18 @@ namespace _8Old_Games {
                     tictactoe.draw(spriteBatch, gameTime);
                     break;
                 case Selector.HANGMAN:
-                    //그리기
+                    hangman.draw(spriteBatch, gameTime);
                     break;
                 case Selector.CATCH_MOUSE:
                     GraphicsDevice.Clear(Color.Black);
                     catchMouse.draw(spriteBatch, gameTime);
                     break;
                 case Selector.ALKANOID:
-                    GraphicsDevice.Clear(Color.Black);//그리기
+                    GraphicsDevice.Clear(Color.Black);
                     alkanoid.draw(spriteBatch, gameTime);
                     break;
                 case Selector.BOMBERMAN:
-                    //그리기
-                    GraphicsDevice.Clear(Color.Black);//그리기
+                    GraphicsDevice.Clear(Color.Black);
                     bomberman.draw(spriteBatch, gameTime);
                     break;
                }

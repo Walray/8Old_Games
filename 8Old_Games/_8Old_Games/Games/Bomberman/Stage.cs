@@ -147,14 +147,6 @@ namespace _8Old_Games.Games.Bomberman {
                 mDynamicObjects[playerNumber + i] = new DynamicObject();
                 mDynamicObjects[playerNumber + i].set(x, y, DynamicObject.Type.TYPE_ENEMY,mStageData[mCurrentStage].mSpeedEnemey);
             }
-            /*
-            if(mCurrentStage == MAX_STAGE - 1) {
-                Console.WriteLine("sex");
-                mDynamicObjects[playerNumber + enemyNumber-1] = new DynamicObject();
-                mDynamicObjects[playerNumber + enemyNumber-1].set(floorList[b+1].X,floorList[b+1].Y, DynamicObject.Type.TYPE_BOSS);
-                Console.WriteLine("{0},{1}", floorList[b + 1].X, floorList[b + 1].Y);
-            }
-            */
 
         }
         public void initialize(int stageID) {
