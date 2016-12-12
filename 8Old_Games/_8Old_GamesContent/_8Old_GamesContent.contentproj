@@ -554,6 +554,9 @@
   <ItemGroup>
     <Compile Include="Common\Image\Button_Hangman.png">
       <Name>Button_Hangman</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
 
      
     <Compile Include="Games\Alkanoid\Image\paddle.png">
@@ -623,6 +626,9 @@
   <ItemGroup>
     <Compile Include="Games\Hangman\Image\선택함.png">
       <Name>선택함</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Compile Include="Games\Alkanoid\Image\heart_b.png">
       <Name>heart_b</Name>
       <Importer>TextureImporter</Importer>

@@ -43,8 +43,8 @@ namespace _8Old_Games.Games.Hangman.Hangman
 
         int PmouseX = 0; // 게임중
         int PmouseY = 0; // 게임중
-        
 
+        bool[] isClicked=new bool[26]; //버튼이 클릭되었는가
         public override void initialize() {  ;  }
 
         public void initialize(int a)
@@ -58,6 +58,7 @@ namespace _8Old_Games.Games.Hangman.Hangman
                 temp = words[rnd.Next(words.Length)];
                 wordDone = true;
             }
+            for(int i = 0;i < 26;i++) isClicked[i] = false;
 
          
         }
@@ -112,7 +113,11 @@ namespace _8Old_Games.Games.Hangman.Hangman
             }
 
             mousePos = string.Format("X : {0}, Y : {1}", Mouse.GetState().X, Mouse.GetState().Y); // 위치 디버깅
-
+            
+            for(int i=0; i<26;i++) {
+                if(isClicked[i])
+                Console.WriteLine("{0}", i);
+            }
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed)
                 {
                     leftmouse = true;
@@ -125,33 +130,36 @@ namespace _8Old_Games.Games.Hangman.Hangman
 
                     int PmouseXRelease = (Mouse.GetState().X);
                     int PmMouseYRelease = (Mouse.GetState().Y);
+                    int idx = 0;
+                    String cmp;
 
-
-                    if (PmouseX == PmouseXRelease && PmouseY == PmMouseYRelease)
-                    {
-                        if (clickPosition(PmouseX, PmouseY) != "not")
-                        {
+                if(PmouseX == PmouseXRelease && PmouseY == PmMouseYRelease) {
+                    cmp = clickPosition(PmouseX, PmouseY,out idx);
+                    if(cmp != "not" ) {
                         int pp = 1;
-                            arysel[index] = clickPosition(PmouseX, PmouseY);
-                            index = index + 1;                            
+                        arysel[index] = cmp;
+                        Console.WriteLine("{0}", isClicked[idx]);
+                        if(!isClicked[idx]) {
+                            if(idx < 26) isClicked[idx] = true;
+                            index = index + 1;
                             deadcnt = deadcnt + 1;
 
-                         for (int T = 0; T < temp.Length; T++)
-                           {
-                            
-                                if (temp[T].ToString() == clickPosition(PmouseX, PmouseY))
-                                {
+                            for(int T = 0;T < temp.Length;T++) {
+
+                                if(temp[T].ToString() == cmp) {
                                     txtcnt++;
-                                    if (pp == 1)
-                                    deadcnt = deadcnt - 1;
+                                    if(pp == 1)
+                                        deadcnt = deadcnt - 1;
                                     pp = 0;
                                 }
 
-                           }
-
+                            }
                         }
-
                     }
+
+
+                    
+                }
 
                 leftmouse = false;
             }
@@ -362,7 +370,6 @@ namespace _8Old_Games.Games.Hangman.Hangman
             int counter = 0;
             string line;
 
-            Console.WriteLine(Directory.GetCurrentDirectory());
             System.IO.StreamReader file =
                 new System.IO.StreamReader(".\\영어단어.txt");
 
@@ -393,8 +400,8 @@ namespace _8Old_Games.Games.Hangman.Hangman
  
         void correct(SpriteBatch spriteBatch, SpriteFont font)
         {
-           
-            if (clickPosition(PmouseX, PmouseY) != "not")
+            int g;
+            if (clickPosition(PmouseX, PmouseY,out g) != "not")
             {
                 for (int T = 0; T < temp.Length; T++)
                 {
@@ -404,6 +411,7 @@ namespace _8Old_Games.Games.Hangman.Hangman
                         {
                             if (temp[T].ToString() == arysel[K])
                             {
+
                                 spriteBatch.DrawString(font, temp[T].ToString(), new Vector2((75 + (50 * T)), 175), Color.Black);
                                 
                             }
@@ -417,193 +425,33 @@ namespace _8Old_Games.Games.Hangman.Hangman
         }
         
         
-        string clickPosition(int PmouseX, int PmouseY)
+        string clickPosition(int PmouseX, int PmouseY, out int idx)
         {
 
-            string[] abc = {  "a", "b" ,"c","d","e","f","g","h","i","j"};
-            string[] kln = { "k", "l", "n", "m", "o", "p", "q", "r", "s", "t" };
-            string[] uvx = { "u", "v", "w","x", "y", "z" };
+            string[] abc = {  "a", "b" ,"c","d","e","f","g","h","i","j", "k", "l", "n", "m", "o", "p", "q", "r", "s", "t" , "u", "v", "w", "x", "y", "z" };
             int x = 150;
             int y = 300;
             int cnt=0;
             
-
-            #region A ~ J
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))           
-                return abc[cnt]; //a
-            
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return abc[cnt]; //b
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return abc[cnt];// c
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return abc[cnt]; //d
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return abc[cnt]; //e
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return abc[cnt];  //f
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return abc[cnt];  //g
-
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return abc[cnt];// h
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return abc[cnt];// i
-
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return abc[cnt];  //j
-            #endregion
-
-            #region  K ~ T
-
-            x = 150;
-            y = 350;
-            cnt=0;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return kln[cnt]; //k
-
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return kln[cnt]; //l
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return kln[cnt]; //n
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return kln[cnt]; //m
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return kln[cnt]; // o
-
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return kln[cnt]; // p
-
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return kln[cnt];  //q
-
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return kln[cnt]; //w
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return kln[cnt]; //s
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return kln[cnt]; //t
-
-            #endregion
-
-            #region U ~ Z
-            x = 250;
-            y = 400;
-            cnt = 0;
-
-            if(x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return uvx[cnt]; //u
-
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return uvx[cnt]; //v
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return uvx[cnt]; //w
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return uvx[cnt]; //x
-
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return uvx[cnt]; //y
-
-            x += 50;
-            cnt++;
-
-            if (x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40))
-                return uvx[cnt]; //z
-
-
-
-
-            #endregion
-
+            for(cnt=0; cnt<26;cnt++) {
+             
+                if(cnt == 0) {
+                    x = 150; y = 300;
+                }
+                else if(cnt == 10) {
+                    x = 150; y = 350;
+                }
+                else if(cnt == 20) {
+                    x = 250; y = 400;
+                }
+
+                if(x < PmouseX && PmouseX < (x + 40) && y < PmouseY && PmouseY < (y + 40)) {
+                    idx = cnt;
+                    return abc[cnt]; 
+                }
+                x += 50;
+            }
+            idx = cnt;
             return "not";
         }
 

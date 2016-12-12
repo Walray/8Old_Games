@@ -101,7 +101,6 @@ namespace _8Old_Games.Games.Hangman {
                     break;
                 case State.PLAY:
                     state = play.update(gameTime, Keyboard.GetState());
-                    play.initialize(inti);
                     break;
                 case State.MENU:
                     state = menu.update(gameTime, Keyboard.GetState());
