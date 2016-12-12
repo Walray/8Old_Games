@@ -34,14 +34,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\Sound\" />
-    <Folder Include="Games\Alkanoid\Font\" />
-    <Folder Include="Games\Alkanoid\Image\" />
     <Folder Include="Games\Alkanoid\Sound\" />
-    <Folder Include="Games\Bomberman\Font\" />
-    <Folder Include="Games\Bomberman\Image\" />
     <Folder Include="Games\Bomberman\Sound\" />
-    <Folder Include="Games\CatchMouse\Font\" />
-    <Folder Include="Games\CatchMouse\Image\" />
     <Folder Include="Games\CatchMouse\Sound\" />
     <Folder Include="Games\Frogger\Sound\" />
     <Folder Include="Games\Hangman\Font\" />
@@ -104,11 +98,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Games\Frogger\Image\sFail.png">
-      <Name>sFail</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Games\Frogger\Image\sLoad.png">
       <Name>sLoad</Name>
       <Importer>TextureImporter</Importer>
@@ -131,7 +120,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
     </Compile>
-    <Compile Include="Games\Frogger\Font\Spritefont.spritefont">
+    <Compile Include="Games\Bomberman\Font\Spritefont.spritefont">
       <Name>Spritefont</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
@@ -361,6 +350,32 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Image\Button_Bomberman.png">
+      <Name>Button_Bomberman</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Common\Image\Button_CatchMouse.png">
+      <Name>Button_CatchMouse</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Common\Image\Button_Hangman.png">
+      <Name>Button_Hangman</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Image\background.png">
+      <Name>background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Common\Image\Button_Tictactoe.png">
       <Name>Button_Tictactoe</Name>
       <Importer>TextureImporter</Importer>
@@ -373,13 +388,31 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Common\Image\Button_Bomberman.png">
-      <Name>Button_Bomberman</Name>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Font\Arial.spritefont">
+      <Name>Arial</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Font\Arial2.spritefont">
+      <Name>Arial2</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\heart.png">
+      <Name>heart</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Common\Image\Button_CatchMouse.png">
-      <Name>Button_CatchMouse</Name>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\brick.jpg">
+      <Name>brick</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -521,7 +554,11 @@
   <ItemGroup>
     <Compile Include="Common\Image\Button_Hangman.png">
       <Name>Button_Hangman</Name>
-      <Importer>TextureImporter</Importer>
+
+     
+    <Compile Include="Games\Alkanoid\Image\paddle.png">
+      <Name>paddle</Name>
+     <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
@@ -586,8 +623,162 @@
   <ItemGroup>
     <Compile Include="Games\Hangman\Image\선택함.png">
       <Name>선택함</Name>
+    <Compile Include="Games\Alkanoid\Image\heart_b.png">
+      <Name>heart_b</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\cross.png">
+      <Name>cross</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\back.png">
+      <Name>back</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\메인.png">
+      <Name>메인</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\로딩.png">
+      <Name>로딩</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\ball.png">
+      <Name>ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Font\font3.spritefont">
+      <Name>font3</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Alkanoid\Image\메뉴화면.png">
+      <Name>메뉴화면</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Bomberman\Image\sMenu.png">
+      <Name>sMenu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Games\Bomberman\Image\sPlay.png">
+      <Name>sPlay</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Games\Bomberman\Image\sStart.png">
+      <Name>sStart</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Bomberman\Image\object.png">
+      <Name>object</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Frogger\Font\Spritefont.spritefont">
+      <Name>Spritefont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Bomberman\Image\sClear.png">
+      <Name>sClear</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Frogger\Image\sFail.png">
+      <Name>sFail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Bomberman\Image\sFail.png">
+      <Name>sFail</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\Bomberman\Image\sLoad.png">
+      <Name>sLoad</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\CatchMouse\Image\cm_clear.png">
+      <Name>cm_clear</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Games\CatchMouse\Image\cm_failed.png">
+      <Name>cm_failed</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Games\CatchMouse\Image\cm_load.png">
+      <Name>cm_load</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Games\CatchMouse\Image\cm_menu.png">
+      <Name>cm_menu</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Games\CatchMouse\Image\cm_start.png">
+      <Name>cm_start</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Games\CatchMouse\Image\mouse1.png">
+      <Name>mouse1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Games\CatchMouse\Image\skull.png">
+      <Name>skull</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Games\CatchMouse\Font\sf.spritefont">
+      <Name>sf</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

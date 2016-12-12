@@ -12,17 +12,15 @@ using _8Old_Games.Games.Frogger;
 using _8Old_Games.Games.TicTacToe;
 using _8Old_Games.Games.Sudoku;
 using _8Old_Games.Games.MineSweeper;
+
+using _8Old_Games.Games.Bomberman;
+using _8Old_Games.Games.Alkanoid;
+using _8Old_Games.Games.CatchMouse;
 using _8Old_Games.Games.Hangman;
 
-
 /*
- * 
- * deded
- * 
- * 
  * class MainSelector
- * 
- * ø©¥¸ ∞≥¿« ∞‘¿” ªÛ≈¬ ∞¸∏Æ
+ * Ïó¨Îçü Í∞úÏùò Í≤åÏûÑ ÏÉÅÌÉú Í¥ÄÎ¶¨
 */
 namespace _8Old_Games {
     public enum Selector { MAIN_SELECTOR, MINE_SWEEPER, HANGMAN, SUDOKU, BOMBERMAN, TICTACTOE, CATCH_MOUSE, FROGGER, ALKANOID, END };
@@ -30,9 +28,8 @@ namespace _8Old_Games {
     public class MainSelector : Microsoft.Xna.Framework.Game {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        SpriteFont test;
+        SpriteFont han;
 
-        #region
         Texture2D button_Frogger;
         Texture2D button_Minesweeper;
         Texture2D button_Sudoku;
@@ -52,14 +49,16 @@ namespace _8Old_Games {
         Rectangle rect_Alkanoid;
         Rectangle rect_Bomberman;
 
-        #endregion
-
         Selector selector;
         Frogger frogger;
         TicTacToe tictactoe;
         Sudoku sudoku;
         MineSweeper mineSweeper;
+        Alkanoid alkanoid;
+        Bomberman bomberman;
+        CatchMouse catchMouse;
         HangMan hangman;
+
 
         const int WIDTH = 150;
         const int HEIGHT = 70;
@@ -124,15 +123,15 @@ namespace _8Old_Games {
             //for Frogger(end)
 
             //for TicTacToe(start)
-            TicTacToe.main = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\∏ﬁ¿Œ»≠∏È-∆Ω≈√≈‰");
-            TicTacToe.menuImage = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\∏ﬁ¥∫»≠∏È-∆Ω≈√≈‰");
-            TicTacToe.loading = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\∑Œµ˘»≠∏È");
+            TicTacToe.main = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\Î©îÏù∏ÌôîÎ©¥-Ìã±ÌÉùÌÜ†");
+            TicTacToe.menuImage = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\Î©îÎâ¥ÌôîÎ©¥-Ìã±ÌÉùÌÜ†");
+            TicTacToe.loading = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\Î°úÎî©ÌôîÎ©¥");
             TicTacToe.square = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\square");
             TicTacToe.spriteFont = Content.Load<SpriteFont>("Games\\TicTacToe\\Font\\SpriteFont1");
             TicTacToe.spriteFont2 = Content.Load<SpriteFont>("Games\\TicTacToe\\Font\\SpriteFont2");
             TicTacToe.cross = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\cross");
             TicTacToe.zero = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\zero");
-            TicTacToe.selectmode = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\∆Ω≈√≈‰∏µÂ");
+            TicTacToe.selectmode = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\Ìã±ÌÉùÌÜ†Î™®Îìú");
             //for TicTacToe(end)
 
             //for Sudoku(start)
@@ -149,21 +148,21 @@ namespace _8Old_Games {
             Sudoku.button_hard = Content.Load<Texture2D>("Games\\Sudoku\\Image\\button_hard");
             Sudoku.button_extreme = Content.Load<Texture2D>("Games\\Sudoku\\Image\\button_extreme");
             //for Sudoku(end)
-
+            // ddd
             //for MineSweeper(start)
-            MineSweeper.font = Content.Load<SpriteFont>("Games\\MineSweeper\\Font\\SpriteFont1"); // ∆˘∆Æ
-            MineSweeper.clicked = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-0"); // º±≈√µ 
-            MineSweeper.selectSize = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\∞‘¿”ªÁ¿Ã¡Ó");
-            MineSweeper.Back = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\Back"); // µﬁπË∞Ê
+            MineSweeper.font = Content.Load<SpriteFont>("Games\\MineSweeper\\Font\\SpriteFont1"); // Ìè∞Ìä∏
+            MineSweeper.clicked = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-0"); // ÏÑ†ÌÉùÎê®
+            MineSweeper.selectSize = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\Í≤åÏûÑÏÇ¨Ïù¥Ï¶à");
+            MineSweeper.Back = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\Back"); // Îí∑Î∞∞Í≤Ω
             MineSweeper.clicked1 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\1"); // 1
             MineSweeper.clicked2 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\2"); // 2
             MineSweeper.clicked3 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\3"); // 3
             MineSweeper.clicked4 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\4"); // 4
             MineSweeper.clicked5 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\5"); // 5
             MineSweeper.clicked6 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\6"); // 6
-            MineSweeper.mine = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\¡ˆ∑⁄"); // ∆¯≈∫
-            MineSweeper.unclicked = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-unknown"); // º±≈√¿¸
-            MineSweeper.flag = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-flag"); // ±Íπﬂ
+            MineSweeper.mine = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\ÏßÄÎ¢∞"); // Ìè≠ÌÉÑ
+            MineSweeper.unclicked = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-unknown"); // ÏÑ†ÌÉùÏ†Ñ
+            MineSweeper.flag = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-flag"); // ÍπÉÎ∞ú
             MineSweeper.startImage = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\start");
             MineSweeper.menuImage = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\menu");
             //for MineSweeper(end)
@@ -171,9 +170,9 @@ namespace _8Old_Games {
 
             #region for Hangman
             //for Hangman(start)
-            HangMan.startImage = Content.Load<Texture2D>("Games\\Hangman\\Image\\«‡∏«∏ﬁ¿Œ»≠∏È");
-            HangMan.menuImage = Content.Load<Texture2D>("Games\\Hangman\\Image\\«‡∏«∏ﬁ¥∫º±≈√");
-            HangMan.font = Content.Load<SpriteFont>("Games\\MineSweeper\\Font\\SpriteFont1"); // ∆˘∆Æ
+            HangMan.startImage = Content.Load<Texture2D>("Games\\Hangman\\Image\\ÌñâÎß®Î©îÏù∏ÌôîÎ©¥");
+            HangMan.menuImage = Content.Load<Texture2D>("Games\\Hangman\\Image\\ÌñâÎß®Î©îÎâ¥ÏÑ†ÌÉù");
+            HangMan.font = Content.Load<SpriteFont>("Games\\MineSweeper\\Font\\SpriteFont1"); // Ìè∞Ìä∏
             HangMan.a = Content.Load<Texture2D>("Games\\Hangman\\Image\\a");
             HangMan.b = Content.Load<Texture2D>("Games\\Hangman\\Image\\b");
             HangMan.c = Content.Load<Texture2D>("Games\\Hangman\\Image\\c");
@@ -200,19 +199,60 @@ namespace _8Old_Games {
             HangMan.x = Content.Load<Texture2D>("Games\\Hangman\\Image\\x");
             HangMan.y = Content.Load<Texture2D>("Games\\Hangman\\Image\\y");
             HangMan.z = Content.Load<Texture2D>("Games\\Hangman\\Image\\z");
-            HangMan.scaffold = Content.Load<Texture2D>("Games\\Hangman\\Image\\¥‹µŒ¥Î");
-            HangMan.head = Content.Load<Texture2D>("Games\\Hangman\\Image\\æÛ±º");
-            HangMan.rigth_hand = Content.Load<Texture2D>("Games\\Hangman\\Image\\ø¿∏•∆»");
-            HangMan.rigth_foot = Content.Load<Texture2D>("Games\\Hangman\\Image\\ø¿∏•¥Ÿ∏Æ");
-            HangMan.left_hand = Content.Load<Texture2D>("Games\\Hangman\\Image\\øﬁ∆»");
-            HangMan.left_foot = Content.Load<Texture2D>("Games\\Hangman\\Image\\øﬁ¥Ÿ∏Æ");
-            HangMan.body = Content.Load<Texture2D>("Games\\Hangman\\Image\\∏ˆ≈Î");
-            HangMan.clicked = Content.Load<Texture2D>("Games\\Hangman\\Image\\º±≈√«‘");
+            HangMan.scaffold = Content.Load<Texture2D>("Games\\Hangman\\Image\\Îã®ÎëêÎåÄ");
+            HangMan.head = Content.Load<Texture2D>("Games\\Hangman\\Image\\ÏñºÍµ¥");
+            HangMan.rigth_hand = Content.Load<Texture2D>("Games\\Hangman\\Image\\Ïò§Î•∏Ìåî");
+            HangMan.rigth_foot = Content.Load<Texture2D>("Games\\Hangman\\Image\\Ïò§Î•∏Îã§Î¶¨");
+            HangMan.left_hand = Content.Load<Texture2D>("Games\\Hangman\\Image\\ÏôºÌåî");
+            HangMan.left_foot = Content.Load<Texture2D>("Games\\Hangman\\Image\\ÏôºÎã§Î¶¨");
+            HangMan.body = Content.Load<Texture2D>("Games\\Hangman\\Image\\Î™∏ÌÜµ");
+            HangMan.clicked = Content.Load<Texture2D>("Games\\Hangman\\Image\\ÏÑ†ÌÉùÌï®");
             //for Hangman(end)
             #endregion
 
 
-            test = Content.Load<SpriteFont>("Common\\Font\\MainFont");
+            //for Alkanoid(start)
+            Alkanoid.sMenu = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\Î©îÎâ¥ÌôîÎ©¥");
+            Alkanoid.sStart = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\Î©îÏù∏");
+            Alkanoid.sLoad = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\Î°úÎî©");
+            Alkanoid.pad = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\paddle");
+            Alkanoid.ball = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\ball");
+            Alkanoid.brick = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\brick");
+            Alkanoid.font = Content.Load<SpriteFont>("Games\\Alkanoid\\Font\\Arial");
+            Alkanoid.heart= Content.Load<Texture2D>("Games\\Alkanoid\\Image\\heart");
+            Alkanoid.font2 = Content.Load<SpriteFont>("Games\\Alkanoid\\Font\\Arial2");
+            Alkanoid.font3 = Content.Load<SpriteFont>("Games\\Alkanoid\\Font\\font3");
+            Alkanoid.background = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\back");
+            Alkanoid.heart_b = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\heart_b");
+            Alkanoid.cross = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\cross");
+            //for Alkanoid(end)
+
+            //for Bomberman(start)
+            Bomberman.sStart = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sStart");
+            Bomberman.sMenu = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sMenu");
+            Bomberman.sSelection = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sLoad");
+            Bomberman.sPlay = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sPlay");
+            Bomberman.obj = Content.Load<Texture2D>("Games\\Bomberman\\Image\\object");
+            Bomberman.font = Content.Load<SpriteFont>("Games\\Bomberman\\Font\\Spritefont");
+            Bomberman.sClear = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sClear");
+            Bomberman.sFail = Content.Load<Texture2D>("Games\\Bomberman\\Image\\sFail");
+            //for Bomberman(end)
+
+
+            //for CatchMouse(start)
+            CatchMouse.cm_failed = Content.Load<Texture2D>("Games\\CatchMouse\\Image\\cm_failed");
+            CatchMouse.cm_load = Content.Load<Texture2D>("Games\\CatchMouse\\Image\\cm_load");
+            CatchMouse.cm_menu = Content.Load<Texture2D>("Games\\CatchMouse\\Image\\cm_menu");
+            CatchMouse.cm_start = Content.Load<Texture2D>("Games\\CatchMouse\\Image\\cm_start");
+            CatchMouse.mouse1 = Content.Load<Texture2D>("Games\\CatchMouse\\Image\\mouse1");
+            CatchMouse.skull = Content.Load<Texture2D>("Games\\CatchMouse\\Image\\skull");
+            CatchMouse.cm_clear = Content.Load<Texture2D>("Games\\CatchMouse\\Image\\cm_clear");
+            CatchMouse.font = Content.Load<SpriteFont>("Games\\CatchMouse\\Font\\sf");
+            //for CatchMouse(end)
+
+
+
+            han = Content.Load<SpriteFont>("Common\\Font\\MainFont");
         }
 
         protected override void UnloadContent() {
@@ -252,19 +292,20 @@ namespace _8Old_Games {
                             mineSweeper.initialize();
                         }
                         else if (rect_Alkanoid.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
-                           // selector = Selector.ALKANOID;
-                            //new∑Œ «“¥Á
-                            //√ ±‚»≠
+                            selector = Selector.ALKANOID;
+                            alkanoid = new Alkanoid();
+                            alkanoid.initialize();
                         }
                         else if (rect_Bomberman.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
-                          //  selector = Selector.BOMBERMAN;
-                            //new∑Œ «“¥Á
-                            //√ ±‚»≠
+
+                            selector = Selector.BOMBERMAN;
+                            bomberman = new Bomberman();
+                            bomberman.initialize();
                         }
                         else if (rect_CatchMouse.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
-                          //  selector = Selector.CATCH_MOUSE;
-                            //new∑Œ «“¥Á
-                            //√ ±‚»≠
+                            selector = Selector.CATCH_MOUSE;
+                            catchMouse = new CatchMouse();
+                            catchMouse.initialize();
                         }
                         else if (rect_Hangman.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
                             selector = Selector.HANGMAN;
@@ -299,15 +340,16 @@ namespace _8Old_Games {
                     break;
                 case Selector.CATCH_MOUSE:
                     Mouse.WindowHandle = Window.Handle;
-                    //æ˜µ•¿Ã∆Æ
+                    selector = catchMouse.update(gameTime);
                     break;
                 case Selector.ALKANOID:
                     Mouse.WindowHandle = Window.Handle;
-                    //æ˜µ•¿Ã∆Æ
+                    selector = alkanoid.update(gameTime);
+                    //ÏóÖÎç∞Ïù¥Ìä∏
                     break;
                 case Selector.BOMBERMAN:
                     Mouse.WindowHandle = Window.Handle;
-                    //æ˜µ•¿Ã∆Æ
+                    selector = bomberman.update(gameTime);
                     break;
             }
             base.Update(gameTime);
@@ -324,11 +366,11 @@ namespace _8Old_Games {
                     spriteBatch.Draw(button_Frogger, rect_Frogger, Color.LightCyan);
                     spriteBatch.Draw(button_Minesweeper, rect_Minesweeper, Color.Honeydew);
                     spriteBatch.Draw(button_Sudoku, rect_Sudoku, Color.Lavender);
-                    spriteBatch.Draw(button_Tictactoe, rect_Tictactoe, Color.LemonChiffon);
+                    spriteBatch.Draw(button_Tictactoe, rect_Tictactoe, Color.White);
                     spriteBatch.Draw(button_Hangman, rect_Hangman, Color.LightCyan);
                     spriteBatch.Draw(button_CatchMouse, rect_CatchMouse, Color.Honeydew);
                     spriteBatch.Draw(button_Bomberman, rect_Bomberman, Color.Lavender);
-                    spriteBatch.Draw(button_Alkanoid, rect_Alkanoid, Color.LemonChiffon);
+                    spriteBatch.Draw(button_Alkanoid, rect_Alkanoid, Color.LightGoldenrodYellow);
                     break;
                 case Selector.FROGGER:
                     GraphicsDevice.Clear(Color.Black);
@@ -351,15 +393,19 @@ namespace _8Old_Games {
                     hangman.draw(spriteBatch, gameTime);
                     break;
                 case Selector.CATCH_MOUSE:
-                    //±◊∏Æ±‚
+                    GraphicsDevice.Clear(Color.Black);
+                    catchMouse.draw(spriteBatch, gameTime);
                     break;
                 case Selector.ALKANOID:
-                    //±◊∏Æ±‚
+                    GraphicsDevice.Clear(Color.Black);//Í∑∏Î¶¨Í∏∞
+                    alkanoid.draw(spriteBatch, gameTime);
                     break;
                 case Selector.BOMBERMAN:
-                    //±◊∏Æ±‚
+                    //Í∑∏Î¶¨Í∏∞
+                    GraphicsDevice.Clear(Color.Black);//Í∑∏Î¶¨Í∏∞
+                    bomberman.draw(spriteBatch, gameTime);
                     break;
-            }
+               }
             spriteBatch.End();
 
             base.Draw(gameTime);
