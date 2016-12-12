@@ -25,13 +25,13 @@ namespace _8Old_Games.Games.Sudoku.Sequence {
             mTimeSinceLastInput += (float)gameTime.ElapsedGameTime.TotalSeconds;
             mTimeAfterPlay -= gameTime.ElapsedGameTime.TotalSeconds;
             if (mTimeSinceLastInput >= MIN_TIME && mTimeAfterPlay <= 0) {
-                if (ks.IsKeyDown(Keys.Space)) {
+                if (ks.IsKeyDown(Keys.Space)) { // 게임으로 돌아가기
                     mTimeAfterPlay = WAIT_TIME;
                     return State.PLAY;
                 } 
-                else if (ks.IsKeyDown(Keys.Escape)) {
+                else if (ks.IsKeyDown(Keys.Escape)) { // 게임종료
                     return State.EXIT;
-                } else if (ks.IsKeyDown(Keys.N)) {
+                } else if (ks.IsKeyDown(Keys.N)) { // 게임다시시작
                     return State.SELECTION;
                 }
                 mTimeSinceLastInput = 0.0f;
