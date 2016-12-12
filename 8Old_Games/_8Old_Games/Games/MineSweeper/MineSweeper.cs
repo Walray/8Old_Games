@@ -43,6 +43,7 @@ namespace _8Old_Games.Games.MineSweeper {
         public static Texture2D menuImage; // 메뉴화면
 
         public MineSweeper() {; }
+
         public void initialize() {
             start = new Start();
             selection = new Selection();
@@ -51,9 +52,6 @@ namespace _8Old_Games.Games.MineSweeper {
             
         }
         
-
-
-
         public Selector update(GameTime gameTime) {
 
             switch (state) {
@@ -80,7 +78,6 @@ namespace _8Old_Games.Games.MineSweeper {
             }
             return Selector.MINE_SWEEPER;
         }
-
 
         public void draw(SpriteBatch spriteBatch, GameTime gameTime) {
             

@@ -12,13 +12,15 @@ using _8Old_Games.Games.Frogger;
 using _8Old_Games.Games.TicTacToe;
 using _8Old_Games.Games.Sudoku;
 using _8Old_Games.Games.MineSweeper;
+
 using _8Old_Games.Games.Bomberman;
 using _8Old_Games.Games.Alkanoid;
 using _8Old_Games.Games.CatchMouse;
+using _8Old_Games.Games.Hangman;
 
 /*
  * class MainSelector
- * ¿©´ü °³ÀÇ °ÔÀÓ »óÅÂ °ü¸®
+ * ì—¬ëŸ ê°œì˜ ê²Œì„ ìƒíƒœ ê´€ë¦¬
 */
 namespace _8Old_Games {
     public enum Selector { MAIN_SELECTOR, MINE_SWEEPER, HANGMAN, SUDOKU, BOMBERMAN, TICTACTOE, CATCH_MOUSE, FROGGER, ALKANOID, END };
@@ -55,6 +57,7 @@ namespace _8Old_Games {
         Alkanoid alkanoid;
         Bomberman bomberman;
         CatchMouse catchMouse;
+        HangMan hangman;
 
 
         const int WIDTH = 150;
@@ -87,8 +90,9 @@ namespace _8Old_Games {
         protected override void LoadContent() {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            #region
             //for button images(start)
-            button_Frogger= Content.Load<Texture2D>("Common\\Image\\Button_Frogger"); ;
+            button_Frogger = Content.Load<Texture2D>("Common\\Image\\Button_Frogger"); ;
             button_Minesweeper = Content.Load<Texture2D>("Common\\Image\\Button_Minesweeper");
             button_Sudoku = Content.Load<Texture2D>("Common\\Image\\Button_Sudoku"); 
             button_Tictactoe = Content.Load<Texture2D>("Common\\Image\\Button_Tictactoe");
@@ -119,15 +123,15 @@ namespace _8Old_Games {
             //for Frogger(end)
 
             //for TicTacToe(start)
-            TicTacToe.main = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\¸ŞÀÎÈ­¸é-Æ½ÅÃÅä");
-            TicTacToe.menuImage = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\¸Ş´ºÈ­¸é-Æ½ÅÃÅä");
-            TicTacToe.loading = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\·ÎµùÈ­¸é");
+            TicTacToe.main = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\ë©”ì¸í™”ë©´-í‹±íƒí† ");
+            TicTacToe.menuImage = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\ë©”ë‰´í™”ë©´-í‹±íƒí† ");
+            TicTacToe.loading = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\ë¡œë”©í™”ë©´");
             TicTacToe.square = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\square");
             TicTacToe.spriteFont = Content.Load<SpriteFont>("Games\\TicTacToe\\Font\\SpriteFont1");
             TicTacToe.spriteFont2 = Content.Load<SpriteFont>("Games\\TicTacToe\\Font\\SpriteFont2");
             TicTacToe.cross = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\cross");
             TicTacToe.zero = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\zero");
-            TicTacToe.selectmode = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\Æ½ÅÃÅä¸ğµå");
+            TicTacToe.selectmode = Content.Load<Texture2D>("Games\\TicTacToe\\Image\\í‹±íƒí† ëª¨ë“œ");
             //for TicTacToe(end)
 
             //for Sudoku(start)
@@ -146,27 +150,71 @@ namespace _8Old_Games {
             //for Sudoku(end)
             // ddd
             //for MineSweeper(start)
-            MineSweeper.font = Content.Load<SpriteFont>("Games\\MineSweeper\\Font\\SpriteFont1"); // ÆùÆ®
-            MineSweeper.clicked = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-0"); // ¼±ÅÃµÊ
-            MineSweeper.selectSize = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\°ÔÀÓ»çÀÌÁî");
-            MineSweeper.Back = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\Back"); // µŞ¹è°æ
+            MineSweeper.font = Content.Load<SpriteFont>("Games\\MineSweeper\\Font\\SpriteFont1"); // í°íŠ¸
+            MineSweeper.clicked = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-0"); // ì„ íƒë¨
+            MineSweeper.selectSize = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\ê²Œì„ì‚¬ì´ì¦ˆ");
+            MineSweeper.Back = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\Back"); // ë’·ë°°ê²½
             MineSweeper.clicked1 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\1"); // 1
             MineSweeper.clicked2 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\2"); // 2
             MineSweeper.clicked3 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\3"); // 3
             MineSweeper.clicked4 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\4"); // 4
             MineSweeper.clicked5 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\5"); // 5
             MineSweeper.clicked6 = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\6"); // 6
-            MineSweeper.mine = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\Áö·Ú"); // ÆøÅº
-            MineSweeper.unclicked = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-unknown"); // ¼±ÅÃÀü
-            MineSweeper.flag = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-flag"); // ±ê¹ß
+            MineSweeper.mine = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\ì§€ë¢°"); // í­íƒ„
+            MineSweeper.unclicked = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-unknown"); // ì„ íƒì „
+            MineSweeper.flag = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\grid-flag"); // ê¹ƒë°œ
             MineSweeper.startImage = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\start");
             MineSweeper.menuImage = Content.Load<Texture2D>("Games\\MineSweeper\\Image\\menu");
             //for MineSweeper(end)
+            #endregion
+
+            #region for Hangman
+            //for Hangman(start)
+            HangMan.startImage = Content.Load<Texture2D>("Games\\Hangman\\Image\\í–‰ë§¨ë©”ì¸í™”ë©´");
+            HangMan.menuImage = Content.Load<Texture2D>("Games\\Hangman\\Image\\í–‰ë§¨ë©”ë‰´ì„ íƒ");
+            HangMan.font = Content.Load<SpriteFont>("Games\\MineSweeper\\Font\\SpriteFont1"); // í°íŠ¸
+            HangMan.a = Content.Load<Texture2D>("Games\\Hangman\\Image\\a");
+            HangMan.b = Content.Load<Texture2D>("Games\\Hangman\\Image\\b");
+            HangMan.c = Content.Load<Texture2D>("Games\\Hangman\\Image\\c");
+            HangMan.d = Content.Load<Texture2D>("Games\\Hangman\\Image\\d");
+            HangMan.e = Content.Load<Texture2D>("Games\\Hangman\\Image\\e");
+            HangMan.f = Content.Load<Texture2D>("Games\\Hangman\\Image\\f");
+            HangMan.g = Content.Load<Texture2D>("Games\\Hangman\\Image\\g");
+            HangMan.h = Content.Load<Texture2D>("Games\\Hangman\\Image\\h");
+            HangMan.i = Content.Load<Texture2D>("Games\\Hangman\\Image\\i");
+            HangMan.j = Content.Load<Texture2D>("Games\\Hangman\\Image\\j");
+            HangMan.k = Content.Load<Texture2D>("Games\\Hangman\\Image\\k");
+            HangMan.l = Content.Load<Texture2D>("Games\\Hangman\\Image\\l");
+            HangMan.n = Content.Load<Texture2D>("Games\\Hangman\\Image\\n");
+            HangMan.m = Content.Load<Texture2D>("Games\\Hangman\\Image\\m");
+            HangMan.o = Content.Load<Texture2D>("Games\\Hangman\\Image\\o");
+            HangMan.p = Content.Load<Texture2D>("Games\\Hangman\\Image\\p");
+            HangMan.q = Content.Load<Texture2D>("Games\\Hangman\\Image\\q");
+            HangMan.r = Content.Load<Texture2D>("Games\\Hangman\\Image\\r");
+            HangMan.s = Content.Load<Texture2D>("Games\\Hangman\\Image\\s");
+            HangMan.t = Content.Load<Texture2D>("Games\\Hangman\\Image\\t");
+            HangMan.u = Content.Load<Texture2D>("Games\\Hangman\\Image\\u");
+            HangMan.v = Content.Load<Texture2D>("Games\\Hangman\\Image\\v");
+            HangMan.w = Content.Load<Texture2D>("Games\\Hangman\\Image\\w");
+            HangMan.x = Content.Load<Texture2D>("Games\\Hangman\\Image\\x");
+            HangMan.y = Content.Load<Texture2D>("Games\\Hangman\\Image\\y");
+            HangMan.z = Content.Load<Texture2D>("Games\\Hangman\\Image\\z");
+            HangMan.scaffold = Content.Load<Texture2D>("Games\\Hangman\\Image\\ë‹¨ë‘ëŒ€");
+            HangMan.head = Content.Load<Texture2D>("Games\\Hangman\\Image\\ì–¼êµ´");
+            HangMan.rigth_hand = Content.Load<Texture2D>("Games\\Hangman\\Image\\ì˜¤ë¥¸íŒ”");
+            HangMan.rigth_foot = Content.Load<Texture2D>("Games\\Hangman\\Image\\ì˜¤ë¥¸ë‹¤ë¦¬");
+            HangMan.left_hand = Content.Load<Texture2D>("Games\\Hangman\\Image\\ì™¼íŒ”");
+            HangMan.left_foot = Content.Load<Texture2D>("Games\\Hangman\\Image\\ì™¼ë‹¤ë¦¬");
+            HangMan.body = Content.Load<Texture2D>("Games\\Hangman\\Image\\ëª¸í†µ");
+            HangMan.clicked = Content.Load<Texture2D>("Games\\Hangman\\Image\\ì„ íƒí•¨");
+            //for Hangman(end)
+            #endregion
+
 
             //for Alkanoid(start)
-            Alkanoid.sMenu = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\¸Ş´ºÈ­¸é");
-            Alkanoid.sStart = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\¸ŞÀÎ");
-            Alkanoid.sLoad = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\·Îµù");
+            Alkanoid.sMenu = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\ë©”ë‰´í™”ë©´");
+            Alkanoid.sStart = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\ë©”ì¸");
+            Alkanoid.sLoad = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\ë¡œë”©");
             Alkanoid.pad = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\paddle");
             Alkanoid.ball = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\ball");
             Alkanoid.brick = Content.Load<Texture2D>("Games\\Alkanoid\\Image\\brick");
@@ -214,17 +262,20 @@ namespace _8Old_Games {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            switch(selector){
+            #region  switch (selector)
+            switch (selector){
                 case Selector.MAIN_SELECTOR:
 
                     mTimeSinceLastInput += gameTime.ElapsedGameTime.TotalSeconds;
                     if (mTimeSinceLastInput >= MIN_TIME) {
                         MouseState ms = Mouse.GetState();
+
                         if (rect_Frogger.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
                             selector = Selector.FROGGER;
                             frogger = new Frogger();
                             frogger.initialize();
                         }
+
                         else if (rect_Tictactoe.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
                             selector = Selector.TICTACTOE;
                             tictactoe = new TicTacToe();
@@ -257,13 +308,16 @@ namespace _8Old_Games {
                             catchMouse.initialize();
                         }
                         else if (rect_Hangman.Contains(ms.X, ms.Y) && ms.LeftButton == ButtonState.Pressed) {
-                          //  selector = Selector.HANGMAN;
-                            //new·Î ÇÒ´ç
-                            //ÃÊ±âÈ­
+                            selector = Selector.HANGMAN;
+                            hangman = new HangMan();
+                            hangman.initialize();
                         }
                         mTimeSinceLastInput = 0.0f;
                     }
                     break;
+
+                #endregion
+
                 case Selector.FROGGER:
                     Mouse.WindowHandle = Window.Handle;
                     selector = frogger.update(gameTime);
@@ -282,7 +336,7 @@ namespace _8Old_Games {
                     break;
                 case Selector.HANGMAN:
                     Mouse.WindowHandle = Window.Handle;
-                    //¾÷µ¥ÀÌÆ®
+                    selector = hangman.update(gameTime);
                     break;
                 case Selector.CATCH_MOUSE:
                     Mouse.WindowHandle = Window.Handle;
@@ -291,7 +345,7 @@ namespace _8Old_Games {
                 case Selector.ALKANOID:
                     Mouse.WindowHandle = Window.Handle;
                     selector = alkanoid.update(gameTime);
-                    //¾÷µ¥ÀÌÆ®
+                    //ì—…ë°ì´íŠ¸
                     break;
                 case Selector.BOMBERMAN:
                     Mouse.WindowHandle = Window.Handle;
@@ -336,19 +390,19 @@ namespace _8Old_Games {
                     tictactoe.draw(spriteBatch, gameTime);
                     break;
                 case Selector.HANGMAN:
-                    //±×¸®±â
+                    hangman.draw(spriteBatch, gameTime);
                     break;
                 case Selector.CATCH_MOUSE:
                     GraphicsDevice.Clear(Color.Black);
                     catchMouse.draw(spriteBatch, gameTime);
                     break;
                 case Selector.ALKANOID:
-                    GraphicsDevice.Clear(Color.Black);//±×¸®±â
+                    GraphicsDevice.Clear(Color.Black);//ê·¸ë¦¬ê¸°
                     alkanoid.draw(spriteBatch, gameTime);
                     break;
                 case Selector.BOMBERMAN:
-                    //±×¸®±â
-                    GraphicsDevice.Clear(Color.Black);//±×¸®±â
+                    //ê·¸ë¦¬ê¸°
+                    GraphicsDevice.Clear(Color.Black);//ê·¸ë¦¬ê¸°
                     bomberman.draw(spriteBatch, gameTime);
                     break;
                }
