@@ -27,7 +27,7 @@ namespace _8Old_Games.Games.Hangman.Hangman
         bool leftmouse = false;
         bool wordDone = false;
 
-        string []arysel = new string [24];
+        string []arysel = new string [40];
         int index = 0;
         int txtcnt = 0;
 
@@ -404,8 +404,7 @@ namespace _8Old_Games.Games.Hangman.Hangman
         void correct(SpriteBatch spriteBatch, SpriteFont font)
         {
             int g;
-            if (clickPosition(PmouseX, PmouseY,out g) != "not")
-            {
+            
                 for (int T = 0; T < temp.Length; T++)
                 {
                     if (index > 0)
@@ -424,7 +423,7 @@ namespace _8Old_Games.Games.Hangman.Hangman
                 }
 
             
-            }
+            
         }
         
         
