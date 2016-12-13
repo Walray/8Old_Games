@@ -323,7 +323,6 @@ namespace _8Old_Games.Games.MineSweeper.Sequence {
             if (mouseY <= 0 && mouseX <= 0) {
                 return;
             }
-            Console.WriteLine("{0:D},{0:D}", mouseX, mouseY);
             if (grid[mouseX / tileSize, mouseY / tileSize].isFlagged) {
                 minesLeft++;
             }

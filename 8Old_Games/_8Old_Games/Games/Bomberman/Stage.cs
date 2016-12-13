@@ -154,11 +154,11 @@ namespace _8Old_Games.Games.Bomberman {
             mRand = new Random();
             mCurrentStage = 0;
             mStageData = new StageData[MAX_STAGE];
-            mStageData[0] = new StageData(3, 80, 2, 2,1000);
-            mStageData[1] = new StageData(4, 60, 2, 1,1200);
-            mStageData[2] = new StageData(5, 40, 1, 2, 1300);
-            mStageData[3] = new StageData(6, 40, 2, 1,1500);
-            mStageData[4] = new StageData(6, 10, 1, 1,1500);
+            mStageData[0] = new StageData(3, 60, 4, 4,1000);
+            mStageData[1] = new StageData(4, 60, 2, 3,1200);
+            mStageData[2] = new StageData(5, 40, 3, 2, 1300);
+            mStageData[3] = new StageData(6, 40, 2, 3,1500);
+            mStageData[4] = new StageData(6, 10, 2, 2,1500);
             m2PStageData = new StageData(5, 40, 7, 7, 1200);
             mTimeSinceLastInput = 0.0;
             reinitialize(stageID, mCurrentStage);

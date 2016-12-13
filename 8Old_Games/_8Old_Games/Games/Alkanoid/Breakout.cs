@@ -34,9 +34,9 @@ namespace _8Old_Games.Games.Alkanoid
         private Vector2 initialDirection = new Vector2(0, 1); //  처음 위치 
         private Vector2 direction = new Vector2(0, 1); // 
         
-        private const int initialSpeed = 150; // 초기 스피드 
+        private const int initialSpeed = 120; // 초기 스피드 
         private const int speedIncrement = 75; // 스피드 증가 간격 
-        private const int maxSpeed = 750; // 최대스피드 
+        private const int maxSpeed = 500; // 최대스피드 
         private int speed = initialSpeed; // speed는 초기 스피드로 먼저 설정
 
         private bool isHeart = false; // 목숨 제어를 위해 필요한 bool 변수
