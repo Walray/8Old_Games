@@ -369,9 +369,12 @@ namespace _8Old_Games.Games.Hangman.Hangman
         {
             int counter = 0;
             string line;
+            string dir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
+            string filePath = dir + @"\\Games\\Hangman\\영어단어.txt";
+            Console.WriteLine("{0}", filePath);
             System.IO.StreamReader file =
-                new System.IO.StreamReader(".\\영어단어.txt");
+                new System.IO.StreamReader(filePath);
 
             while ((line = file.ReadLine()) != null)
             {
