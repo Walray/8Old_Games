@@ -5,7 +5,7 @@
     <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>_8Old_Games</RootNamespace>
     <AssemblyName>_8Old_Games</AssemblyName>
@@ -29,10 +29,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ProductName>EightOldGames</ProductName>
-    <PublisherName>DBDBDIP</PublisherName>
-    <SuiteName>EightOldGames</SuiteName>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ProductName>추억의 고전게임8선</ProductName>
+    <PublisherName>디비디비딥</PublisherName>
+    <SuiteName>추억의 고전게임8선</SuiteName>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>

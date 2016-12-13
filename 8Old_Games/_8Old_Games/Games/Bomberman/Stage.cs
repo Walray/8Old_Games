@@ -184,27 +184,39 @@ namespace _8Old_Games.Games.Bomberman {
                     o.drawExplosion(spriteBatch, x, y, obj);
                 }
             }
-            spriteBatch.DrawString(font, "Bomberman!" , new Vector2(650, 100), Color.Yellow);
-            if(mStageID == 1) {
+            spriteBatch.DrawString(font, "Bomberman!" , new Vector2(650, 10), Color.Yellow);
+            if (mStageID == 1) {
                 spriteBatch.DrawString(font, "Stage : " + (mCurrentStage + 1), new Vector2(650, 200), Color.Yellow);
                 spriteBatch.DrawString(font, "Life : " + mLife, new Vector2(650, 300), Color.Yellow);
+                spriteBatch.DrawString(font, "Move: arrow key", new Vector2(620, 350), Color.Yellow);
+                spriteBatch.DrawString(font, "bomb: L", new Vector2(620, 400), Color.Yellow);
             }
-            else spriteBatch.DrawString(font, "2P Play! ",  new Vector2(650, 200), Color.Yellow);
+            else {
+                spriteBatch.DrawString(font, "2P Play! ", new Vector2(650, 100), Color.Yellow);
+
+                spriteBatch.DrawString(font, "1P key", new Vector2(620, 150), Color.Yellow);
+                spriteBatch.DrawString(font, "Move: arrow key", new Vector2(620, 200), Color.Yellow);
+                spriteBatch.DrawString(font, "bomb: L", new Vector2(620, 250), Color.Yellow);
+
+                spriteBatch.DrawString(font, "2P key", new Vector2(620, 300), Color.Yellow);
+                spriteBatch.DrawString(font, "Move: a,w,s,d", new Vector2(620, 350), Color.Yellow);
+                spriteBatch.DrawString(font, "bomb: g", new Vector2(620, 400), Color.Yellow);
+            }
 
             if (hasCleared()) {
                 spriteBatch.DrawString(font, "Clear!", new Vector2(650, 150), Color.YellowGreen);
             }
             if(mWhoWin != -2) {
                 if(mWhoWin == 0) {
-                    spriteBatch.DrawString(font, "Draw!", new Vector2(650, 150), Color.YellowGreen);
+                    spriteBatch.DrawString(font, "Draw!", new Vector2(650, 50), Color.YellowGreen);
 
                 }
                 else if(mWhoWin == -1) {
-                    spriteBatch.DrawString(font, "1P Win!", new Vector2(650, 150), Color.YellowGreen);
+                    spriteBatch.DrawString(font, "1P Win!", new Vector2(650, 50), Color.YellowGreen);
 
                 }
                 else if(mWhoWin == 1) {
-                    spriteBatch.DrawString(font, "2P Win!", new Vector2(650, 150), Color.YellowGreen);
+                    spriteBatch.DrawString(font, "2P Win!", new Vector2(650, 50), Color.YellowGreen);
 
                 }
             }
