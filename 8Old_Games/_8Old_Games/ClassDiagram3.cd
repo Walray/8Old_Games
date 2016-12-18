@@ -1,0 +1,633 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="_8Old_Games.Clock" Collapsed="true">
+    <Position X="24" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAARAAAAAAAABAAMAgAAAAAAACAAAAQAAAAAEEAA=</HashCode>
+      <FileName>Clock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.MainSelector" Collapsed="true">
+    <Position X="24.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAEGKBAAkAgwAEgAAAgEEAJAQAgAgAQxBkAARQsAQ=</HashCode>
+      <FileName>MainSelector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.MainStrings" Collapsed="true">
+    <Position X="24" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAgAAAAAAQAAQAgAABEAAAAQAACAAABQgACAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Program" Collapsed="true">
+    <Position X="22.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Alkanoid.Alkanoid" Collapsed="true">
+    <Position X="10" Y="38.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEMAgQASAIAACAigAIMAKAgAAQCAAIAEAAAAIAAGIAA=</HashCode>
+      <FileName>Games\Alkanoid\Alkanoid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Alkanoid.Ball" Collapsed="true">
+    <Position X="0.5" Y="42" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gEQkwAIEBABAIqQAAAACIAAgAAAAIQEEAAAEQgAAAgA=</HashCode>
+      <FileName>Games\Alkanoid\Breakout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Alkanoid.Paddle" Collapsed="true">
+    <Position X="2.75" Y="42" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQgAAIAAABAAgogACCIKAAAAAAAAABAAAAAQAAEAgA=</HashCode>
+      <FileName>Games\Alkanoid\Breakout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Alkanoid.Wall" Collapsed="true">
+    <Position X="7" Y="42" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAggAAAAAAAAAAAQAAQACpAAAAQAkQAgA=</HashCode>
+      <FileName>Games\Alkanoid\Breakout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Alkanoid.Brick" Collapsed="true">
+    <Position X="5" Y="42" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="_8Old_Games.Games.Alkanoid.Brick.BrickState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Games\Alkanoid\Breakout.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACQAAAAgAEAAACBAAAAgA=</HashCode>
+      <FileName>Games\Alkanoid\Breakout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Alkanoid.Sequence.Load" Collapsed="true">
+    <Position X="0.5" Y="40.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Alkanoid\Sequence\Load.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Alkanoid.Sequence.Menu" Collapsed="true">
+    <Position X="2.75" Y="40.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAgEAAA=</HashCode>
+      <FileName>Games\Alkanoid\Sequence\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Alkanoid.Sequence.Play" Collapsed="true">
+    <Position X="5" Y="40.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAAAAABAAAAAAAMAAAAAEAAAAAAAAAAEQgAEAAA=</HashCode>
+      <FileName>Games\Alkanoid\Sequence\Play.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Alkanoid.Sequence.Sequence" Collapsed="true">
+    <Position X="3.75" Y="39" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAMAAAAAAAAAAAAAAAAgAAAEAAA=</HashCode>
+      <FileName>Games\Alkanoid\Sequence\Sequence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Alkanoid.Sequence.Start" Collapsed="true">
+    <Position X="7.25" Y="40.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Alkanoid\Sequence\Start.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Bomberman.Bomberman" Collapsed="true">
+    <Position X="18.75" Y="30.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAQAAAgAAQKAAgAANIAAAGAAAIAAAEAABEAAAmAAA=</HashCode>
+      <FileName>Games\Bomberman\Bomberman.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Bomberman.DynamicObject" Collapsed="true">
+    <Position X="8" Y="34.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgAAElgBACAAAjEAoBYgALAgARAEAEAIADDEkAAFAAA=</HashCode>
+      <FileName>Games\Bomberman\DynamicObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Bomberman.Stage" Collapsed="true">
+    <Position X="14.25" Y="34.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgAAEQAAAAABAEAEQAMIAAAAAEQAAMAIBAAIAAFmAAA=</HashCode>
+      <FileName>Games\Bomberman\Stage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Bomberman.StaticObject" Collapsed="true">
+    <Position X="10.75" Y="34.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAIAAAAQAAAAACAIACIAAAQAAAAAAAQAABAAIAAAAAA=</HashCode>
+      <FileName>Games\Bomberman\StaticObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Bomberman.Sequence.Clear" Collapsed="true">
+    <Position X="1" Y="32.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Bomberman\Sequence\Clear.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Bomberman.Sequence.Fail" Collapsed="true">
+    <Position X="3.25" Y="32.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Bomberman\Sequence\Fail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Bomberman.Sequence.Menu1" Collapsed="true">
+    <Position X="5.5" Y="32.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAgEAAA=</HashCode>
+      <FileName>Games\Bomberman\Sequence\Menu1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Bomberman.Sequence.Menu2" Collapsed="true">
+    <Position X="7.75" Y="32.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAgEAAA=</HashCode>
+      <FileName>Games\Bomberman\Sequence\Menu2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Bomberman.Sequence.Play1" Collapsed="true">
+    <Position X="10" Y="32.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAMAAAAAEAAACAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Bomberman\Sequence\Play1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Bomberman.Sequence.Play2" Collapsed="true">
+    <Position X="12.25" Y="32.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAMAAAAAEAAACAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Bomberman\Sequence\Play2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Bomberman.Sequence.Selection" Collapsed="true">
+    <Position X="14.5" Y="32.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Bomberman\Sequence\Selection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Bomberman.Sequence.Sequence" Collapsed="true">
+    <Position X="8.75" Y="31" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAMAAAAAAAAAAAAAAAAgAAAEAAA=</HashCode>
+      <FileName>Games\Bomberman\Sequence\Sequence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Bomberman.Sequence.Start" Collapsed="true">
+    <Position X="16.75" Y="32.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Bomberman\Sequence\Start.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.CatchMouse.CatchMouse" Collapsed="true">
+    <Position X="15" Y="24.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAABAAAoAAgAAgAAMAAEoAAAGIAAAEAAAEAAAEAAA=</HashCode>
+      <FileName>Games\CatchMouse\CatchMouse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.CatchMouse.Sequence.move" Collapsed="true">
+    <Position X="5.5" Y="27.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Games\CatchMouse\move.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.CatchMouse.Sequence.Clear" Collapsed="true">
+    <Position X="1.25" Y="25.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\CatchMouse\Sequence\Clear.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.CatchMouse.Sequence.Fail" Collapsed="true">
+    <Position X="3.5" Y="25.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\CatchMouse\Sequence\Fail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.CatchMouse.Sequence.Load" Collapsed="true">
+    <Position X="5.75" Y="25.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\CatchMouse\Sequence\Load.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.CatchMouse.Sequence.Menu" Collapsed="true">
+    <Position X="8" Y="25.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAgEAAA=</HashCode>
+      <FileName>Games\CatchMouse\Sequence\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.CatchMouse.Sequence.Play" Collapsed="true">
+    <Position X="10.25" Y="25.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAIgAAFAEAACAAANAAAAAEAAAAAAAICACAAAEIgA=</HashCode>
+      <FileName>Games\CatchMouse\Sequence\Play.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.CatchMouse.Sequence.Sequence" Collapsed="true">
+    <Position X="6.75" Y="24.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAMAAAAAAAAAAAAAAAAgAAAEAAA=</HashCode>
+      <FileName>Games\CatchMouse\Sequence\Sequence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.CatchMouse.Sequence.Start" Collapsed="true">
+    <Position X="12.5" Y="25.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\CatchMouse\Sequence\Start.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Frogger" Collapsed="true">
+    <Position X="26.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEMIAAAQAMAACAAgACNAAAgGAACIgABECAAAQEAGAAA=</HashCode>
+      <FileName>Games\Frogger\Frogger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Map" Collapsed="true">
+    <Position X="27.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAIAAEBAgAAAAMAAAAAAAQAAAQAAgQgIABAAgA=</HashCode>
+      <FileName>Games\Frogger\Map.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Object.Car" Collapsed="true">
+    <Position X="15.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Frogger\Object\Car.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Object.Frog" Collapsed="true">
+    <Position X="26" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAEAAgAEgAsAEAAAAIQAAAAAABAgAABEYAA=</HashCode>
+      <FileName>Games\Frogger\Object\Frog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Object.LastCroc" Collapsed="true">
+    <Position X="22.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgCMAAAAAAAQAAAAAgBAgAABEAAA=</HashCode>
+      <FileName>Games\Frogger\Object\LastCroc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Object.Log" Collapsed="true">
+    <Position X="17.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIQAAAAAAAAABAAMAAAAAAAAAAAgAgAAAAAAEAAA=</HashCode>
+      <FileName>Games\Frogger\Object\Log.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Object.Object" Collapsed="true">
+    <Position X="17.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAARAAAAAAEAAgAEgAMQAABAAAQAAAACABAAAABEYAA=</HashCode>
+      <FileName>Games\Frogger\Object\Object.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Object.Turtle" Collapsed="true">
+    <Position X="20" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAAAAIAAAAAICMAAAAAAAAAAAAAgAAAAAAEAAA=</HashCode>
+      <FileName>Games\Frogger\Object\Turtle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Sequence.Clear" Collapsed="true">
+    <Position X="12" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Frogger\Sequence\Clear.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Sequence.Fail" Collapsed="true">
+    <Position X="0.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Frogger\Sequence\Fail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Sequence.Load" Collapsed="true">
+    <Position X="3" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Frogger\Sequence\Load.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Sequence.Menu" Collapsed="true">
+    <Position X="5.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAgAAAAAAAAAAAMAAAAAAAAgAAAAAAAAAAgEAAA=</HashCode>
+      <FileName>Games\Frogger\Sequence\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Sequence.Play" Collapsed="true">
+    <Position X="7.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAOAEugAAIEJAgEkQkMIAAA8EAQAGAAEAAgMABQEAAA=</HashCode>
+      <FileName>Games\Frogger\Sequence\Play.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Sequence.Sequence" Collapsed="true">
+    <Position X="6.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAMAAAAAAAAAAAAAAAAgAAAEAAA=</HashCode>
+      <FileName>Games\Frogger\Sequence\Sequence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Frogger.Sequence.Start" Collapsed="true">
+    <Position X="9.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Frogger\Sequence\Start.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Hangman.Hangman.Menu" Collapsed="true">
+    <Position X="20.5" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAgEAAA=</HashCode>
+      <FileName>Games\Hangman\Hangman\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Hangman.Hangman.Play" Collapsed="true">
+    <Position X="22.75" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAMCQAAAAAAFAAgAAUOCAAMIEAIAAAKAACgAAAGFAoA=</HashCode>
+      <FileName>Games\Hangman\Hangman\Play.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Hangman.Hangman.Sequence" Collapsed="true">
+    <Position X="22.75" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAMAAAAAAAAAAAAAAAAgAAAEAAA=</HashCode>
+      <FileName>Games\Hangman\Hangman\Sequqnce.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Hangman.Hangman.Start" Collapsed="true">
+    <Position X="25" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Hangman\Hangman\Start.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Hangman.HangMan" Collapsed="true">
+    <Position X="27" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAEAgAAAAAEgAAMAAQwAAQCEAQC+//9hAQCEAAA=</HashCode>
+      <FileName>Games\Hangman\Hangman.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.MineSweeper.Grid" Collapsed="true">
+    <Position X="29.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAQAAAAIAgAAAAAAAKAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Games\MineSweeper\Grid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.MineSweeper.MineSweeper" Collapsed="true">
+    <Position X="26.25" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIAACECAAABABQgQIMABQwAAACAAAAEAAJgAACEQAA=</HashCode>
+      <FileName>Games\MineSweeper\MineSweeper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.MineSweeper.Sequence.Menu" Collapsed="true">
+    <Position X="12.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAgEAAA=</HashCode>
+      <FileName>Games\MineSweeper\Sequence\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.MineSweeper.Sequence.Play" Collapsed="true">
+    <Position X="14.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAJAQAkAAQIEAAQAQUOgAwMAEAIAAAQQAAACACIEgIA=</HashCode>
+      <FileName>Games\MineSweeper\Sequence\Play.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.MineSweeper.Sequence.Selection" Collapsed="true">
+    <Position X="17" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\MineSweeper\Sequence\Selection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.MineSweeper.Sequence.Sequence" Collapsed="true">
+    <Position X="15.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAMAAAAAAAAAAAAAAAAgAAAEAAA=</HashCode>
+      <FileName>Games\MineSweeper\Sequence\Sequence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.MineSweeper.Sequence.Start" Collapsed="true">
+    <Position X="19.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\MineSweeper\Sequence\Start.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.Cell" Collapsed="true">
+    <Position X="31.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAIAAAAAAAABAAAARgCAAEAAI=</HashCode>
+      <FileName>Games\Sudoku\Cell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.MapData" Collapsed="true">
+    <Position X="29.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAUABAIwAAAAiBwAmACQAQABAHIAwIBDRAIAAAgoAOE=</HashCode>
+      <FileName>Games\Sudoku\MapData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.Sudoku" Collapsed="true">
+    <Position X="26.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBEAAKACAKgAAEAgACMAAAgAAACACEAEAAhCAAQEBAA=</HashCode>
+      <FileName>Games\Sudoku\Sudoku.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.Sequence.Load" Collapsed="true">
+    <Position X="0.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Sudoku\Sequence\Load.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.Sequence.Menu" Collapsed="true">
+    <Position X="2.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAgEAAA=</HashCode>
+      <FileName>Games\Sudoku\Sequence\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.Sequence.Play" Collapsed="true">
+    <Position X="5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIBEAAAAAAAAAAAAAMJAAQAEAAAAAACAAAACAAEgQI=</HashCode>
+      <FileName>Games\Sudoku\Sequence\Play.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.Sequence.Selection" Collapsed="true">
+    <Position X="7.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAEQ4AAAAAAQAAABEAAA=</HashCode>
+      <FileName>Games\Sudoku\Sequence\Selection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.Sequence.Sequence" Collapsed="true">
+    <Position X="5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAMAAAAAAAAAAAAAAAAgAAAEAAA=</HashCode>
+      <FileName>Games\Sudoku\Sequence\Sequence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.Sudoku.Sequence.Start" Collapsed="true">
+    <Position X="9.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\Sudoku\Sequence\Start.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.TicTacToe.Sequence.Menu1" Collapsed="true">
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAgAAAAAAAAAAAMAAAAAAAAgAAAAAAAAAAgEAAA=</HashCode>
+      <FileName>Games\TicTacToe\Sequence\Menu1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.TicTacToe.Sequence.Menu2" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAgEAAA=</HashCode>
+      <FileName>Games\TicTacToe\Sequence\Menu2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.TicTacToe.Sequence.Play1" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABIAAAIAAAQAAEAAAiMBAAAAEAAACAQAIAAAgAAEAAA=</HashCode>
+      <FileName>Games\TicTacToe\Sequence\Play1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.TicTacToe.Sequence.Play2" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABIAAKIQAAQCAEEAAQMIAAAAEAEACAQAIAAAgAAEAAA=</HashCode>
+      <FileName>Games\TicTacToe\Sequence\Play2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.TicTacToe.Sequence.Selection" Collapsed="true">
+    <Position X="9.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\TicTacToe\Sequence\Selection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.TicTacToe.Sequence.Sequence" Collapsed="true">
+    <Position X="6.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAEAAMAAAAAAAAAAAAAAAAgAAAEAAA=</HashCode>
+      <FileName>Games\TicTacToe\Sequence\Sequence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.TicTacToe.Sequence.Start" Collapsed="true">
+    <Position X="12" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Games\TicTacToe\Sequence\Start.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_8Old_Games.Games.TicTacToe.TicTacToe" Collapsed="true">
+    <Position X="26.25" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAQAAAgACMJAgQAAACAAIAEAABEAAAEIAQ=</HashCode>
+      <FileName>Games\TicTacToe\TicTacToe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="_8Old_Games.Selector" Collapsed="true">
+    <Position X="24.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAACAgAhAAIAAAQAAgAAAAAo=</HashCode>
+      <FileName>MainSelector.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="_8Old_Games.Games.Alkanoid.State" Collapsed="true">
+    <Position X="2" Y="39" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAIAAACACAAAAAAAAACAAAAIAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Games\Alkanoid\Alkanoid.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="_8Old_Games.Games.Bomberman.State" Collapsed="true">
+    <Position X="7" Y="31" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAEAAACAAAAAAAAAAACAAAgAAAAAAAAEAAAAggACA=</HashCode>
+      <FileName>Games\Bomberman\Bomberman.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="_8Old_Games.Games.CatchMouse.State" Collapsed="true">
+    <Position X="4.75" Y="24.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAACACAAAAAAAAACAAAAIAAAAAAAEAAAAgAACA=</HashCode>
+      <FileName>Games\CatchMouse\CatchMouse.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="_8Old_Games.Games.Frogger.State" Collapsed="true">
+    <Position X="29.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAACACAAAAAAAAACAAAAIAAAAAAAEAAAAgAACA=</HashCode>
+      <FileName>Games\Frogger\Frogger.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="_8Old_Games.Games.Hangman.State" Collapsed="true">
+    <Position X="20.75" Y="19" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAACACAAAAAAAAACAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Games\Hangman\Hangman.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="_8Old_Games.Games.MineSweeper.State" Collapsed="true">
+    <Position X="22.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAIAAACACAAAAAAAAACAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Games\MineSweeper\MineSweeper.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="_8Old_Games.Games.Sudoku.State" Collapsed="true">
+    <Position X="24.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAIAAACACAAAAAAAAACAAAAIAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Games\Sudoku\Sudoku.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="_8Old_Games.Games.TicTacToe.State" Collapsed="true">
+    <Position X="26" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAEAAACAAAAAAAAAAACAAAgAAAAAAAAEAAAAggAAA=</HashCode>
+      <FileName>Games\TicTacToe\TicTacToe.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

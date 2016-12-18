@@ -27,7 +27,7 @@ namespace _8Old_Games.Games.Hangman.Hangman
         bool leftmouse = false;
         bool wordDone = false;
 
-        string []arysel = new string [26];
+        string []arysel = new string [40];
         int index = 0;
         int txtcnt = 0;
 
@@ -93,13 +93,11 @@ namespace _8Old_Games.Games.Hangman.Hangman
 
             if (gameOver) // 게임 끝났을 경우
             {                 
-           
                 // 스페이스 누르면 게임 재시작 
                 if (ks.IsKeyDown(Keys.S))
                 {
                     return State.START;
                 }
-                return State.PLAY;
 
             }
 
@@ -116,6 +114,10 @@ namespace _8Old_Games.Games.Hangman.Hangman
 
             mousePos = string.Format("X : {0}, Y : {1}", Mouse.GetState().X, Mouse.GetState().Y); // 위치 디버깅
             
+            for(int i=0; i<26;i++) {
+                if(isClicked[i])
+                Console.WriteLine("{0}", i);
+            }
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed)
                 {
                     leftmouse = true;
@@ -136,6 +138,7 @@ namespace _8Old_Games.Games.Hangman.Hangman
                     if(cmp != "not" ) {
                         int pp = 1;
                         arysel[index] = cmp;
+                        Console.WriteLine("{0}", isClicked[idx]);
                         if(!isClicked[idx]) {
                             if(idx < 26) isClicked[idx] = true;
                             index = index + 1;
@@ -285,7 +288,7 @@ namespace _8Old_Games.Games.Hangman.Hangman
             #region
             underBar(spriteBatch, font); 
 
-            if(deadcnt==6)spriteBatch.DrawString(font, temp, new Vector2(30, 30), Color.Yellow);
+       //     spriteBatch.DrawString(font, temp, new Vector2(30, 30), Color.Yellow);
 
      //       spriteBatch.DrawString(font, mousePos, new Vector2(400, 400), Color.Yellow);
 
@@ -369,6 +372,7 @@ namespace _8Old_Games.Games.Hangman.Hangman
             string dir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
             string filePath = dir + @"\\Games\\Hangman\\영어단어.txt";
+            Console.WriteLine("{0}", filePath);
             System.IO.StreamReader file =
                 new System.IO.StreamReader(filePath);
 
@@ -400,22 +404,23 @@ namespace _8Old_Games.Games.Hangman.Hangman
         void correct(SpriteBatch spriteBatch, SpriteFont font)
         {
             int g;
-            for (int T = 0; T < temp.Length; T++)
-            {
-                if (index > 0)
+            
+                for (int T = 0; T < temp.Length; T++)
                 {
-                    for (int K = 0; K < index; K++)
+                    if (index > 0)
                     {
-                        if (temp[T].ToString() == arysel[K])
+                        for (int K = 0; K < index; K++)
                         {
+                            if (temp[T].ToString() == arysel[K])
+                            {
 
-                            spriteBatch.DrawString(font, temp[T].ToString(), new Vector2((75 + (50 * T)), 175), Color.Black);
+                                spriteBatch.DrawString(font, temp[T].ToString(), new Vector2((75 + (50 * T)), 175), Color.Black);
                                 
+                            }
                         }
                     }
-                }
                  
-            }
+                }
 
             
             
