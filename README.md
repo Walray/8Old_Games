@@ -28,7 +28,7 @@
 _8Old_Games : 프로그램 소스코드
 ㅣ
 ㅣ-- Program.cs : 프로그램의 진입점입니다.
-ㅣ-- MainSelector.cs : 네 개의 게임을 enum Selector로 관리하는 통합 클래스입니다.
+ㅣ-- MainSelector.cs :  개의 게임을 enum Selector로 관리하는 통합 클래스입니다.
 ㅣ-- Clock.cs : 시간 표기를 위한 보조 클래스입니다.
 ㅣ-- Games
      ㅣ      
